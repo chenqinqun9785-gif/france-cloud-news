@@ -263,18 +263,19 @@ def send_telegram_digest(articles, bot_token, chat_id):
 
     top = today_high[:15]
 
-    # Resolve redirect URLs + translate titles to Chinese
-    print(f"  Processing {len(top)} articles...")
+    # Translate titles + summaries to Chinese
+    print(f"  Translating {len(top)} articles...")
     for i, a in enumerate(top):
-        # Resolve Google News redirect to real URL
-        real_url = resolve_redirect_url(a["url"])
-        a["real_url"] = real_url
-        # Translate title
-        cn = translate_to_chinese(a["title"])
-        a["title_cn"] = cn
+        a["title_cn"] = translate_to_chinese(a["title"])
+        # Translate first 150 chars of summary for a quick Chinese overview
+        short_summary = a["summary"][:150] if a.get("summary") else ""
+        if short_summary:
+            a["summary_cn"] = translate_to_chinese(short_summary)
+        else:
+            a["summary_cn"] = ""
         if i < len(top) - 1:
             time.sleep(0.4)
-    print(f"  Processing complete")
+    print(f"  Translation complete")
 
     # Build message
     lines = [
@@ -297,15 +298,16 @@ def send_telegram_digest(articles, bot_token, chat_id):
         et_label = et_info.get("label", "")
         provider_str = f" [{a['provider']}]" if a.get("provider") else ""
         cn_title = a.get("title_cn", a["title"])
+        cn_summary = a.get("summary_cn", "")
 
-        # Use resolved real URL wrapped with Google Translate
-        real_url = a.get("real_url", a["url"])
-        translated_url = f"https://translate.google.com/translate?hl=zh-CN&sl=auto&u={quote(real_url, safe='')}"
-
+        lines.append(f"• *{cn_title}*")
+        if cn_summary:
+            # Truncate summary to keep message compact
+            summary_text = cn_summary[:120]
+            lines.append(f"  {summary_text}")
         lines.append(
-            f"• [{cn_title}]({translated_url})\n"
-            f"  _{a['title']}_\n"
-            f"  {et_label}{provider_str} - {a['source']}"
+            f"  [{a['title'][:80]}]({a['url']})"
+            f"  | {et_label}{provider_str} - {a['source']}"
         )
 
     # Truncate if too long (Telegram limit: 4096 chars)
