@@ -250,18 +250,18 @@ def send_telegram_digest(articles, bot_token, chat_id):
         print("[INFO] Telegram credentials not set, skipping notification")
         return
 
-    # Filter high-importance articles from last 24 hours
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
+    # Filter high-importance articles from last 72 hours
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=72)
     today_high = [a for a in articles
                   if a["importance"] == "high"
                   and a.get("published", "")
                   and a["published"] >= cutoff.isoformat()]
 
     if not today_high:
-        print("[INFO] No high-importance articles in last 24h, skipping notification")
+        print("[INFO] No high-importance articles in last 72h, skipping notification")
         return
 
-    top = today_high[:15]
+    top = today_high[:20]
 
     # Translate titles + summaries to Chinese
     print(f"  Translating {len(top)} articles...")
@@ -281,7 +281,7 @@ def send_telegram_digest(articles, bot_token, chat_id):
     lines = [
         "\U0001F4E1 *法国云计算每日要闻*",
         f"\U0001F4C5 {datetime.now().strftime('%Y-%m-%d')}",
-        f"✨ 近24小时高重要性动态: {len(today_high)} 条，精选 {len(top)} 条\n",
+        f"✨ 近3天高重要性动态: {len(today_high)} 条，精选 {len(top)} 条\n",
     ]
 
     cat_emoji = {"public_cloud": "☁", "private_cloud": "\U0001F5A5", "policy": "\U0001F4DC"}
