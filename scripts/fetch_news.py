@@ -203,8 +203,34 @@ def deduplicate(articles):
 
 # ── Telegram Notification (v2) ──
 
+def translate_to_chinese(text):
+    """Translate text to Chinese using Google Translate (free)."""
+    import urllib.request
+    import urllib.parse
+
+    url = "https://translate.googleapis.com/translate_a/single"
+    params = {
+        "client": "gtx",
+        "sl": "auto",
+        "tl": "zh-CN",
+        "dt": "t",
+        "q": text,
+    }
+    full_url = url + "?" + urllib.parse.urlencode(params, quote_via=urllib.parse.quote)
+
+    try:
+        req = urllib.request.Request(full_url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            if data and data[0]:
+                return "".join([part[0] for part in data[0] if part[0] is not None])
+    except Exception as e:
+        print(f"  [WARN] Translation failed: {e}")
+    return text  # fallback to original
+
+
 def send_telegram_digest(articles, bot_token, chat_id):
-    """Send a digest of high-importance articles to Telegram."""
+    """Send a digest of high-importance articles to Telegram (with CN translation)."""
     if not bot_token or not chat_id:
         print("[INFO] Telegram credentials not set, skipping notification")
         return
@@ -222,11 +248,14 @@ def send_telegram_digest(articles, bot_token, chat_id):
 
     top = today_high[:15]
 
-    # Count by category
-    counts = {}
-    for a in top:
-        cat = a["category"]
-        counts[cat] = counts.get(cat, 0) + 1
+    # Translate all titles to Chinese (with delay to avoid rate limit)
+    print(f"  Translating {len(top)} titles...")
+    for i, a in enumerate(top):
+        cn = translate_to_chinese(a["title"])
+        a["title_cn"] = cn
+        if i < len(top) - 1:
+            time.sleep(0.3)  # polite delay
+    print(f"  Translation complete")
 
     # Build message
     lines = [
@@ -248,8 +277,11 @@ def send_telegram_digest(articles, bot_token, chat_id):
         et_info = EVENT_TYPES.get(a["event_type"], {})
         et_label = et_info.get("label", "")
         provider_str = f" [{a['provider']}]" if a.get("provider") else ""
+        cn_title = a.get("title_cn", a["title"])
+
         lines.append(
-            f"• [{a['title']}]({a['url']})\n"
+            f"• [{cn_title}]({a['url']})\n"
+            f"  _{a['title']}_\n"
             f"  {et_label}{provider_str} - {a['source']}"
         )
 
