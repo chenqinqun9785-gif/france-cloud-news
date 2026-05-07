@@ -201,6 +201,82 @@ def deduplicate(articles):
     return unique
 
 
+# ── Telegram Notification (v2) ──
+
+def send_telegram_digest(articles, bot_token, chat_id):
+    """Send a digest of high-importance articles to Telegram."""
+    if not bot_token or not chat_id:
+        print("[INFO] Telegram credentials not set, skipping notification")
+        return
+
+    # Filter high-importance articles
+    high_articles = [a for a in articles if a["importance"] == "high"]
+    if not high_articles:
+        print("[INFO] No high-importance articles, skipping notification")
+        return
+
+    # Take top 15 by recency
+    top = high_articles[:15]
+
+    # Count by category
+    counts = {}
+    for a in top:
+        cat = a["category"]
+        counts[cat] = counts.get(cat, 0) + 1
+
+    # Build message
+    lines = [
+        "\U0001F4E1 *法国云计算每日要闻*",
+        f"\U0001F4C5 {datetime.now().strftime('%Y-%m-%d')}",
+        f"✨ 今日高重要性动态: {len(high_articles)} 条，精选 {len(top)} 条\n",
+    ]
+
+    cat_emoji = {"public_cloud": "☁", "private_cloud": "\U0001F5A5", "policy": "\U0001F4DC"}
+    current_cat = None
+
+    for a in top:
+        cat = a["category"]
+        if cat != current_cat:
+            current_cat = cat
+            label = CATEGORY_LABELS.get(cat, cat)
+            lines.append(f"\n*{cat_emoji.get(cat, '')} {label}*")
+
+        et_info = EVENT_TYPES.get(a["event_type"], {})
+        et_label = et_info.get("label", "")
+        provider_str = f" [{a['provider']}]" if a.get("provider") else ""
+        lines.append(
+            f"• [{a['title']}]({a['url']})\n"
+            f"  {et_label}{provider_str} - {a['source']}"
+        )
+
+    # Truncate if too long (Telegram limit: 4096 chars)
+    body = "\n".join(lines)
+    if len(body) > 4000:
+        body = body[:4000] + "\n\n...(truncated)"
+
+    # Also add link to full page
+    body += "\n\n\U0001F310 [查看全部动态](https://chenqinqun9785-gif.github.io/france-cloud-news/)"
+
+    try:
+        import urllib.request
+        api_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+        payload = json.dumps({
+            "chat_id": chat_id,
+            "text": body,
+            "parse_mode": "Markdown",
+            "disable_web_page_preview": True,
+        }).encode("utf-8")
+        req = urllib.request.Request(api_url, data=payload, headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            result = json.loads(resp.read())
+            if result.get("ok"):
+                print(f"[OK] Telegram digest sent: {len(top)} articles")
+            else:
+                print(f"[WARN] Telegram send failed: {result}")
+    except Exception as e:
+        print(f"[WARN] Telegram notification error: {e}")
+
+
 # ── Main pipeline ──
 
 def fetch_all():
@@ -273,8 +349,14 @@ def generate_html(articles):
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>法国云计算市场动态追踪</title>
+<meta name="theme-color" content="#0f172a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="法国云动态">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🇫🇷</text></svg>">
 <style>
 /* ── Reset & Variables ── */
 *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
@@ -1000,6 +1082,15 @@ function renderFeed() {{
 
 // ── Boot ──
 init();
+
+// ── Service Worker (PWA) ──
+if ('serviceWorker' in navigator) {{
+    navigator.serviceWorker.register('sw.js').then(reg => {{
+        console.log('SW registered:', reg.scope);
+    }}).catch(err => {{
+        console.log('SW registration failed:', err);
+    }});
+}}
 </script>
 </body>
 </html>"""
@@ -1040,6 +1131,12 @@ def main():
 
     articles = fetch_all()
     write_output(articles, output_path)
+
+    # Send Telegram notification (if credentials available)
+    bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+    if bot_token and chat_id:
+        send_telegram_digest(articles, bot_token, chat_id)
 
 
 if __name__ == "__main__":
