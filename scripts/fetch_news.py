@@ -250,31 +250,13 @@ def send_telegram_digest(articles, bot_token, chat_id):
         print("[INFO] Telegram credentials not set, skipping notification")
         return
 
-    # Filter high-importance articles from last 72 hours
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=72)
-    cutoff_str = cutoff.isoformat()
-
-    # Debug: check date parsing
-    total_high = sum(1 for a in articles if a["importance"] == "high")
-    has_date = sum(1 for a in articles if a["importance"] == "high" and a.get("published"))
-    print(f"  Debug: total high={total_high}, with date={has_date}, cutoff={cutoff_str[:19]}")
-
-    # Show sample dates
-    sample_dates = [a["published"] for a in articles if a["importance"] == "high" and a.get("published")][:5]
-    print(f"  Debug: sample published dates: {sample_dates}")
-
-    today_high = [a for a in articles
-                  if a["importance"] == "high"
-                  and a.get("published", "")
-                  and a["published"] >= cutoff_str]
-
-    print(f"  Debug: after date filter: {len(today_high)}")
-
-    if not today_high:
-        print("[INFO] No high-importance articles in last 72h, skipping notification")
+    # Take most recent high-importance articles (already sorted by date)
+    high_articles = [a for a in articles if a["importance"] == "high"]
+    if not high_articles:
+        print("[INFO] No high-importance articles found, skipping notification")
         return
 
-    top = today_high[:20]
+    top = high_articles[:20]
 
     # Translate titles + summaries to Chinese
     print(f"  Translating {len(top)} articles...")
@@ -294,7 +276,7 @@ def send_telegram_digest(articles, bot_token, chat_id):
     lines = [
         "\U0001F4E1 *法国云计算每日要闻*",
         f"\U0001F4C5 {datetime.now().strftime('%Y-%m-%d')}",
-        f"✨ 近3天高重要性动态: {len(today_high)} 条，精选 {len(top)} 条\n",
+        f"✨ 高重要性动态（按时间排序）: {len(high_articles)} 条，精选 {len(top)} 条\n",
     ]
 
     cat_emoji = {"public_cloud": "☁", "private_cloud": "\U0001F5A5", "policy": "\U0001F4DC"}
