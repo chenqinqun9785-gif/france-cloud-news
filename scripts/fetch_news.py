@@ -209,14 +209,23 @@ def send_telegram_digest(articles, bot_token, chat_id):
         print("[INFO] Telegram credentials not set, skipping notification")
         return
 
-    # Filter high-importance articles
-    high_articles = [a for a in articles if a["importance"] == "high"]
-    if not high_articles:
-        print("[INFO] No high-importance articles, skipping notification")
+    # Filter high-importance articles from TODAY only
+    today_str = datetime.now().strftime("%Y-%m-%d")
+    today_high = [a for a in articles
+                  if a["importance"] == "high" and a.get("published_date_short", "") == today_str]
+
+    if not today_high:
+        # Fallback: if no today articles (RSS may have slight delay), take last 24h
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
+        today_high = [a for a in articles if a["importance"] == "high"]
+        today_high = [a for a in today_high
+                      if a.get("published", "") and a["published"] >= cutoff.isoformat()]
+
+    if not today_high:
+        print("[INFO] No high-importance articles found today, skipping notification")
         return
 
-    # Take top 15 by recency
-    top = high_articles[:15]
+    top = today_high[:15]
 
     # Count by category
     counts = {}
