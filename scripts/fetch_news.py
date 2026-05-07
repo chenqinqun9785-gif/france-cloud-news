@@ -250,33 +250,42 @@ def send_telegram_digest(articles, bot_token, chat_id):
         print("[INFO] Telegram credentials not set, skipping notification")
         return
 
-    # Take most recent high-importance articles (already sorted by date)
-    high_articles = [a for a in articles if a["importance"] == "high"]
-    if not high_articles:
-        print("[INFO] No high-importance articles found, skipping notification")
+    # Filter high-importance articles from last 24 hours
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
+
+    today_high = []
+    for a in articles:
+        if a["importance"] != "high":
+            continue
+        pub_str = a.get("published", "")
+        if not pub_str:
+            continue
+        try:
+            pub_dt = dateparser.parse(pub_str)
+            if pub_dt and pub_dt >= cutoff:
+                today_high.append(a)
+        except Exception:
+            continue
+
+    if not today_high:
+        print("[INFO] No high-importance articles in last 24h, skipping notification")
         return
 
-    top = high_articles[:20]
+    top = today_high[:20]
 
-    # Translate titles + summaries to Chinese
-    print(f"  Translating {len(top)} articles...")
+    # Translate titles to Chinese
+    print(f"  Translating {len(top)} titles...")
     for i, a in enumerate(top):
         a["title_cn"] = translate_to_chinese(a["title"])
-        # Translate FULL summary for Chinese overview
-        full_summary = a.get("summary", "")
-        if full_summary:
-            a["summary_cn"] = translate_to_chinese(full_summary)
-        else:
-            a["summary_cn"] = ""
         if i < len(top) - 1:
-            time.sleep(0.4)
+            time.sleep(0.3)
     print(f"  Translation complete")
 
     # Build message
     lines = [
         "\U0001F4E1 *法国云计算每日要闻*",
         f"\U0001F4C5 {datetime.now().strftime('%Y-%m-%d')}",
-        f"✨ 高重要性动态（按时间排序）: {len(high_articles)} 条，精选 {len(top)} 条\n",
+        f"✨ 近24小时高重要性动态: {len(today_high)} 条，精选 {len(top)} 条\n",
     ]
 
     cat_emoji = {"public_cloud": "☁", "private_cloud": "\U0001F5A5", "policy": "\U0001F4DC"}
@@ -293,14 +302,10 @@ def send_telegram_digest(articles, bot_token, chat_id):
         et_label = et_info.get("label", "")
         provider_str = f" [{a['provider']}]" if a.get("provider") else ""
         cn_title = a.get("title_cn", a["title"])
-        cn_summary = a.get("summary_cn", "")
 
-        lines.append(f"• *{cn_title}*")
-        if cn_summary:
-            lines.append(f"  {cn_summary}")
+        lines.append(f"• [{cn_title}]({a['url']})")
         lines.append(
-            f"  [{a['title'][:80]}]({a['url']})"
-            f"  | {et_label}{provider_str}"
+            f"  {et_label}{provider_str} - {a['source']}"
         )
 
     # Truncate if too long (Telegram limit: 4096 chars)
