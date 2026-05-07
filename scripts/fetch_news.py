@@ -279,8 +279,11 @@ def send_telegram_digest(articles, bot_token, chat_id):
         provider_str = f" [{a['provider']}]" if a.get("provider") else ""
         cn_title = a.get("title_cn", a["title"])
 
+        # Wrap URL with Google Translate for Chinese readers
+        translated_url = f"https://translate.google.com/translate?hl=zh-CN&sl=auto&u={quote(a['url'], safe='')}"
+
         lines.append(
-            f"• [{cn_title}]({a['url']})\n"
+            f"• [{cn_title}]({translated_url})\n"
             f"  _{a['title']}_\n"
             f"  {et_label}{provider_str} - {a['source']}"
         )
