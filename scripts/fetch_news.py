@@ -122,8 +122,8 @@ def extract_article(entry, query_config):
     # Clean summary: strip HTML tags, truncate
     summary = re.sub(r"<[^>]+>", " ", summary_raw)
     summary = re.sub(r"\s+", " ", summary).strip()
-    if len(summary) > 250:
-        summary = summary[:250].rsplit(" ", 1)[0] + "…"
+    if len(summary) > 500:
+        summary = summary[:500].rsplit(" ", 1)[0] + "…"
 
     # Stable ID from title + source
     id_raw = f"{title}|{source}"
@@ -267,10 +267,10 @@ def send_telegram_digest(articles, bot_token, chat_id):
     print(f"  Translating {len(top)} articles...")
     for i, a in enumerate(top):
         a["title_cn"] = translate_to_chinese(a["title"])
-        # Translate first 150 chars of summary for a quick Chinese overview
-        short_summary = a["summary"][:150] if a.get("summary") else ""
-        if short_summary:
-            a["summary_cn"] = translate_to_chinese(short_summary)
+        # Translate FULL summary for Chinese overview
+        full_summary = a.get("summary", "")
+        if full_summary:
+            a["summary_cn"] = translate_to_chinese(full_summary)
         else:
             a["summary_cn"] = ""
         if i < len(top) - 1:
@@ -302,12 +302,10 @@ def send_telegram_digest(articles, bot_token, chat_id):
 
         lines.append(f"• *{cn_title}*")
         if cn_summary:
-            # Truncate summary to keep message compact
-            summary_text = cn_summary[:120]
-            lines.append(f"  {summary_text}")
+            lines.append(f"  {cn_summary}")
         lines.append(
             f"  [{a['title'][:80]}]({a['url']})"
-            f"  | {et_label}{provider_str} - {a['source']}"
+            f"  | {et_label}{provider_str}"
         )
 
     # Truncate if too long (Telegram limit: 4096 chars)
