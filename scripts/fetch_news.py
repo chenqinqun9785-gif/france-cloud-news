@@ -203,6 +203,21 @@ def deduplicate(articles):
 
 # ── Telegram Notification (v2) ──
 
+def resolve_redirect_url(gn_url, timeout=8):
+    """Follow Google News redirect to get the real article URL."""
+    import urllib.request
+
+    try:
+        req = urllib.request.Request(gn_url, headers={"User-Agent": "Mozilla/5.0"})
+        # Don't follow redirects — we just need the final URL
+        opener = urllib.request.build_opener(urllib.request.HTTPRedirectHandler())
+        with opener.open(req, timeout=timeout) as resp:
+            return resp.url  # This is the redirected (final) URL
+    except Exception as e:
+        print(f"  [WARN] Redirect resolution failed: {e}")
+        return gn_url  # fallback to original
+
+
 def translate_to_chinese(text):
     """Translate text to Chinese using Google Translate (free)."""
     import urllib.request
@@ -248,14 +263,18 @@ def send_telegram_digest(articles, bot_token, chat_id):
 
     top = today_high[:15]
 
-    # Translate all titles to Chinese (with delay to avoid rate limit)
-    print(f"  Translating {len(top)} titles...")
+    # Resolve redirect URLs + translate titles to Chinese
+    print(f"  Processing {len(top)} articles...")
     for i, a in enumerate(top):
+        # Resolve Google News redirect to real URL
+        real_url = resolve_redirect_url(a["url"])
+        a["real_url"] = real_url
+        # Translate title
         cn = translate_to_chinese(a["title"])
         a["title_cn"] = cn
         if i < len(top) - 1:
-            time.sleep(0.3)  # polite delay
-    print(f"  Translation complete")
+            time.sleep(0.4)
+    print(f"  Processing complete")
 
     # Build message
     lines = [
@@ -279,8 +298,9 @@ def send_telegram_digest(articles, bot_token, chat_id):
         provider_str = f" [{a['provider']}]" if a.get("provider") else ""
         cn_title = a.get("title_cn", a["title"])
 
-        # Wrap URL with Google Translate for Chinese readers
-        translated_url = f"https://translate.google.com/translate?hl=zh-CN&sl=auto&u={quote(a['url'], safe='')}"
+        # Use resolved real URL wrapped with Google Translate
+        real_url = a.get("real_url", a["url"])
+        translated_url = f"https://translate.google.com/translate?hl=zh-CN&sl=auto&u={quote(real_url, safe='')}"
 
         lines.append(
             f"• [{cn_title}]({translated_url})\n"
