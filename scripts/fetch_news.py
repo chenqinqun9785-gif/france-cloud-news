@@ -1,9 +1,8 @@
 """
-French Cloud Computing News Tracker
-Fetches news from Google News RSS feeds and generates a self-contained HTML dashboard.
+French Cloud Ecosystem Tracker — Core Script (v3)
+Fetches RSS → classifies → scores → deduplicates → merges history → generates HTML → sends Telegram.
 """
 import hashlib
-import html
 import json
 import os
 import re
@@ -16,95 +15,171 @@ import feedparser
 from dateutil import parser as dateparser
 
 from config import (
-    QUERIES, CATEGORY_LABELS, PROVIDER_COLORS,
-    IMPORTANCE_LABELS, IMPORTANCE_STARS, IMPORTANCE_COLORS,
-    EVENT_TYPES, build_rss_url,
+    QUERIES, CATEGORIES, CATEGORY_COMPAT, CATEGORY_LABELS,
+    ENTITIES, ENTITY_LOOKUP,
+    EVENT_TYPES, EVENT_KEYWORDS,
+    IMPORTANCE_LABELS, IMPORTANCE_STARS, IMPORTANCE_COLORS, importance_level,
+    ENTITY_SCORE_BONUS, FRANCE_KEYWORDS, INDUSTRY_SECTORS,
+    STRATEGIC_KEYWORDS, CREDIBLE_SOURCES,
+    PROVIDER_COLORS, build_rss_url,
 )
 
 
-# ── Classification helpers (v2) ──
+# ═══════════════════════════════════════════════════════════
+# 0. UTILITY HELPERS
+# ═══════════════════════════════════════════════════════════
 
-# Keyword sets for importance classification
-HIGH_KEYWORDS = [
-    "annonce", "lancement", "nouveau service", "nouvelle région",
-    "acquisition", "fusion", "rachat",
-    "investissement", "milliard", "million d'euros",
-    "partenariat stratégique", "alliance stratégique",
-    "ouverture", "inaugure", "révolutionnaire",
-    "secnumcloud", "qualifié", "certifié",
-    "premier", "première", "inédit",
-]
-
-MEDIUM_KEYWORDS = [
-    "partenariat", "collaboration", "croissance",
-    "extension", "certification", "recrute", "nomination",
-    "nouveau", "nouvelle", "lance",
-]
-
-# Keyword sets for event type classification (checked in order)
-EVENT_PATTERNS = [
-    ("product", [
-        "lancement", "nouveau service", "nouvelle offre", "nouvelle fonctionnalité",
-        "sortie", "dévoile", "disponible", "présentation",
-        "nouvelle version", "introduit", "annonce le lancement",
-    ]),
-    ("partnership", [
-        "partenariat", "collaboration", "alliance", "signé", "contrat",
-        "client", "accord", "consortium", "signature", "s'associe",
-    ]),
-    ("ma_finance", [
-        "acquisition", "fusion", "rachat", "levée de fonds",
-        "investissement", "financement", "licenciement", "suppression d'emploi",
-        "restructuration", "nomination", "recrute", "recrutement",
-        "prise de participation",
-    ]),
-    ("financial", [
-        "chiffre d'affaires", "résultat", "résultats", "croissance",
-        "revenu", "bénéfice", "perte", "trimestre", "exercice",
-        "résultats financiers", "marge", "rentabilité",
-    ]),
-    ("policy", [
-        "réglementation", "loi", "décret", "anssi", "cnil",
-        "secnumcloud", "gouvernement", "certification", "conformité",
-        "régulation", "souveraineté", "directive", "règlement",
-        "label", "qualification", "ministère",
-    ]),
-]
+def normalize_title(title):
+    """Normalize title for dedup comparison."""
+    t = title.lower()
+    t = re.sub(r"^exclusif\s*[:：]\s*", "", t)
+    t = re.sub(r"^vidéo\s*[:：]\s*", "", t)
+    t = re.sub(r"[^\w\s]", "", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    return t
 
 
-def classify_importance(title, summary):
-    """Classify article importance based on keyword signals in title + summary."""
+def format_relative_date(dt):
+    """Format datetime for relative display."""
+    if not dt:
+        return ""
+    now = datetime.now(dt.tzinfo) if dt.tzinfo else datetime.now(timezone.utc)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    diff = now - dt
+    if diff < timedelta(hours=1):
+        mins = max(1, int(diff.total_seconds() / 60))
+        return f"Il y a {mins} min"
+    elif diff < timedelta(hours=24):
+        hrs = int(diff.total_seconds() / 3600)
+        return f"Il y a {hrs}h"
+    elif diff < timedelta(days=7):
+        return f"Il y a {diff.days}j"
+    else:
+        return dt.strftime("%Y-%m-%d")
+
+
+def stable_id(title, source):
+    """Generate stable article ID."""
+    return hashlib.md5(f"{normalize_title(title)}|{source}".encode("utf-8")).hexdigest()[:16]
+
+
+# ═══════════════════════════════════════════════════════════
+# 1. CLASSIFICATION
+# ═══════════════════════════════════════════════════════════
+
+def classify_primary_category(query_category, title, summary):
+    """
+    Determine primary category.
+    First uses query's configured category, then refines by content keywords.
+    """
+    # Start with the query's configured category (using compat mapping)
+    cat = CATEGORY_COMPAT.get(query_category, query_category)
+
     text = (title + " " + summary).lower()
 
-    # Check HIGH keywords first
-    for kw in HIGH_KEYWORDS:
-        if kw in text:
-            return "high"
+    # Refine based on content signals
+    sovereignty_signals = ["secnumcloud", "cloud de confiance", "cloud souverain",
+                           "souveraineté", "données sensibles", "qualifié"]
+    partner_signals = ["capgemini", "orange business", "accenture", "devoteam",
+                       "sopra steria", "atos", "eviden", "inetum", "cgi", "wavestone",
+                       "deloitte", "pwc", "kpmg"]
+    ai_dc_signals = ["gpu", "h100", "b200", "ai cloud", "ai infrastructure",
+                     "mistral ai", "data center", "datacenter", "centre de données"]
+    industry_signals = ["banque", "assurance", "santé", "hôpital", "hds",
+                        "marché public", "industrie", "énergie", "retail"]
 
-    # Then MEDIUM
-    for kw in MEDIUM_KEYWORDS:
-        if kw in text:
-            return "medium"
+    # If query category is broad, refine
+    if cat == "policy_regulation":
+        if any(s in text for s in sovereignty_signals):
+            cat = "sovereign_trusted"
+        elif any(s in text for s in partner_signals):
+            cat = "ecosystem_partners"
+        elif any(s in text for s in ai_dc_signals):
+            cat = "ai_datacenter"
+        elif any(s in text for s in industry_signals):
+            cat = "industry_cloud"
 
-    return "low"
+    return cat
 
 
 def classify_event_type(title, summary):
     """Classify article event type based on keyword matching."""
     text = (title + " " + summary).lower()
-
-    for event_type, keywords in EVENT_PATTERNS:
+    for event_type, keywords in EVENT_KEYWORDS:
         for kw in keywords:
-            if kw in text:
+            if kw.lower() in text:
                 return event_type
-
     return "general"
 
 
-# ── Parsing helpers ──
+def extract_entities(title, summary):
+    """Extract all mentioned entities from title + summary."""
+    text = (title + " " + summary).lower()
+    found = {}
+
+    for alias, (display_name, color, group) in ENTITY_LOOKUP.items():
+        if alias in text:
+            # Ensure alias is matched as a word boundary to avoid partial matches
+            # e.g., "AWS" should match "AWS" but not "LAWS"
+            pattern = r'\b' + re.escape(alias) + r'\b'
+            if re.search(pattern, text):
+                if display_name not in found:
+                    found[display_name] = {"display": display_name, "color": color, "group": group}
+
+    return list(found.values())
+
+
+def score_importance(title, summary, event_type, entities, source):
+    """
+    Score importance 0–100 based on multiple dimensions.
+    """
+    score = 0
+    text = (title + " " + summary).lower()
+
+    # 1. Event type base score
+    et_info = EVENT_TYPES.get(event_type, EVENT_TYPES["general"])
+    score += et_info.get("score_bonus", 10)
+
+    # 2. Entity bonuses
+    entity_names = [e["display"] for e in entities]
+    for name in entity_names:
+        bonus = ENTITY_SCORE_BONUS.get(name, ENTITY_SCORE_BONUS.get("_default", 3))
+        score += bonus
+
+    # 3. France relevance
+    france_count = sum(1 for kw in FRANCE_KEYWORDS if kw in text)
+    score += min(france_count * 3, 9)
+
+    # 4. Industry relevance
+    for sector_name, sector_info in INDUSTRY_SECTORS.items():
+        if any(kw in text for kw in sector_info["keywords"]):
+            score += sector_info["bonus"]
+            break  # Only apply highest industry bonus
+
+    # 5. Strategic keywords
+    for strategy_name, strategy_info in STRATEGIC_KEYWORDS.items():
+        if any(kw.lower() in text for kw in strategy_info["keywords"]):
+            score += strategy_info["bonus"]
+
+    # 6. Source credibility
+    source_lower = source.lower()
+    if any(cs in source_lower for cs in CREDIBLE_SOURCES):
+        score += 5
+
+    # 7. Title specificity bonus (longer, more specific titles are usually more important)
+    if len(title) > 50:
+        score += 3
+
+    return min(score, 100)
+
+
+# ═══════════════════════════════════════════════════════════
+# 2. ARTICLE EXTRACTION
+# ═══════════════════════════════════════════════════════════
 
 def extract_article(entry, query_config):
-    """Convert a feedparser entry into our article dict."""
+    """Convert a feedparser entry into our article dict with full classification."""
     title = entry.get("title", "").strip()
     link = entry.get("link", "")
     source = entry.get("source", {}).get("title", "Unknown Source")
@@ -119,118 +194,188 @@ def extract_article(entry, query_config):
         except Exception:
             pass
 
-    # Clean summary: strip HTML tags, truncate
+    # Clean summary
     summary = re.sub(r"<[^>]+>", " ", summary_raw)
     summary = re.sub(r"\s+", " ", summary).strip()
     if len(summary) > 500:
         summary = summary[:500].rsplit(" ", 1)[0] + "…"
 
-    # Stable ID from title + source
-    id_raw = f"{title}|{source}"
-    article_id = hashlib.md5(id_raw.encode("utf-8")).hexdigest()[:12]
-
-    importance = classify_importance(title, summary)
+    # Classification
+    query_cat = query_config.get("category", "policy_regulation")
+    primary_category = classify_primary_category(query_cat, title, summary)
     event_type = classify_event_type(title, summary)
+    entities = extract_entities(title, summary)
+    score = score_importance(title, summary, event_type, entities, source)
+    level = importance_level(score)
+
+    # Published dates
+    date_short = published_dt.strftime("%Y-%m-%d") if published_dt else ""
+    published_iso = published_dt.isoformat() if published_dt else ""
 
     return {
-        "id": article_id,
+        "id": stable_id(title, source),
         "title": title,
         "url": link,
         "source": source,
-        "published": published_dt.isoformat() if published_dt else "",
-        "published_display": format_date_display(published_dt) if published_dt else "",
-        "published_date_short": published_dt.strftime("%Y-%m-%d") if published_dt else "",
-        "category": query_config["category"],
+        "published": published_iso,
+        "published_display": format_relative_date(published_dt) if published_dt else "",
+        "published_date_short": date_short,
+        "category": primary_category,
+        "category_label": CATEGORIES.get(primary_category, {}).get("label", primary_category),
         "provider": query_config.get("provider"),
         "summary": summary,
-        "importance": importance,
-        "importance_stars": IMPORTANCE_STARS[importance],
-        "importance_label": IMPORTANCE_LABELS[importance],
         "event_type": event_type,
-        "event_type_label": EVENT_TYPES[event_type]["label"],
+        "event_type_label": EVENT_TYPES.get(event_type, {}).get("label", "综合动态"),
+        "event_type_icon": EVENT_TYPES.get(event_type, {}).get("icon", ""),
+        "entities": entities,
+        "importance": level,
+        "importance_stars": IMPORTANCE_STARS.get(level, "★"),
+        "importance_score": score,
+        "importance_label": IMPORTANCE_LABELS.get(level, "低"),
+        "first_seen_at": datetime.now(timezone.utc).isoformat(),
     }
 
 
-def format_date_display(dt):
-    """Format datetime for display: relative or absolute."""
-    now = datetime.now(dt.tzinfo) if dt.tzinfo else datetime.now(timezone.utc)
-    if dt.tzinfo is None:
-        dt = dt.replace(tzinfo=timezone.utc)
-    diff = now - dt
-
-    if diff < timedelta(hours=1):
-        mins = max(1, int(diff.total_seconds() / 60))
-        return f"Il y a {mins} min"
-    elif diff < timedelta(hours=24):
-        hrs = int(diff.total_seconds() / 3600)
-        return f"Il y a {hrs}h"
-    elif diff < timedelta(days=7):
-        days = diff.days
-        return f"Il y a {days}j"
-    else:
-        return dt.strftime("%Y-%m-%d")
-
-
-def normalize_title(title):
-    """Normalize title for dedup comparison."""
-    t = title.lower()
-    t = re.sub(r"^exclusif\s*[:：]\s*", "", t)
-    t = re.sub(r"^vidéo\s*[:：]\s*", "", t)
-    t = re.sub(r"[^\w\s]", "", t)
-    t = re.sub(r"\s+", " ", t).strip()
-    return t
-
+# ═══════════════════════════════════════════════════════════
+# 3. DEDUPLICATION & HISTORY
+# ═══════════════════════════════════════════════════════════
 
 def deduplicate(articles):
-    """Two-pass dedup: URL exact match, then normalized title match."""
+    """Two-pass dedup: URL → normalized title."""
     seen_urls = set()
     seen_titles = set()
     unique = []
 
     for a in articles:
-        url = a["url"]
-        if url in seen_urls:
+        url = a.get("url", "")
+        if url and url in seen_urls:
             continue
-        title_norm = normalize_title(a["title"])
-        if title_norm in seen_titles:
+        title_norm = normalize_title(a.get("title", ""))
+        if title_norm and title_norm in seen_titles:
             continue
-        seen_urls.add(url)
-        seen_titles.add(title_norm)
+        if url:
+            seen_urls.add(url)
+        if title_norm:
+            seen_titles.add(title_norm)
         unique.append(a)
 
     return unique
 
 
-# ── Telegram Notification (v2) ──
-
-def resolve_redirect_url(gn_url, timeout=8):
-    """Follow Google News redirect to get the real article URL."""
-    import urllib.request
-
+def load_history(history_path):
+    """Load previous article history."""
+    if not os.path.exists(history_path):
+        return {}
     try:
-        req = urllib.request.Request(gn_url, headers={"User-Agent": "Mozilla/5.0"})
-        # Don't follow redirects — we just need the final URL
-        opener = urllib.request.build_opener(urllib.request.HTTPRedirectHandler())
-        with opener.open(req, timeout=timeout) as resp:
-            return resp.url  # This is the redirected (final) URL
-    except Exception as e:
-        print(f"  [WARN] Redirect resolution failed: {e}")
-        return gn_url  # fallback to original
+        with open(history_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return {a["id"]: a for a in data.get("articles", [])}
+    except Exception:
+        return {}
 
+
+def save_history(articles, history_path):
+    """Save articles to history (keep last 90 days)."""
+    cutoff = datetime.now(timezone.utc) - timedelta(days=90)
+    recent = []
+    for a in articles:
+        pub = a.get("published", "")
+        if pub:
+            try:
+                pub_dt = dateparser.parse(pub)
+                if pub_dt and pub_dt < cutoff:
+                    continue
+            except Exception:
+                pass
+        recent.append(a)
+
+    os.makedirs(os.path.dirname(history_path), exist_ok=True)
+    with open(history_path, "w", encoding="utf-8") as f:
+        json.dump({"generated_at": datetime.now(timezone.utc).isoformat(),
+                    "total": len(recent), "articles": recent},
+                  f, ensure_ascii=False, indent=2)
+
+
+def merge_with_history(new_articles, history):
+    """Merge new articles with history, preserving first_seen."""
+    merged = {}
+    # Add history first
+    for aid, a in history.items():
+        a["_from_history"] = True
+        merged[aid] = a
+
+    # Add/update new articles
+    for a in new_articles:
+        aid = a["id"]
+        if aid in merged:
+            old = merged[aid]
+            old["_from_history"] = False
+            old["last_seen_at"] = datetime.now(timezone.utc).isoformat()
+            # Keep first_seen from history
+            a["first_seen_at"] = old.get("first_seen_at", a["first_seen_at"])
+            merged[aid] = a
+        else:
+            merged[aid] = a
+
+    return list(merged.values())
+
+
+# ═══════════════════════════════════════════════════════════
+# 4. RSS FETCHING
+# ═══════════════════════════════════════════════════════════
+
+def fetch_all():
+    """Fetch all RSS feeds and return deduplicated, sorted articles."""
+    all_articles = []
+    total_queries = len(QUERIES)
+
+    for i, q in enumerate(QUERIES):
+        url = build_rss_url(q)
+        label = q.get("provider") or q.get("name", q["category"])
+        print(f"[{i+1}/{total_queries}] {label}...", end=" ", flush=True)
+
+        try:
+            feed = feedparser.parse(url)
+            if feed.bozo and not feed.entries:
+                print(f"[WARN] {feed.bozo_exception}")
+                continue
+
+            count = 0
+            for entry in feed.entries:
+                article = extract_article(entry, q)
+                all_articles.append(article)
+                count += 1
+
+            print(f"OK ({count})")
+        except Exception as e:
+            print(f"[FAIL] {e}")
+
+        if i < total_queries - 1:
+            time.sleep(1.2)
+
+    print(f"\nTotal raw: {len(all_articles)}")
+    unique = deduplicate(all_articles)
+    print(f"After dedup: {len(unique)}")
+
+    # Sort: importance_score desc, then date desc
+    unique.sort(key=lambda a: (-a.get("importance_score", 0), a.get("published", "")), reverse=False)
+    # Actually: highest score first
+    unique.sort(key=lambda a: (-a.get("importance_score", 0), str(a.get("published", ""))), reverse=False)
+
+    return unique
+
+
+# ═══════════════════════════════════════════════════════════
+# 5. TELEGRAM NOTIFICATION
+# ═══════════════════════════════════════════════════════════
 
 def translate_to_chinese(text):
-    """Translate text to Chinese using Google Translate (free)."""
+    """Translate text to Chinese using Google Translate."""
     import urllib.request
     import urllib.parse
 
     url = "https://translate.googleapis.com/translate_a/single"
-    params = {
-        "client": "gtx",
-        "sl": "auto",
-        "tl": "zh-CN",
-        "dt": "t",
-        "q": text,
-    }
+    params = {"client": "gtx", "sl": "auto", "tl": "zh-CN", "dt": "t", "q": text}
     full_url = url + "?" + urllib.parse.urlencode(params, quote_via=urllib.parse.quote)
 
     try:
@@ -239,41 +384,51 @@ def translate_to_chinese(text):
             data = json.loads(resp.read().decode("utf-8"))
             if data and data[0]:
                 return "".join([part[0] for part in data[0] if part[0] is not None])
-    except Exception as e:
-        print(f"  [WARN] Translation failed: {e}")
-    return text  # fallback to original
+    except Exception:
+        pass
+    return text
 
 
 def send_telegram_digest(articles, bot_token, chat_id):
-    """Send a digest of high-importance articles to Telegram (with CN translation)."""
+    """Send daily digest grouped by category, score>=75 only."""
     if not bot_token or not chat_id:
         print("[INFO] Telegram credentials not set, skipping notification")
         return
 
-    # Filter high-importance articles from last 24 hours
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
+    # Filter: score >= 75, last 24h (with 48h fallback if too few)
+    cutoff_24 = datetime.now(timezone.utc) - timedelta(hours=24)
+    cutoff_48 = datetime.now(timezone.utc) - timedelta(hours=48)
 
-    today_high = []
+    in_24h = []
+    in_48h = []
     for a in articles:
-        if a["importance"] != "high":
+        if a.get("importance_score", 0) < 75:
             continue
         pub_str = a.get("published", "")
         if not pub_str:
+            in_24h.append(a)
             continue
         try:
             pub_dt = dateparser.parse(pub_str)
-            if pub_dt and pub_dt >= cutoff:
-                today_high.append(a)
+            if pub_dt and pub_dt >= cutoff_24:
+                in_24h.append(a)
+            elif pub_dt and pub_dt >= cutoff_48:
+                in_48h.append(a)
         except Exception:
-            continue
+            in_24h.append(a)
 
-    if not today_high:
-        print("[INFO] No high-importance articles in last 24h, skipping notification")
+    use_48h = False
+    if len(in_24h) < 3 and in_48h:
+        in_24h = in_24h + in_48h[:20]
+        use_48h = True
+
+    if not in_24h:
+        print("[INFO] No qualifying articles, skipping Telegram")
         return
 
-    top = today_high[:20]
+    top = in_24h[:20]
 
-    # Translate titles to Chinese
+    # Translate titles
     print(f"  Translating {len(top)} titles...")
     for i, a in enumerate(top):
         a["title_cn"] = translate_to_chinese(a["title"])
@@ -281,49 +436,64 @@ def send_telegram_digest(articles, bot_token, chat_id):
             time.sleep(0.3)
     print(f"  Translation complete")
 
-    # Build message
+    # Group by category
+    groups = {}
+    for a in top:
+        cat = a.get("category", "policy_regulation")
+        groups.setdefault(cat, []).append(a)
+
+    cat_order = ["sovereign_trusted", "policy_regulation", "ecosystem_partners",
+                 "ai_datacenter", "public_cloud", "private_hybrid", "industry_cloud"]
+
+    time_label = "近48小时" if use_48h else "近24小时"
+
     lines = [
-        "\U0001F4E1 *法国云计算每日要闻*",
+        "\U0001F1EB\U0001F1F7 *法国云计算市场动态追踪*",
         f"\U0001F4C5 {datetime.now().strftime('%Y-%m-%d')}",
-        f"✨ 近24小时高重要性动态: {len(today_high)} 条，精选 {len(top)} 条\n",
+        f"✨ {time_label}高重要性动态: {len(top)} 条",
+        "",
     ]
 
-    cat_emoji = {"public_cloud": "☁", "private_cloud": "\U0001F5A5", "policy": "\U0001F4DC"}
-    current_cat = None
+    cat_emoji = {k: v["icon"] for k, v in CATEGORIES.items()}
+    cat_labels = {k: v["label"] for k, v in CATEGORIES.items()}
 
-    for a in top:
-        cat = a["category"]
-        if cat != current_cat:
-            current_cat = cat
-            label = CATEGORY_LABELS.get(cat, cat)
-            lines.append(f"\n*{cat_emoji.get(cat, '')} {label}*")
+    for cat in cat_order:
+        items = groups.get(cat, [])
+        if not items:
+            continue
+        lines.append(f"*{cat_emoji.get(cat, '')} {cat_labels.get(cat, cat)}*")
 
-        et_info = EVENT_TYPES.get(a["event_type"], {})
-        et_label = et_info.get("label", "")
-        provider_str = f" [{a['provider']}]" if a.get("provider") else ""
-        cn_title = a.get("title_cn", a["title"])
+        for a in items:
+            cn_title = a.get("title_cn", a["title"])
+            et_label = a.get("event_type_label", "")
+            et_icon = a.get("event_type_icon", "")
+            score = a.get("importance_score", 0)
 
-        lines.append(f"• [{cn_title}]({a['url']})")
-        lines.append(
-            f"  {et_label}{provider_str} - {a['source']}"
-        )
+            # Top entities
+            entity_names = [e["display"] for e in a.get("entities", [])[:3]]
+            entity_str = "｜".join(entity_names) if entity_names else ""
 
-    # Truncate if too long (Telegram limit: 4096 chars)
+            source = a.get("source", "")
+
+            lines.append(f"[{score}] [{cn_title}]({a['url']})")
+            tag_line = f"    {et_icon}{et_label}"
+            if entity_str:
+                tag_line += f"｜{entity_str}"
+            tag_line += f"｜{source}"
+            lines.append(tag_line)
+
     body = "\n".join(lines)
     if len(body) > 4000:
         body = body[:4000] + "\n\n...(truncated)"
 
-    # Also add link to full page
-    body += "\n\n\U0001F310 [查看全部动态](https://chenqinqun9785-gif.github.io/france-cloud-news/)"
+    body += f"\n\n\U0001F310 [查看全部](https://chenqinqun9785-gif.github.io/france-cloud-news/)"
 
     try:
         import urllib.request
         api_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
         payload = json.dumps({
-            "chat_id": chat_id,
-            "text": body,
-            "parse_mode": "Markdown",
-            "disable_web_page_preview": True,
+            "chat_id": chat_id, "text": body,
+            "parse_mode": "Markdown", "disable_web_page_preview": True,
         }).encode("utf-8")
         req = urllib.request.Request(api_url, data=payload, headers={"Content-Type": "application/json"})
         with urllib.request.urlopen(req, timeout=15) as resp:
@@ -333,76 +503,34 @@ def send_telegram_digest(articles, bot_token, chat_id):
             else:
                 print(f"[WARN] Telegram send failed: {result}")
     except Exception as e:
-        print(f"[WARN] Telegram notification error: {e}")
+        print(f"[WARN] Telegram error: {e}")
 
 
-# ── Main pipeline ──
-
-def fetch_all():
-    """Fetch all RSS feeds and return deduplicated, sorted articles."""
-    all_articles = []
-    total_queries = len(QUERIES)
-
-    for i, q in enumerate(QUERIES):
-        url = build_rss_url(q)
-        label = q.get("provider") or q["category"]
-        print(f"[{i+1}/{total_queries}] Fetching: {label}...", end=" ", flush=True)
-
-        try:
-            feed = feedparser.parse(url)
-            if feed.bozo and not feed.entries:
-                print(f"[WARN] error: {feed.bozo_exception}")
-                continue
-
-            count = 0
-            for entry in feed.entries:
-                article = extract_article(entry, q)
-                all_articles.append(article)
-                count += 1
-
-            print(f"OK ({count} articles)")
-
-        except Exception as e:
-            print(f"[FAIL] {e}")
-
-        # Be polite to Google News
-        if i < total_queries - 1:
-            time.sleep(1.5)
-
-    print(f"\nTotal raw articles: {len(all_articles)}")
-
-    # Deduplicate
-    unique = deduplicate(all_articles)
-    print(f"After dedup: {len(unique)}")
-
-    # Sort by published date descending
-    unique.sort(key=lambda a: a["published"], reverse=True)
-
-    return unique
-
-
-# ── HTML Generation ──
+# ═══════════════════════════════════════════════════════════
+# 6. HTML GENERATION
+# ═══════════════════════════════════════════════════════════
 
 def escape_for_script(json_str):
-    """Escape JSON string for safe embedding in <script> tags."""
-    # Prevent </script> from closing the script tag
     return json_str.replace("</", "<\\/")
 
 
 def generate_html(articles):
-    """Generate a complete self-contained HTML dashboard page."""
+    """Generate complete self-contained HTML dashboard (v3)."""
     generated_at = datetime.now().isoformat()
     articles_json = escape_for_script(json.dumps(articles, ensure_ascii=False))
-
-    # Counts by category
-    counts = {"public_cloud": 0, "private_cloud": 0, "policy": 0}
-    for a in articles:
-        counts[a["category"]] = counts.get(a["category"], 0) + 1
-
-    provider_colors_json = json.dumps(PROVIDER_COLORS, ensure_ascii=False)
-    category_labels_json = json.dumps(CATEGORY_LABELS, ensure_ascii=False)
+    categories_json = escape_for_script(json.dumps(CATEGORIES, ensure_ascii=False))
     event_types_json = escape_for_script(json.dumps(EVENT_TYPES, ensure_ascii=False))
+    provider_colors_json = json.dumps(PROVIDER_COLORS, ensure_ascii=False)
     importance_colors_json = json.dumps(IMPORTANCE_COLORS, ensure_ascii=False)
+
+    # Compute summary counts
+    now_ts = datetime.now().isoformat()
+    count_all = len(articles)
+    count_high = sum(1 for a in articles if a.get("importance") == "high")
+    count_today = sum(1 for a in articles if a.get("published_date_short", "") == datetime.now().strftime("%Y-%m-%d"))
+    count_sovereign = sum(1 for a in articles if a.get("category") == "sovereign_trusted")
+    count_partner = sum(1 for a in articles if a.get("category") == "ecosystem_partners")
+    count_ai_dc = sum(1 for a in articles if a.get("category") == "ai_datacenter")
 
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -417,333 +545,65 @@ def generate_html(articles):
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🇫🇷</text></svg>">
 <style>
-/* ── Reset & Variables ── */
-*, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-:root {{
-    --bg: #0f172a;
-    --bg-card: #1e293b;
-    --bg-hover: #273449;
-    --text: #e2e8f0;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --border: #334155;
-    --accent: #38bdf8;
-    --radius: 10px;
-    --radius-sm: 6px;
-}}
-body {{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
-}}
+*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+:root{{--bg:#0f172a;--bg-card:#1e293b;--bg-hover:#273449;--text:#e2e8f0;--text-secondary:#94a3b8;--text-muted:#64748b;--border:#334155;--accent:#38bdf8;--radius:10px;--radius-sm:6px}}
+body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}}
 
-/* ── Header ── */
-.header {{
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 28px 24px 22px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}}
-.header h1 {{
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-    background: linear-gradient(135deg, #38bdf8, #818cf8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}}
-.header .sub {{
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-top: 4px;
-}}
-.header .refresh-hint {{
-    font-size: 11px;
-    color: #475569;
-    margin-top: 6px;
-    font-family: "SF Mono", "Fira Code", monospace;
-}}
+.header{{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border-bottom:1px solid var(--border);padding:24px 16px 18px;text-align:center;position:sticky;top:0;z-index:10}}
+.header h1{{font-size:20px;font-weight:700;background:linear-gradient(135deg,#38bdf8,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
+.header .sub{{font-size:12px;color:var(--text-muted);margin-top:4px}}
+.header .refresh-hint{{font-size:11px;color:#475569;margin-top:4px;font-family:monospace}}
 
-/* ── Container ── */
-.container {{ max-width: 960px; margin: 0 auto; padding: 20px 16px; }}
+.container{{max-width:1000px;margin:0 auto;padding:16px}}
 
-/* ── Stats Bar ── */
-.stats-bar {{
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
-}}
-.stat-pill {{
-    padding: 7px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: all 0.2s;
-    user-select: none;
-}}
-.stat-pill.public {{ background: rgba(59, 130, 246, 0.18); color: #60a5fa; border-color: rgba(59, 130, 246, 0.35); }}
-.stat-pill.private {{ background: rgba(168, 85, 247, 0.18); color: #c084fc; border-color: rgba(168, 85, 247, 0.35); }}
-.stat-pill.policy {{ background: rgba(52, 211, 153, 0.18); color: #34d399; border-color: rgba(52, 211, 153, 0.35); }}
-.stat-pill:hover {{ filter: brightness(1.2); }}
-.stat-pill.active {{ filter: brightness(1.3); box-shadow: 0 0 12px rgba(56, 189, 248, 0.25); }}
-.stat-pill.inactive {{ opacity: 0.4; }}
+/* Summary Cards */
+.summary-cards{{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}}
+.summary-card{{flex:1;min-width:100px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;text-align:center;cursor:default}}
+.summary-card .card-num{{font-size:22px;font-weight:700;color:var(--accent)}}
+.summary-card .card-label{{font-size:11px;color:var(--text-muted);margin-top:2px}}
 
-/* ── Date Filter Bar (v2) ── */
-.date-filters {{
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-}}
-.date-chip {{
-    padding: 6px 14px;
-    border-radius: 16px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1.5px solid var(--border);
-    background: var(--bg-card);
-    color: var(--text-secondary);
-    transition: all 0.2s;
-    user-select: none;
-    white-space: nowrap;
-}}
-.date-chip:hover {{ border-color: var(--accent); color: var(--text); }}
-.date-chip.active {{ background: rgba(56, 189, 248, 0.18); border-color: var(--accent); color: var(--accent); }}
+/* Filter Bars */
+.filter-row{{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;align-items:center}}
+.filter-chip{{padding:5px 12px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:all 0.2s;user-select:none;white-space:nowrap}}
+.filter-chip:hover{{filter:brightness(1.2)}}
+.filter-chip.active{{box-shadow:0 0 10px rgba(56,189,248,0.3)}}
+.filter-chip.inactive{{opacity:0.3}}
+.search-input{{flex:1;min-width:180px;padding:8px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:13px;outline:none}}
+.search-input:focus{{border-color:var(--accent)}}
+.search-input::placeholder{{color:var(--text-muted)}}
 
-/* ── Event Type Filter Bar (v2) ── */
-.event-type-filters {{
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-}}
-.event-chip {{
-    padding: 5px 12px;
-    border-radius: 14px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1.5px solid transparent;
-    transition: all 0.2s;
-    user-select: none;
-    white-space: nowrap;
-}}
-.event-chip:hover {{ filter: brightness(1.2); }}
-.event-chip.active {{ box-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }}
-.event-chip.inactive {{ opacity: 0.3; }}
+.category-section{{margin-bottom:24px}}
+.category-header{{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)}}
+.category-header h2{{font-size:16px;font-weight:700;color:var(--text)}}
+.category-count{{font-size:11px;color:var(--text-muted);background:var(--bg-card);padding:2px 8px;border-radius:8px}}
 
-/* ── Importance Filter (v2) ── */
-.importance-filters {{
-    display: flex;
-    gap: 6px;
-    margin-bottom: 12px;
-}}
-.imp-chip {{
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 700;
-    cursor: pointer;
-    border: 1.5px solid transparent;
-    transition: all 0.2s;
-    user-select: none;
-}}
-.imp-chip:hover {{ filter: brightness(1.2); }}
-.imp-chip.active {{ box-shadow: 0 0 8px rgba(56, 189, 248, 0.3); }}
-.imp-chip.inactive {{ opacity: 0.3; }}
+.news-card{{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:7px;transition:background 0.2s}}
+.news-card:hover{{background:var(--bg-hover)}}
+.news-card.card-high{{border-left:3px solid #F59E0B}}
+.news-card.card-medium{{border-left:3px solid #6B7280}}
 
-/* ── Filters ── */
-.filters {{
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 20px;
-}}
-.search-input {{
-    flex: 1;
-    min-width: 200px;
-    padding: 9px 14px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
-    background: var(--bg-card);
-    color: var(--text);
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-}}
-.search-input:focus {{ border-color: var(--accent); }}
-.search-input::placeholder {{ color: var(--text-muted); }}
+.card-badges{{display:flex;gap:5px;align-items:center;margin-bottom:5px;flex-wrap:wrap}}
+.importance-stars{{font-size:12px;letter-spacing:1px}}
+.entity-tag{{display:inline-block;padding:1px 8px;border-radius:8px;font-size:10px;font-weight:700;color:#fff;white-space:nowrap}}
+.event-type-badge{{display:inline-block;padding:1px 8px;border-radius:8px;font-size:10px;font-weight:700;color:#fff;white-space:nowrap}}
+.provider-badge{{display:inline-block;padding:1px 8px;border-radius:8px;font-size:10px;font-weight:700;color:#fff;white-space:nowrap}}
+.score-badge{{font-size:10px;color:var(--text-muted);font-weight:600;margin-left:auto}}
 
-.provider-filters {{
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-}}
-.provider-chip {{
-    padding: 5px 12px;
-    border-radius: 14px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1.5px solid transparent;
-    transition: all 0.2s;
-    user-select: none;
-    white-space: nowrap;
-}}
-.provider-chip:hover {{ filter: brightness(1.2); }}
-.provider-chip.active {{ box-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }}
-.provider-chip.inactive {{ opacity: 0.3; }}
+.card-title{{font-size:14px;font-weight:600;line-height:1.4;margin-bottom:4px}}
+.card-title a{{color:var(--text);text-decoration:none;transition:color 0.2s}}
+.card-title a:hover{{color:var(--accent)}}
+.card-meta{{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-muted);flex-wrap:wrap}}
+.card-summary{{font-size:12px;color:var(--text-secondary);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
 
-/* ── News Feed ── */
-.category-section {{ margin-bottom: 28px; }}
-.category-header {{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-}}
-.category-header h2 {{
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--text);
-}}
-.category-count {{
-    font-size: 12px;
-    color: var(--text-muted);
-    background: var(--bg-card);
-    padding: 3px 10px;
-    border-radius: 10px;
-}}
+.empty-state{{text-align:center;padding:60px 20px;color:var(--text-muted)}}
+.empty-state .empty-icon{{font-size:48px;margin-bottom:12px}}
+.footer{{text-align:center;padding:24px 16px;color:var(--text-muted);font-size:11px;border-top:1px solid var(--border);margin-top:28px}}
 
-/* ── News Card ── */
-.news-card {{
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px 18px;
-    margin-bottom: 8px;
-    transition: background 0.2s, border-color 0.2s;
-}}
-.news-card:hover {{
-    background: var(--bg-hover);
-    border-color: #475569;
-}}
-.news-card .card-title {{
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.5;
-    margin-bottom: 6px;
-}}
-.news-card .card-title a {{
-    color: var(--text);
-    text-decoration: none;
-    transition: color 0.2s;
-}}
-.news-card .card-title a:hover {{ color: var(--accent); }}
-.news-card .card-meta {{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-}}
-.news-card .card-source {{
-    color: var(--text-secondary);
-    font-weight: 500;
-}}
-.news-card .card-date {{ color: var(--text-muted); }}
-.provider-badge {{
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
-}}
-.news-card .card-summary {{
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}}
-.news-card.card-importance-high {{
-    border-left: 3px solid #F59E0B;
-}}
-.news-card.card-importance-medium {{
-    border-left: 3px solid #6B7280;
-}}
-.importance-stars {{
-    font-size: 12px;
-    letter-spacing: 2px;
-    cursor: default;
-}}
-.event-type-badge {{
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
-}}
-.card-badges {{
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-}}
-.card-date-absolute {{
-    color: var(--accent);
-    font-weight: 500;
-    font-size: 12px;
-}}
-
-/* ── Empty State ── */
-.empty-state {{
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--text-muted);
-}}
-.empty-state .empty-icon {{ font-size: 48px; margin-bottom: 16px; }}
-.empty-state p {{ font-size: 15px; }}
-
-/* ── Footer ── */
-.footer {{
-    text-align: center;
-    padding: 28px 16px;
-    color: var(--text-muted);
-    font-size: 12px;
-    border-top: 1px solid var(--border);
-    margin-top: 32px;
-}}
-
-/* ── Responsive ── */
-@media (max-width: 640px) {{
-    .header h1 {{ font-size: 18px; }}
-    .filters {{ flex-direction: column; align-items: stretch; }}
-    .search-input {{ min-width: auto; }}
-    .news-card {{ padding: 12px 14px; }}
-    .news-card .card-title {{ font-size: 14px; }}
+@media(max-width:640px){{
+.header h1{{font-size:17px}}
+.summary-card{{min-width:70px;padding:8px 10px}}
+.summary-card .card-num{{font-size:18px}}
+.news-card{{padding:10px 12px}}
 }}
 </style>
 </head>
@@ -751,225 +611,124 @@ body {{
 
 <header class="header">
     <h1>🇫🇷 法国云计算市场动态追踪</h1>
-    <div class="sub" id="updateTime">Dernière mise à jour : chargement…</div>
-    <div class="refresh-hint">🔄 更新数据请运行：python scripts/fetch_news.py</div>
+    <div class="sub" id="updateTime">Dernière mise à jour : chargement...</div>
+    <div class="refresh-hint">🔄 python scripts/fetch_news.py</div>
 </header>
 
 <div class="container">
-    <!-- Stats Bar -->
-    <div class="stats-bar">
-        <div class="stat-pill public active" data-cat="public_cloud" onclick="toggleCategory('public_cloud')">
-            ☁️ 公有云 <span id="count-public">0</span>
-        </div>
-        <div class="stat-pill private active" data-cat="private_cloud" onclick="toggleCategory('private_cloud')">
-            🖥️ 私有云 <span id="count-private">0</span>
-        </div>
-        <div class="stat-pill policy active" data-cat="policy" onclick="toggleCategory('policy')">
-            📋 政策监管 <span id="count-policy">0</span>
-        </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+        <div class="summary-card"><div class="card-num" id="sum-total">{count_all}</div><div class="card-label">总文章</div></div>
+        <div class="summary-card"><div class="card-num" id="sum-today">{count_today}</div><div class="card-label">今日新增</div></div>
+        <div class="summary-card"><div class="card-num" id="sum-high">{count_high}</div><div class="card-label">高重要性</div></div>
+        <div class="summary-card"><div class="card-num">{count_sovereign}</div><div class="card-label">主权云</div></div>
+        <div class="summary-card"><div class="card-num">{count_partner}</div><div class="card-label">合作伙伴</div></div>
+        <div class="summary-card"><div class="card-num">{count_ai_dc}</div><div class="card-label">AI/数据中心</div></div>
     </div>
 
-    <!-- Filters -->
-    <div class="filters">
-        <input type="text" class="search-input" id="searchInput"
-               placeholder="🔍 搜索标题、摘要…" oninput="onSearch()">
-        <div class="provider-filters" id="providerFilters"></div>
+    <!-- Category Filter -->
+    <div class="filter-row" id="catFilters"></div>
+
+    <!-- Date + Search -->
+    <div class="filter-row">
+        <span class="filter-chip active" data-range="all" onclick="selectDateRange('all')">全部</span>
+        <span class="filter-chip" data-range="today" onclick="selectDateRange('today')">今天</span>
+        <span class="filter-chip" data-range="7d" onclick="selectDateRange('7d')">7天</span>
+        <span class="filter-chip" data-range="30d" onclick="selectDateRange('30d')">30天</span>
+        <span class="filter-chip" data-range="2026" onclick="selectDateRange('2026')">2026年</span>
+        <input type="text" class="search-input" id="searchInput" placeholder="🔍 搜索..." oninput="onSearch()">
     </div>
 
-    <!-- Date Filter Bar (v2) -->
-    <div class="date-filters" id="dateFilters">
-        <span class="date-chip active" data-range="all" onclick="selectDateRange('all')">全部时间</span>
-        <span class="date-chip" data-range="today" onclick="selectDateRange('today')">今天</span>
-        <span class="date-chip" data-range="week" onclick="selectDateRange('week')">本周</span>
-        <span class="date-chip" data-range="month" onclick="selectDateRange('month')">本月</span>
-        <span class="date-chip" data-range="2026" onclick="selectDateRange('2026')">2026 年</span>
-    </div>
-
-    <!-- Event Type Filter Bar (v2) -->
-    <div class="event-type-filters" id="eventTypeFilters"></div>
-
-    <!-- Importance Filter (v2) -->
-    <div class="importance-filters" id="importanceFilters"></div>
+    <!-- Event Type + Importance -->
+    <div class="filter-row" id="eventTypeFilters"></div>
+    <div class="filter-row" id="importanceFilters"></div>
 
     <!-- News Feed -->
     <div id="newsFeed"></div>
 </div>
 
 <footer class="footer">
-    Données fournies par Google News · Filtrées sur la France uniquement · Rafraîchi manuellement
+    Donnees fournies par Google News · Filtees sur la France · Mise a jour quotidienne · v3
 </footer>
 
 <script>
-// ── Data ──
 const ALL_ARTICLES = {articles_json};
-const PROVIDER_COLORS = {provider_colors_json};
-const CATEGORY_LABELS = {category_labels_json};
+const CATEGORIES = {categories_json};
 const EVENT_TYPES = {event_types_json};
+const PROVIDER_COLORS = {provider_colors_json};
 const IMPORTANCE_COLORS = {importance_colors_json};
 const GENERATED_AT = "{generated_at}";
 
-// ── State ──
-let activeCategories = new Set(["public_cloud", "private_cloud", "policy"]);
-let activeProvider = null;  // null = show all, otherwise single provider string
-let activeDateRange = "all";  // "all" | "today" | "week" | "month" | "2026"
-let activeEventType = null;  // null = show all
-let activeImportance = null;  // null = show all, "high" | "medium" | "low"
+let activeCategories = new Set(Object.keys(CATEGORIES));
+let activeEventType = null;
+let activeImportance = null;
+let activeDateRange = "all";
 let searchText = "";
 
-// ── Init ──
 function init() {{
-    // Update time
     const dt = new Date(GENERATED_AT);
-    document.getElementById("updateTime").textContent =
-        "Dernière mise à jour : " + dt.toLocaleString("fr-FR", {{ dateStyle: "full", timeStyle: "short" }});
-
-    // Update counts
-    updateCounts();
-    // Render filters
-    renderProviderFilters();
+    document.getElementById("updateTime").textContent = "Derniere mise a jour : " + dt.toLocaleString("fr-FR", {{dateStyle:"full",timeStyle:"short"}});
+    renderCatFilters();
     renderEventTypeFilters();
-    renderImportanceFilters();
-    // Render feed
+    renderImpFilters();
     renderFeed();
 }}
 
-function updateCounts() {{
-    const counts = {{ public_cloud: 0, private_cloud: 0, policy: 0 }};
-    ALL_ARTICLES.forEach(a => {{ counts[a.category] = (counts[a.category] || 0) + 1; }});
-    document.getElementById("count-public").textContent = counts.public_cloud;
-    document.getElementById("count-private").textContent = counts.private_cloud;
-    document.getElementById("count-policy").textContent = counts.policy;
-}}
-
-// ── Category Toggle ──
-function toggleCategory(cat) {{
-    if (activeCategories.has(cat)) {{
-        activeCategories.delete(cat);
-    }} else {{
-        activeCategories.add(cat);
-    }}
-    // Update pill visuals
-    document.querySelectorAll(".stat-pill").forEach(pill => {{
-        const c = pill.dataset.cat;
-        if (activeCategories.has(c)) {{
-            pill.classList.add("active");
-            pill.classList.remove("inactive");
-        }} else {{
-            pill.classList.remove("active");
-            pill.classList.add("inactive");
-        }}
-    }});
-    renderFeed();
-}}
-
-// ── Provider Filters (single-select) ──
-function renderProviderFilters() {{
-    const providers = new Set();
-    ALL_ARTICLES.forEach(a => {{ if (a.provider) providers.add(a.provider); }});
-
-    const container = document.getElementById("providerFilters");
+// ── Category Filters ──
+function renderCatFilters() {{
+    const container = document.getElementById("catFilters");
     container.innerHTML = "";
-
-    // "All" chip
-    const allChip = document.createElement("span");
-    allChip.className = "provider-chip active";
-    allChip.textContent = "全部";
-    allChip.dataset.provider = "__all__";
-    allChip.onclick = () => selectProvider(null);
-    container.appendChild(allChip);
-
-    [...providers].sort().forEach(p => {{
+    Object.entries(CATEGORIES).forEach(([key, info]) => {{
         const chip = document.createElement("span");
-        const color = PROVIDER_COLORS[p] || "#6B7280";
-        chip.className = "provider-chip active";
-        chip.textContent = p;
-        chip.style.backgroundColor = color + "33";
-        chip.style.borderColor = color;
-        chip.style.color = color;
-        chip.dataset.provider = p;
-        chip.onclick = () => selectProvider(p);
+        chip.className = "filter-chip active";
+        chip.textContent = info.icon + " " + info.label;
+        chip.style.backgroundColor = info.color + "22";
+        chip.style.borderColor = info.color;
+        chip.style.color = info.color;
+        chip.dataset.cat = key;
+        chip.onclick = () => toggleCategory(key);
         container.appendChild(chip);
     }});
 }}
 
-function selectProvider(provider) {{
-    activeProvider = provider;
-    // Update chip visuals
-    document.querySelectorAll(".provider-chip").forEach(c => {{
-        const p = c.dataset.provider;
-        if (provider === null) {{
-            // "全部" mode: all chips active
-            c.classList.add("active");
-            c.classList.remove("inactive");
-        }} else if (p === provider) {{
-            c.classList.add("active");
-            c.classList.remove("inactive");
-        }} else if (p === "__all__") {{
-            c.classList.remove("active");
-            c.classList.add("inactive");
-        }} else {{
-            c.classList.remove("active");
-            c.classList.add("inactive");
-        }}
+function toggleCategory(cat) {{
+    if (activeCategories.has(cat)) activeCategories.delete(cat); else activeCategories.add(cat);
+    document.querySelectorAll("#catFilters .filter-chip").forEach(c => {{
+        c.classList.toggle("active", activeCategories.has(c.dataset.cat));
+        c.classList.toggle("inactive", !activeCategories.has(c.dataset.cat));
     }});
     renderFeed();
 }}
 
-// ── Date Range Filter (v2) ──
+// ── Date Range ──
 function selectDateRange(range) {{
     activeDateRange = range;
-    document.querySelectorAll(".date-chip").forEach(c => {{
-        c.classList.toggle("active", c.dataset.range === range);
-    }});
+    document.querySelectorAll("[data-range]").forEach(c => c.classList.toggle("active", c.dataset.range === range));
     renderFeed();
 }}
 
-function passesDateFilter(article) {{
+function passesDateFilter(a) {{
     if (activeDateRange === "all") return true;
-    const pubDate = article.published_date_short;  // YYYY-MM-DD
-    if (!pubDate) return true;
-
+    const pd = a.published_date_short; if (!pd) return true;
+    const pub = new Date(pd + "T00:00:00");
     const now = new Date();
-    const pub = new Date(pubDate + "T00:00:00");
-
     switch (activeDateRange) {{
-        case "today":
-            return pubDate === now.toISOString().slice(0, 10);
-        case "week": {{
-            const weekAgo = new Date(now);
-            weekAgo.setDate(weekAgo.getDate() - 7);
-            return pub >= weekAgo;
-        }}
-        case "month": {{
-            const monthAgo = new Date(now);
-            monthAgo.setDate(monthAgo.getDate() - 30);
-            return pub >= monthAgo;
-        }}
-        case "2026":
-            return pubDate >= "2026-01-01" && pubDate < "2027-01-01";
-        default:
-            return true;
+        case "today": return pd === now.toISOString().slice(0,10);
+        case "7d": pub.setDate(pub.getDate()+7); return pub >= now;
+        case "30d": pub.setDate(pub.getDate()+30); return pub >= now;
+        case "2026": return pd >= "2026-01-01" && pd < "2027-01-01";
+        default: return true;
     }}
 }}
 
-// ── Event Type Filter (v2) ──
+// ── Event Type ──
 function renderEventTypeFilters() {{
     const container = document.getElementById("eventTypeFilters");
-    container.innerHTML = "";
-
-    // "All" chip
-    const allChip = document.createElement("span");
-    allChip.className = "event-chip active";
-    allChip.textContent = "全部类型";
-    allChip.style.backgroundColor = "#374151";
-    allChip.style.borderColor = "#4B5563";
-    allChip.style.color = "#D1D5DB";
-    allChip.onclick = () => selectEventType(null);
-    container.appendChild(allChip);
-
+    container.innerHTML = '<span class="filter-chip active" onclick="selectEventType(null)">全部类型</span>';
     Object.entries(EVENT_TYPES).forEach(([key, info]) => {{
         const chip = document.createElement("span");
-        chip.className = "event-chip active";
+        chip.className = "filter-chip active";
         chip.textContent = info.icon + " " + info.label;
         chip.style.backgroundColor = info.color + "33";
         chip.style.borderColor = info.color;
@@ -982,59 +741,39 @@ function renderEventTypeFilters() {{
 
 function selectEventType(etype) {{
     activeEventType = etype;
-    document.querySelectorAll(".event-chip").forEach(c => {{
-        if (etype === null) {{
-            c.classList.add("active");
-            c.classList.remove("inactive");
-        }} else if (c.dataset.etype === etype) {{
-            c.classList.add("active");
-            c.classList.remove("inactive");
-        }} else {{
-            c.classList.remove("active");
-            c.classList.add("inactive");
-        }}
+    document.querySelectorAll("#eventTypeFilters .filter-chip").forEach(c => {{
+        if (etype === null) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
+        else if (c.dataset.etype === etype) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
+        else {{ c.classList.remove("active"); c.classList.add("inactive"); }}
     }});
     renderFeed();
 }}
 
-// ── Importance Filter (v2) ──
-function renderImportanceFilters() {{
+// ── Importance ──
+function renderImpFilters() {{
     const container = document.getElementById("importanceFilters");
-    container.innerHTML = "";
-
-    const items = [
-        {{ key: null, label: "全部重要度", color: "#D1D5DB", bg: "#374151" }},
-        {{ key: "high", label: "★★★ 重要", color: IMPORTANCE_COLORS.high, bg: IMPORTANCE_COLORS.high + "33" }},
-        {{ key: "medium", label: "★★ 一般", color: IMPORTANCE_COLORS.medium, bg: IMPORTANCE_COLORS.medium + "33" }},
-        {{ key: "low", label: "★ 低", color: IMPORTANCE_COLORS.low, bg: IMPORTANCE_COLORS.low + "33" }},
-    ];
-
-    items.forEach(item => {{
+    container.innerHTML = '<span class="filter-chip active" onclick="selectImportance(null)">全部重要度</span>';
+    [{{level:"high",label:"★★★ 重要(>=75)",color:IMPORTANCE_COLORS.high}},
+     {{level:"medium",label:"★★ 一般(45-74)",color:IMPORTANCE_COLORS.medium}},
+     {{level:"low",label:"★ 低(<45)",color:IMPORTANCE_COLORS.low}}].forEach(item => {{
         const chip = document.createElement("span");
-        chip.className = "imp-chip active";
+        chip.className = "filter-chip active";
         chip.textContent = item.label;
-        chip.style.backgroundColor = item.bg;
-        chip.style.color = item.color;
+        chip.style.backgroundColor = item.color + "33";
         chip.style.borderColor = item.color + "66";
-        chip.dataset.imp = item.key === null ? "__all__" : item.key;
-        chip.onclick = () => selectImportance(item.key);
+        chip.style.color = item.color;
+        chip.dataset.imp = item.level;
+        chip.onclick = () => selectImportance(item.level);
         container.appendChild(chip);
     }});
 }}
 
 function selectImportance(imp) {{
     activeImportance = imp;
-    document.querySelectorAll(".imp-chip").forEach(c => {{
-        if (imp === null) {{
-            c.classList.add("active");
-            c.classList.remove("inactive");
-        }} else if (c.dataset.imp === imp) {{
-            c.classList.add("active");
-            c.classList.remove("inactive");
-        }} else {{
-            c.classList.remove("active");
-            c.classList.add("inactive");
-        }}
+    document.querySelectorAll("#importanceFilters .filter-chip").forEach(c => {{
+        if (imp === null) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
+        else if (c.dataset.imp === imp) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
+        else {{ c.classList.remove("active"); c.classList.add("inactive"); }}
     }});
     renderFeed();
 }}
@@ -1049,91 +788,78 @@ function onSearch() {{
 function renderFeed() {{
     let filtered = ALL_ARTICLES.filter(a => {{
         if (!activeCategories.has(a.category)) return false;
-        if (activeProvider !== null) {{
-            if (!a.provider || a.provider !== activeProvider) return false;
-        }}
         if (activeEventType !== null && a.event_type !== activeEventType) return false;
         if (activeImportance !== null && a.importance !== activeImportance) return false;
         if (!passesDateFilter(a)) return false;
         if (searchText) {{
-            const haystack = (a.title + " " + a.summary + " " + a.source).toLowerCase();
+            const haystack = (a.title + " " + a.summary + " " + a.source + " " + (a.entities||[]).map(e=>e.display).join(" ")).toLowerCase();
             if (!haystack.includes(searchText)) return false;
         }}
         return true;
     }});
 
-    // Group by category
-    const groups = {{ public_cloud: [], private_cloud: [], policy: [] }};
-    filtered.forEach(a => {{
-        if (groups[a.category]) groups[a.category].push(a);
-    }});
-
     const feed = document.getElementById("newsFeed");
     if (filtered.length === 0) {{
-        feed.innerHTML = `<div class="empty-state">
-            <div class="empty-icon">📭</div>
-            <p>Aucun article trouvé avec ces filtres</p>
-        </div>`;
+        feed.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>Aucun article trouve</p></div>';
         return;
     }}
 
-    const catOrder = ["public_cloud", "private_cloud", "policy"];
-    let html = "";
+    // Group by category
+    const groups = {{}};
+    Object.keys(CATEGORIES).forEach(k => groups[k] = []);
+    filtered.forEach(a => {{ if (groups[a.category]) groups[a.category].push(a); }});
 
-    catOrder.forEach(cat => {{
+    let html = "";
+    Object.entries(CATEGORIES).forEach(([cat, catInfo]) => {{
         const articles = groups[cat];
         if (!articles || articles.length === 0) return;
 
-        html += `<div class="category-section">
-            <div class="category-header">
-                <h2>${{cat === "public_cloud" ? "☁️" : cat === "private_cloud" ? "🖥️" : "📋"}} ${{CATEGORY_LABELS[cat]}}</h2>
-                <span class="category-count">${{articles.length}} articles</span>
-            </div>`;
+        html += '<div class="category-section">';
+        html += '<div class="category-header"><h2>' + catInfo.icon + ' ' + catInfo.label + '</h2><span class="category-count">' + articles.length + '</span></div>';
 
         articles.forEach(a => {{
-            // Event type info
-            const etInfo = EVENT_TYPES[a.event_type] || EVENT_TYPES.general;
-            const eventTypeBadge = `<span class="event-type-badge" style="background:${{etInfo.color}}">${{etInfo.icon}} ${{etInfo.label}}</span>`;
+            const cardClass = a.importance === "high" ? "news-card card-high" : a.importance === "medium" ? "news-card card-medium" : "news-card";
+            html += '<div class="' + cardClass + '">';
 
+            // Badges row
+            html += '<div class="card-badges">';
             // Importance stars
-            const impColor = IMPORTANCE_COLORS[a.importance] || "#6B7280";
-            const impStars = `<span class="importance-stars" style="color:${{impColor}}" title="${{a.importance_label}}">${{a.importance_stars}}</span>`;
+            html += '<span class="importance-stars" style="color:' + (IMPORTANCE_COLORS[a.importance]||"#6B7280") + '" title="Score:' + (a.importance_score||0) + '">' + (a.importance_stars||"★") + '</span>';
+            // Event type
+            const etInfo = EVENT_TYPES[a.event_type] || EVENT_TYPES.general;
+            html += '<span class="event-type-badge" style="background:' + etInfo.color + '">' + etInfo.icon + ' ' + etInfo.label + '</span>';
+            // Provider
+            if (a.provider) {{
+                html += '<span class="provider-badge" style="background:' + (PROVIDER_COLORS[a.provider]||"#6B7280") + '">' + a.provider + '</span>';
+            }}
+            // Entities
+            if (a.entities) {{
+                a.entities.slice(0, 3).forEach(e => {{
+                    html += '<span class="entity-tag" style="background:' + e.color + '">' + e.display + '</span>';
+                }});
+            }}
+            // Score
+            html += '<span class="score-badge">[' + (a.importance_score||0) + ']</span>';
+            html += '</div>';
 
-            // Provider badge
-            const providerHtml = a.provider
-                ? `<span class="provider-badge" style="background:${{PROVIDER_COLORS[a.provider] || "#6B7280"}}">${{a.provider}}</span>`
-                : "";
+            // Title
+            const titleEsc = a.title.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+            html += '<div class="card-title"><a href="' + a.url + '" target="_blank" rel="noopener noreferrer">' + titleEsc + '</a></div>';
 
-            // Date
-            const dateDisplay = a.published_display || "";
-            const dateShort = a.published_date_short || "";
+            // Meta
+            const sourceEsc = (a.source||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+            html += '<div class="card-meta"><span>' + sourceEsc + '</span><span>' + (a.published_date_short||"") + '</span><span>' + (a.published_display||"") + '</span></div>';
 
-            // Escape
-            const titleEscaped = a.title.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-            const summaryEscaped = a.summary.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-            const sourceEscaped = a.source.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+            // Summary
+            if (a.summary) {{
+                const sumEsc = a.summary.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+                html += '<div class="card-summary">' + sumEsc + '</div>';
+            }}
 
-            const cardClass = a.importance === "high" ? "news-card card-importance-high" : a.importance === "medium" ? "news-card card-importance-medium" : "news-card";
-
-            html += `<div class="${{cardClass}}">
-                <div class="card-badges">
-                    ${{impStars}}
-                    ${{eventTypeBadge}}
-                    ${{providerHtml}}
-                </div>
-                <div class="card-title">
-                    <a href="${{a.url}}" target="_blank" rel="noopener noreferrer">${{titleEscaped}}</a>
-                </div>
-                <div class="card-meta">
-                    <span class="card-source">${{sourceEscaped}}</span>
-                    <span class="card-date-absolute">${{dateShort}}</span>
-                    <span class="card-date">${{dateDisplay}}</span>
-                </div>
-                <div class="card-summary">${{summaryEscaped}}</div>
-            </div>`;
+            html += '</div>';
         }});
 
-        html += "</div>";
+        html += '</div>';
     }});
 
     feed.innerHTML = html;
@@ -1142,56 +868,60 @@ function renderFeed() {{
 // ── Boot ──
 init();
 
-// ── Service Worker (PWA) ──
 if ('serviceWorker' in navigator) {{
-    navigator.serviceWorker.register('sw.js').then(reg => {{
-        console.log('SW registered:', reg.scope);
-    }}).catch(err => {{
-        console.log('SW registration failed:', err);
-    }});
+    navigator.serviceWorker.register('sw.js').then(r => console.log('SW:', r.scope)).catch(e => console.log('SW fail:', e));
 }}
 </script>
 </body>
 </html>"""
 
 
-# ── Output ──
+# ═══════════════════════════════════════════════════════════
+# 7. OUTPUT
+# ═══════════════════════════════════════════════════════════
 
 def write_output(articles, output_path):
-    """Generate HTML and write to output path."""
     html_content = generate_html(articles)
-
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html_content)
-
     print(f"\n[OK] HTML written to: {output_path}")
-    print(f"  Total articles: {len(articles)}")
+    print(f"  Total: {len(articles)}")
 
-    # Category breakdown
     cats = {}
     for a in articles:
         cats[a["category"]] = cats.get(a["category"], 0) + 1
-    for k, v in cats.items():
-        print(f"  {CATEGORY_LABELS.get(k, k)}: {v}")
+    for k, v in sorted(cats.items()):
+        label = CATEGORIES.get(k, {}).get("label", k)
+        print(f"  {label}: {v}")
 
 
 def main():
-    output_path = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-        "docs",
-        "index.html",
-    )
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    output_path = os.path.join(base_dir, "docs", "index.html")
+    history_path = os.path.join(base_dir, "data", "news_history.json")
 
     print("=" * 56)
-    print("  French Cloud Computing News Tracker")
+    print("  French Cloud Ecosystem Tracker v3")
     print("=" * 56)
     print()
 
+    # 1. Fetch
     articles = fetch_all()
+
+    # 2. Merge with history
+    history = load_history(history_path)
+    articles = merge_with_history(articles, history)
+    print(f"After history merge: {len(articles)}")
+
+    # 3. Write output
     write_output(articles, output_path)
 
-    # Send Telegram notification (if credentials available)
+    # 4. Save history
+    save_history(articles, history_path)
+    print(f"[OK] History saved to: {history_path}")
+
+    # 5. Telegram
     bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
     chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
     if bot_token and chat_id:

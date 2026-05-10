@@ -1,5 +1,5 @@
 // Service Worker for France Cloud News PWA
-const CACHE_NAME = 'france-cloud-news-v2';
+const CACHE_NAME = 'france-cloud-news-v3';
 const URLS_TO_CACHE = [
   '/france-cloud-news/',
   '/france-cloud-news/index.html',
