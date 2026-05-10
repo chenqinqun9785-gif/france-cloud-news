@@ -2,8 +2,8 @@ name: Daily News Refresh
 
 on:
   schedule:
-    # Runs at 6:00 UTC = 8:00 Paris summer time (7:00 UTC in winter)
-    - cron: '0 6 * * *'
+    # Runs at 2:00 UTC = 10:00 Beijing time (CST, UTC+8)
+    - cron: '0 2 * * *'
   workflow_dispatch:  # Allow manual trigger from GitHub UI
 
 jobs:
