@@ -624,7 +624,15 @@ def escape_for_script(json_str):
 def generate_html(articles):
     """Generate complete self-contained HTML dashboard (v3.1)."""
     generated_at = datetime.now().isoformat()
-    articles_json = json.dumps(articles, ensure_ascii=False)
+
+    # Trim to essential fields only (reduce HTML size by ~15%)
+    KEEP = ["id","title","title_original","title_zh","url","translated_url",
+            "source","published","published_display","published_date_short",
+            "category","provider","summary","summary_original","summary_zh",
+            "event_type","event_type_label","event_type_icon","entities",
+            "importance","importance_stars","importance_score"]
+    articles_json = json.dumps([{k:a.get(k) for k in KEEP if k in a} for a in articles], ensure_ascii=False)
+
     categories_json = escape_for_script(json.dumps(CATEGORIES, ensure_ascii=False))
     event_types_json = escape_for_script(json.dumps(EVENT_TYPES, ensure_ascii=False))
     provider_colors_json = json.dumps(PROVIDER_COLORS, ensure_ascii=False)
@@ -791,9 +799,6 @@ let activeEventType = null;
 let activeImportance = null;
 let activeDateRange = "all";
 let searchText = "";
-let currentPage = 0;
-const PAGE_SIZE = 50;
-let filteredCache = [];
 
 function init() {{
     const dt = new Date(GENERATED_AT);
@@ -913,10 +918,9 @@ function onSearch() {{
     renderFeed();
 }}
 
-// ── Render (paginated) ──
-function applyFilters() {{
-    currentPage = 0;
-    filteredCache = ALL_ARTICLES.filter(a => {{
+// ── Render ──
+function renderFeed() {{
+    let filtered = ALL_ARTICLES.filter(a => {{
         if (!activeCategories.has(a.category)) return false;
         if (activeEventType !== null && a.event_type !== activeEventType) return false;
         if (activeImportance !== null && a.importance !== activeImportance) return false;
@@ -927,28 +931,17 @@ function applyFilters() {{
         }}
         return true;
     }});
-}}
 
-function renderFeed() {{
-    applyFilters();
-    renderPage();
-}}
-
-function renderPage() {{
     const feed = document.getElementById("newsFeed");
-    if (filteredCache.length === 0) {{
+    if (filtered.length === 0) {{
         feed.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>Aucun article trouve</p></div>';
         return;
     }}
 
-    const start = 0;
-    const end = (currentPage + 1) * PAGE_SIZE;
-    const visible = filteredCache.slice(start, end);
-
     // Group by category
     const groups = {{}};
     Object.keys(CATEGORIES).forEach(k => groups[k] = []);
-    visible.forEach(a => {{ if (groups[a.category]) groups[a.category].push(a); }});
+    filtered.forEach(a => {{ if (groups[a.category]) groups[a.category].push(a); }});
 
     let html = "";
     Object.entries(CATEGORIES).forEach(([cat, catInfo]) => {{
@@ -1022,19 +1015,7 @@ function renderPage() {{
         html += '</div>';
     }});
 
-    const feed = document.getElementById("newsFeed");
     feed.innerHTML = html;
-
-    // Load more button
-    if (end < filteredCache.length) {{
-        const remaining = filteredCache.length - end;
-        feed.innerHTML += '<div style="text-align:center;padding:16px"><button class="btn btn-original" onclick="loadMore()" style="font-size:13px;padding:8px 24px">加载更多 (' + remaining + ' 條剩余)</button></div>';
-    }}
-}}
-
-function loadMore() {{
-    currentPage++;
-    renderPage();
 }}
 
 // ── Boot ──

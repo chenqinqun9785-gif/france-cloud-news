@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-10T17:17:51.328054+00:00",
-  "total": 383,
+  "generated_at": "2026-05-10T17:38:50.934046+00:00",
+  "total": 390,
   "articles": [
     {
       "id": "98a5d3890e166fb6",
@@ -413,7 +413,7 @@
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQcmhzb2FndEZuc3RQdHo5OXgwanZJb1JBYWlqaUcyYy1VTjRkdFI5TFNqNDhsODdqVVdFUFQzNjNOWFFsbFkyRU0yNktiblNPMkFLRmwzNk83YmJiUWFGY2hXRTgtb09QSi1jVkdZSmhRalJzNWIwTVRQXzNrcTRDRFZOZHBiS0JfWGlTeXhjeVdzcW56SWVSMlpsWWxRN2Y0Z2s0UUJ3dmPSAa4BQVVfeXFMT0ZCX0hUMktRRmhINE5qZXdtVmdrM0YxMWhqSlAxM3UtWDd3TmRaVWZJT194RmJhV0F2OEw2b1ctX2tQeThzRUZHN1JKQWMzQUItWnc0ZW9lbTJWZlZER2VhRWQyUnBaQzJnOTQzUFNjS2xnUGNURUlBUldFMjB0M1Qtd0FfaFhJb0xnZ3VRUnJUcnVwdFY2bjhyWGU1ak11TFlRTXN4TXBETnFHcS1R?oc=5",
       "source": "Génération NT",
       "published": "2026-05-06T17:30:01+00:00",
-      "published_display": "Il y a 3j",
+      "published_display": "Il y a 4j",
       "published_date_short": "2026-05-06",
       "category": "public_cloud",
       "category_label": "公有云厂商",
@@ -697,7 +697,7 @@
       "published_date_short": "2026-03-30",
       "category": "ai_datacenter",
       "category_label": "AI云与数据中心",
-      "provider": null,
+      "provider": "Azure",
       "summary": "Mistral AI lève 830 millions pour son data center parisien &nbsp;&nbsp; Mac4Ever",
       "event_type": "datacenter",
       "event_type_label": "数据中心/基础设施",
@@ -1020,9 +1020,9 @@
       "published": "2026-03-23T07:00:00+00:00",
       "published_display": "2026-03-23",
       "published_date_short": "2026-03-23",
-      "category": "sovereign_trusted",
-      "category_label": "主权云/可信云",
-      "provider": null,
+      "category": "ai_datacenter",
+      "category_label": "AI云与数据中心",
+      "provider": "GCP",
       "summary": "Souveraineté numérique : pourquoi la France forme ses propres experts en intelligence artificielle ? &nbsp;&nbsp; Sciencepost",
       "event_type": "policy_law",
       "event_type_label": "政策法规",
@@ -1416,8 +1416,7 @@
       "summary_zh": "Souveraineté numérique : Mistral AI promet un cloud IA européen... mais ses puces restent américaines &nbsp;&nbsp; Les Numériques",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi-AFBVV95cUxQbkVjRDdickk3aHZGUk05TXZfNktYVnZQY2pya2gyZHZiRFVoMVRDVW1GdkQ2QVpXSzhZaGxhZ1VQVDJYTzVZRU9UYkdQell1NW9xQ2pjamtOUmdhSXRkUU5pekU0amxzYjNZSTJzZGhyd3ItRUpDM2FIcEQ1MmhINS00Y0RrWnJTZmRjd3FINXRRc1FhMkNvZUI5Y182UmV2X3AxSXZoTHkxeVNJYk5STlJoWlJFc1M2bTNyVWdvcktiMC1KWUVvTzcwaS03aUYtZWVuRVVxNE9FUXFjUzNud0JaWE9iUmRHM0xGNVN3MkRBUF9yYzN0Tg%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "6b768e7a719ab2ae",
@@ -2968,7 +2967,8 @@
       "summary_zh": "Policloud vise 1 000 micro-data centers IA souverains d’ici 2030 &nbsp;&nbsp; Petites Affiches - Alpes Maritimes",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiowFBVV95cUxNZTBVRDlhNkE2c2w1RlRtSWN1aGtndTNLU1VTV2ZfbEtIS0lMTmhucGlBTzBMX083cG90SGxNczBteVlVRUZoYWtKeGQ0SnotQm5adldaN3d6bzF3Y1UtRElxelhOWG1qQmJxN0kwRkp2cVdUZUp0UEs1bUU4dGs4OTdBSGxZUFZ2elB5RmpBWGFIdkcxVkM2T1F0Uy01Sy1uaGRB%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "82f0085ea8aea948",
@@ -4392,7 +4392,8 @@
       "summary_zh": "Scaleway : la filiale cloud d’Iliad intègre un nouvel ordinateur quantique à ses offres et “soutient” la souveraineté Européenne &nbsp;&nbsp; Univers Freebox",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi_gFBVV95cUxPRHluQVJ3Y25Zd0NUU24zam5tSEgza3phcHI3eUlNajBtX1ZKTlh1SlVHSlJxUWc1VkdMSDJpSnh5X1N5UVRhTkdoU0tHQzVpZzFrTGtVcC1MQjRCeXU0LXkxWEViaHEzX0JPdHVaX1c2anZDVmhzZG1McmxTZGl6S0c2ZGpzNUg4eWlRZkZ3U1JtQy0wX2hfTURfMjZ1QkNnVHNQV2RybXYzZ3VuVUQ5UWJZTkVKZGY2RHdraTdoNEpiZ2NmcHBSdkNoZzhqcU95bXZCYzM1LWUyamRlVDlyZjdka0ZvQ05KdmJPRFVjWDdWdzNPTnNDZk5LUlEzZ9IBgwJBVV95cUxPQTkteEE0el9kLWw1V3A5UXllMkN2cTBvRHMwbWlMamswSVB0elY5ZC1BVWR0YzlZYUR1VE45cGZlRGpRc1ZOeEROcTN6V2F1eldBSHA1U1dCNUZhMU1EeHZVbjU1RE4zcTRFOXNJQmcxMXg5T2NLZURUTFktRVVSYjZia2ZPWnEwR3FnODNZcDBBMVR2QjZXQU9zbUJVWlRiS3dwSXBRZWNQVklzUEstVFdUbnlOMl9DWjRHZWR3YXMxVnNtcEprQkF3aG82X0pUTTQ4VmdhVGtrMldPeXpCTmJ3M214ZEtzSWR4cXN3aVZ0SUdtWS00UkNtUHlxYThpRFBv%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "562d7eaa25847911",
@@ -4700,7 +4701,7 @@
       "published_date_short": "2026-04-22",
       "category": "ai_datacenter",
       "category_label": "AI云与数据中心",
-      "provider": "GCP",
+      "provider": null,
       "summary": "Intelligence artificielle : Google va à contre-courant de Nvidia et d’Amazon en lançant deux nouveaux TPU aux architectures différentes, l’un pour l’entraînement et l’autre pour l’inférence &nbsp;&nbsp; L'Usine Digitale",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -5050,8 +5051,7 @@
       "summary_zh": "Signature d’un partenariat stratégique entre TCS France et l’EPITA pour la formation des talents de demain dans le domaine de l’informatique. &nbsp;&nbsp; Tata Consultancy Services",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMikAFBVV95cUxPMkk1Ry1kX1p4S1RibmJWUjYxY3JFY2tyeTYyaERwVGRndWZiN2lJR09JZ0Y3ZXRaR29na1NJVkxqeXhhcHNrMk84eVdKUkZ1Vy1Kd0J6VVBOdE1Sa3Q3ZWhzZjBQS1BTNUg1YURuSUZlUEJFYVZpQ01VbEUzNXlvbXNxLU1tQWRNRFpLeFg5M1E%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "c1e95fd8c83c6e61",
@@ -5444,7 +5444,8 @@
       "summary_zh": "Le Health data hub annonce sa migration de Microsoft vers l'hébergeur français Scaleway &nbsp;&nbsp; AEF info",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwgFBVV95cUxOX09KRTZaWlU2RFV1NjZ1SFBDb2xrLVhYUlRMLWFGbF9WeWZmeTFrNFBRcjMxRTM2bkpkUDJiWFJNdGRxdVJTcWxHM05nVEdKZ0lUOUtUUEM1WXI2OWl5Qi1CdUJKamZNUmkyV2JpWVFtU1FtbTFmREJvOUkyc1pRZnFacF9faFlNQVFoNzh1b0Rtczl1S1FIbGc4YWhRaWNvbzFFVE83N2VjcWt3aGhmNFNKVXBmWXY2SmdEZmVuOFV4Zw%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "3c06adefb90c9276",
@@ -8285,8 +8286,7 @@
       "summary_zh": "5000 personnes sont sans solution d'hébergement en Ile-de-France, a révélé la Nuit de la solidarité &nbsp;&nbsp; La Gazette des Communes",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi2wFBVV95cUxPN2xNdkNMQjg4Z3F3clpBY2FDSGV2V09HdllnbUY3YjhtSnlVc05xNkdNdjAxTWxMQ0t0Tml1aHdPcVZuWEprMTlSRjdreWRLa3FqWmZYUG9QRU0zTXljcHlEak5EUUtEUHNlNE1iTkRRX0tJRjR5Ym9SaTdnOXNNTnc5T0JiRmU5ZmNEU2cxSUI5bmxYMnROQzFUS0xEUHZ3eEhOalBNa1RneWNySjJBbTVVZlc3eTNyVnlzM2pWZ3BkNGJZS3d6MUpVemJNQ3NQcExaNGxtblVBZFk%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "eac058e6689b16ff",
@@ -8455,7 +8455,8 @@
       "summary_zh": "Que fait ce grand navire orange et bleu au large, visible depuis le GR34 dans le Nord-Finistère &nbsp;&nbsp; MaVille.com - Rennes",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi7gFBVV95cUxQd0RpWWdtVGVYYy1fbU4zT3dZbjVnbWMwTVJWY1Bkd0NiblNRbjVkR2hMOEdfSnpsVEhsVXZUYXcwWG1zbGtiQmxINFlEdHdta0dwT2hOV0dOaHI5V1J3VW1FYmI5MkwwMEw5T1BnTXJaU2tDWHY3R2plZGEtVW5DZlZyckZZenZJWUxyN2p3RUFJZzhMbXNscElFZkstYjZqZk5FZG9LaE5HazJfeEllN0tRb1ZxcjY4UmNFMzlPekNxc0ZEaWs0RTdyNEJvdzR4d3NtUDBCaER1dEp5c2d6UWd0aHVmY0FkeDA2NXNn%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "512f5eb054a4c6fd",
@@ -8618,8 +8619,7 @@
       "summary_zh": "Le CA trimestriel de Cegedim plombé par les activités Cloud & Support &nbsp;&nbsp; Option Finance",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi2AFBVV95cUxPdXRRZDRmSGJDVDBPRjdyQlQ0RE1MeDhGZ2tnWjUtNWdwUHhLejZWTDEtYXktQ1NaSVgyRzJ5TkxRekg1YlBGMXd5UmtsWm13RllENGJBZUJIY2V3RG5wOEZySEZ0NzJuSTh5NzFaNjdRS01iNGVXTzgwYlJCRE1keGpJZ1BNNVN6QUJJdHNoR0dVUE8xc0RMeDVZV29vYUE1Y09vQ3FPZnZvb2h2UzlTYlQ3b0lPWllWbmpkeUlxbWFGcC1YaEFZeGxIb3BEMm9XMi1MLXhZeDk%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "a308b4c9fa8ca8ac",
@@ -9102,8 +9102,7 @@
       "summary_zh": "NVIDIA GTC : la conférence où l’industrie de l’IA se donne rendez-vous &nbsp;&nbsp; frenchweb.fr",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMinwFBVV95cUxOWmw2M2hqY09USHNFWkJ2VHdvcExIUkZfZFpWQXk2MWlOV3NZSVlac3U0TkFoc3NCbzRBbERFVlk4NWNyMzNlMVpxVlBOWWdiNlBrT0ctVUF0dXY2aGI5MjJpTjVWUWlTOC1WVFhESkZ3ODVEUm93eTBNSThRN3h3eXNQdmVQLXRMTHIxX2JGSlY0RTJfbEhuZ1Vrc1FLRjg%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "f9da4a5e2efd83ee",
@@ -9552,8 +9551,7 @@
       "summary_zh": "Le paiement 100 % européen Wero cachait un secret américain très embarrassant &nbsp;&nbsp; Frandroid",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwgFBVV95cUxOS1lUaDJkd1RacUlrTnNkWk5zOHhpQVpKZkNockVTNU9sTldfd0tIaXBhc0FyTG81ZU1NcHFFTWx1dXdlanhWSWxuUjJtU0xRSF9IVXNpTVZXdW5nQmlaSnVZRHZVSmU5NlJyVkt2RDEtVUxjUG84NVZkaXpIQjZrVFVWR2l5bDd5aXBVckV0MGM2aWRRU0pLSzhnUnhLQ0lzMGlFcTZSMlhHeXRSSXlaLTNHX1FnM3FpbTA3X1FZTkNjQQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "07b78e54418e202f",
@@ -10181,8 +10179,7 @@
       "summary_zh": "Nutanix &nbsp;&nbsp; L'Informaticien",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiiAFBVV95cUxNY0VVM3lEbDl6M1pnaHktNDZPbWdMZ0ZWUkxmZF9GVXU2NWIwSFJTb0FvTEdrd1N2akJVVXVfQzg1WVRaY1QyVTBralllZTlOMUQ2NkdxZFpSMGlxaXZIUk9haHFuN1lQd2lSSEtaZlduY3R0NFJuVkRjWk4waVJnZS1pOFpVTmh3%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "9e0bfb98beeb916b",
@@ -10912,8 +10909,7 @@
       "summary_zh": "Apple pourrait héberger son futur Siri sur les serveurs de Google &nbsp;&nbsp; Mac4Ever",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiogFBVV95cUxPQ3N2by1Dc2d2aEI0OEpIN1JTRXItUS1PUzBXLVdqSHp1d3h5M2x4dFgwdUxkbm1qTWxLUkpFa1l5c1ZuMVZMbjQtVnRmcEhvVlNvWnB1b2FhQW5JMWtoMU5HLVZFRnpjR2hVUzBDNzUtdlUteE5IYXQ2Y3JEOEthZUZLM2JYSExPUnNwNzZPWWliOXlhTzRHVVlzb0IwR0VYbUE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "a835e4e8bdb0da48",
@@ -11267,7 +11263,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiywFBVV95cUxNUTA2NDB0WVg5aGVRZ0E2ZDdNOW8zMlp0Rk9XMDB0YndXb2tmYjFNSC1nYlJBeFNFZHBWVHp3dE5yUVhSb29lS0Z5RFNLU1lBeXU2YlJmU2tKMDZtajVzeE9NTjNfMkJKSXhacVVMbU1hSDZwMGxXcGNKOUd3N0VLM09NcDMybktvemNQRV9vS0FUb1l4cjBWQktmMjZ2dDNwMXE3ODlyRktTUDhDNkJTYjZKVHRMdDNBN2w2UUhSZDJZVG5aSmVTM0Z4Y9IBygFBVV95cUxQNjV6VGJTZFZFWVJPaUd1UGNUc3pBNk5jN084Q2prQlY2djJXdWh3UlNnVHlNaGp1elNjdGNkRG0zcm5NNUZaUFRtMDduaTI3RWw2N2F0N0FWb3BvN1FPMWRIUEVNd2NtQTd3QWgydzhDZ3czQVBTZ2xvcjByeTA4WmpULTBqdFhNQklUZ0VEMDNLLVJfS0hXT3N4R3A4Sm1tTWlzSFBycjlsWHQ4ZDNWVGRzRmxVRTNWQWFCamlFMS1BMnpDLW9GUnFn%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "9e7d78e87dba88bc",
@@ -11296,7 +11293,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqwFBVV95cUxONHZnQ3pQRHNjOVNjd2dsaVNIcFc4ZlYzU0lPN0JLSkdzRzIwQkRzaUJZb0I5cHhPcjZTYnZkRk5rb19QMTkxVzRDU1ppNXFHSE9JR1lBVzhrWjdTM3VmaVhvTHVyZmVVMnh5VmVULU5nVTlqTG1CUVVZM3FEOERiZTVPZHZSVXl6a1ZrcVpXMG02RHZCaTM5ZW5Ta1NSVWpwS05kUjlOVnhhTm8%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "76ec6eb9b013c625",
@@ -11556,8 +11554,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMisgFBVV95cUxQVXJCdldJR0tSRU1DeEFjR0lXbjhHXzdBN1BQcVVjTVZ0TEZnTlpOXy12WGhjeUk4MkRCWWpSTWVyRkQtelRMS2pzRDJUSW03RkdZSS04V2ZFamRsem9NOXkwVnNYNzFnOHI5MFNzc3ktazZjLTJIY1JlYmxWbFo0MWJUYVYwcmZkeDRZc3ZHUzdEd0lJYS1nTHhuMjh2Sy1UU2drOVZETVhMWldXdmlWNG5B0gG2AUFVX3lxTFBiU2JDLTNiTllZZjJMWXYtRDZPSzNiWFVabHB5d3pYQmJnS25KMVNhUlZOOXVXMXJpaFJuaTVuSmM1ZmgwMXdEUlhGVmdHckdkcks0dlJpcWtWcUVXSUlxSG8wWXVKZ3NIbzZrcEJDUHExeFgxeTNoa0VLLXNCcGxndFdmNDNmdEd1dDRrYS03QjZuVDRqRVBkU1o0OGFjVlpOZEhZWU0zUXFYSHQyb0VoVmdJRElB%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "3e91d458c94f5428",
@@ -11658,7 +11655,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqgFBVV95cUxQcmFNZjFoM1RJcXR4MmhfZ1ZnUHFUQWtENXkxVGdIWjFzZzhFa1NBaWRkSVBoZ0FZczRJRDFzai1OamRXTElsWUpUZWhPUTZvc2NTY0tubi1BczF0MU15R3g4V3diUzQ2T05ISVhhT292YzEzNjhwTnZkLXl2OG9kYjNxb0V5R1l4Y3BBczFsdnhPWVpNRHNOYUowdExZOFVMQmVJTEhOLWxZUQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "5be53ad3fb1b033d",
@@ -11919,8 +11917,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi-wFBVV95cUxQRFRoeUtmVWFiMXl5a2JlV1VheWlkYmpvOFc3UFI2Y2NkRUVvTm5pZ3haY1RyWjVTYXdKejZfbjRsZ1M2VHFNRmoyc29qaUc3S2dqY1pHNTdWS1lrZ3hMUDFpSTZ0eDJia2gwVFpCZWpTd1ZPTHdUU3psMXNYSGh5NW9RWmZselIzS2ZOUEVZcjRwa1BUTGRiZ0Rkd3ZuWjMzdUd3N2FrZ2tvMndNWHQ3dFJvcHhXWlpnZ0VtRDl6UHFOdVROTEZ2US1uWmJGTlFNd1hMUVcwU2g0RnFBUy1tZUJHT0NDVld5ZVNoN0NqYWR3Z1RLZk1TTzA1b9IB-gFBVV95cUxOSV9DQWFwWmRrdWh6ZE05RGxpcjlCeHdQM2NTWGZMVVZTZnBjUFJ2UW02cVUzWEtRUUF3YjRobjRoZ1NDVDc4ZHlDZ2p5b1dlZDVwYXZ0MFg3X1FfT2x2Y0pKREVTVWZ4M2pyT0RyNE5ELTItNXo2OTVNTWtoTHF0Z1g0Vk85cHRhd0t5YjFkUVBzeTljNTNIVXBwRVdZZ25yY1RXTWF1Y3g2bDA0S1R5SjNwQjZYZnNwVFZ0SnJGQzRhbkpOUU5DenlvczY5RzctQnJDTDIxWDlsWkd6d3NrTVJ2OUlyR1NJZGI3RTdERXJfaDdhZlNuR2Nn%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "cce06216234fd407",
@@ -12014,8 +12011,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMivgFBVV95cUxOT0ZGZk1URURNYW1xZzVaS3hzWU5iZlBsWWtrc2Fnd3d5VlBBbi13VlBPWGNtQkJjWkRMOWVteTBZNU1Qak9tMmZKR0ZBQ2NYSTRmaFBOblRHR2ZEcEFER2liaDN5X05JcVFpcFE1U1dkQTRvUUpka25Hblk4V285al9QV01ONFQ2Skhsb0FyYmtZQkJwWmNNbTl0LXQ5ejNrWERTVzBEQTZ0THg0OHFoRnB6eWpob2FQam1rbExB%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "da0b7d5f2f8fe660",
@@ -12050,8 +12046,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitgFBVV95cUxNMHNZcXlPbDU4dEZiRTVzSDBMYWxWWnNHay1nVjF0NnF1S1luNFVQajdtUGI0RnhTNUdpd0dnQjctUmhqQjc2ckhRM29VZ0hldkZxRE1ZaE9XMU9EU1BzNFloLWJfZHJRVkF0Y0pJTWFSbmlFT3RRTDhLQVNnUS1QVG9nZzg0aEtMSjZQZ3plWDI2a1lxcFZ6OVIzSkNtRlpjSlJXeWljV0JBMnM0UjlXdS1xNV9Rdw%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "aa30f9c186d47627",
@@ -12144,8 +12139,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitgFBVV95cUxNb1RiT2wtZjZWYnBWR2I4RWtTNE9fNmF2V09uM2ZYdzdlZjBndUFENkprZ1FrWU9YR2hhbE5ubjFZV2VHdGp0RUxRNEpsSWlOc2lsYnFkUFZROU9nZDhXYlNUSVVxdXNXSUIzbjN0czJzM0VpRVVpMXZQaDBJSmJSLWFjWXY5Z3RDc0dGRG85ZVVWeVBxZjJLaFN1OGN2VDJDS3BCaU85dlBzMGUzSDFJNm1mZW5oUQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "767d51662455b725",
@@ -12204,8 +12198,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMigwJBVV95cUxNa2FwTkFtUjZGSkI3d3Blb1pjMmJuVXhacXBlakJaSFFGcEdYYV9CREF3Q0YwbG1lNE5KRm9rMXBhV3pkSGN5dkdWOXFFa1JaSFR4dnhVMmFJRjE5aEhRYnZXSTBSamdiSEtObjRDaWxpNEJlcVlFT2FndnJyNjd1WDZVemJyWUczTy1OWmdxbmMtaGxQTUx5MXNHeWdhb0dmaFl3RUdjR3ZEMWF4QmRzWGV4YWFwQjR1Y241eHFpUlVxazhoc0l3LWphVllJb0dHeHFxYTZ3cU5MenhDUFNNWGxSQVhOMFpaMl9mLXdlNEJrelFyVmdMLVczQnRKYkR0OFVv%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "1da1d0b683e36dd0",
@@ -12334,7 +12327,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitwFBVV95cUxNUHVBMDBoY3V2eXRwSmxScDNnNGRfdEV6czdwOHRrVXdGcEtjTHJoUXpLVWtadk8zWldJNFVlcWx2S3lTblpFV2JOd1NPYTJhVmE2TTNvMFBFcHdjdTBJRVFzUkRvN0E1c3FzcEJSVW0yVm94UTdlZWpONFNwVnhCMzhfdTVmMEJONi1tcGp3ekhXZFlfXzBGSVh1Q1N1Ukp3OElOV0wyVzZLVmVlZU1oSE1hVUNwYlU%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "c383cdf4d93b0423",
@@ -12403,6 +12397,240 @@
       "summary_original": "Non, le curaçao bleu n'est pas bleu &nbsp;&nbsp; France 24",
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMilwFBVV95cUxON0NHTUFYNjdIVWw2bDMtWkV0ZVEteXdtbUJOVDBoclhYSEczTmsyVVdaTUhIZzdwSE5yS3JKek9IZXdROUxZa1lLU0pFVnY2LWc4TmVOdXV1ZWZ0cEJYQ0JRUEd6RWphb1dyWW8wb1FKMU50cFQ3azJPZUxJNVdhcXRRTHFfOWF1eDlVZkpnSmdKX1gtSTlB%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link",
+      "_from_history": true
+    },
+    {
+      "id": "3c6d070b626ff2ae",
+      "title": "La France va lancer son propre système d’exploitation pour sa souveraineté numérique - BuzzWebzine",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQd1FSNEI5cWJVbkZCTzVEY2owUzBEckpIQVpFNi1VSTF4WXRRcTNDZ0lUNTdXZ3hsQmlnRkxKb3Jhd1h4cjVSLU8tTzh2SE9GMEotQ1hfVlZxaTdOVXBESWpac2Z1MUpQUmllUVNYM3RRcXRaTEdiVXdoVXF6eEREZVM1clZxd0xmaWVoZm1TMFBxMkpkS2draHhwb1hVcG5DYldEbXlleGRUUkp1TExVUQ?oc=5",
+      "source": "BuzzWebzine",
+      "published": "2026-04-25T07:00:00+00:00",
+      "published_display": "2026-04-25",
+      "published_date_short": "2026-04-25",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
+      "summary": "La France va lancer son propre système d’exploitation pour sa souveraineté numérique &nbsp;&nbsp; BuzzWebzine",
+      "event_type": "policy_law",
+      "event_type_label": "政策法规",
+      "event_type_icon": "📜",
+      "entities": [],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 60,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T17:35:00.099519+00:00",
+      "title_original": "La France va lancer son propre système d’exploitation pour sa souveraineté numérique - BuzzWebzine",
+      "title_zh": "",
+      "summary_original": "La France va lancer son propre système d’exploitation pour sa souveraineté numérique &nbsp;&nbsp; BuzzWebzine",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMisAFBVV95cUxQd1FSNEI5cWJVbkZCTzVEY2owUzBEckpIQVpFNi1VSTF4WXRRcTNDZ0lUNTdXZ3hsQmlnRkxKb3Jhd1h4cjVSLU8tTzh2SE9GMEotQ1hfVlZxaTdOVXBESWpac2Z1MUpQUmllUVNYM3RRcXRaTEdiVXdoVXF6eEREZVM1clZxd0xmaWVoZm1TMFBxMkpkS2draHhwb1hVcG5DYldEbXlleGRUUkp1TExVUQ%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "e065b2f4f6a0d2c9",
+      "title": "Écosystème de stockage d'IA pour les Data Centers - NVIDIA",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5VWEFWeXFQdzRKLXhrR19fUXpHa21MR3UtNWRRcXJSeC0xVFhFTnN2Q1RUUkprNjRtbXhYWUFhc1NMNDAzejNHTU5neDVwYnotaEY5S3ZwLUFFZTBMVTVhVVJn?oc=5",
+      "source": "NVIDIA",
+      "published": "2026-03-17T09:38:42+00:00",
+      "published_display": "2026-03-17",
+      "published_date_short": "2026-03-17",
+      "category": "ai_datacenter",
+      "category_label": "AI云与数据中心",
+      "provider": null,
+      "summary": "Écosystème de stockage d'IA pour les Data Centers &nbsp;&nbsp; NVIDIA",
+      "event_type": "datacenter",
+      "event_type_label": "数据中心/基础设施",
+      "event_type_icon": "🏗️",
+      "entities": [],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 61,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T17:37:37.156392+00:00",
+      "title_original": "Écosystème de stockage d'IA pour les Data Centers - NVIDIA",
+      "title_zh": "",
+      "summary_original": "Écosystème de stockage d'IA pour les Data Centers &nbsp;&nbsp; NVIDIA",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiYkFVX3lxTE5VWEFWeXFQdzRKLXhrR19fUXpHa21MR3UtNWRRcXJSeC0xVFhFTnN2Q1RUUkprNjRtbXhYWUFhc1NMNDAzejNHTU5neDVwYnotaEY5S3ZwLUFFZTBMVTVhVVJn%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "53608d4c0bfd8d6c",
+      "title": "Fuites de données en série dans le sport, la CNIL place 30 fédérations sous surveillance - ZDNET",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNS0tKN2d6dktza3V1cXY4cERRcU9kWms2UFpIT3ZDcm84MnVqZmJqUzJDdzRoOFZ1eGhJb21PdWptWWhXblJuTHlEb3ZOSV9tVnA0dlZCdFVNUzRRUEctWkczOHRqOHZlcjBrOC1ETmtTY2lOWTlraDk3bTE4azJPTXdEQVVpVDZPZ1RjbS04QWdFYWJ2dUJjU2s2YXlQNGN1QTczclo3UHc5bWVyRXRITUpCaGJFLW5nRDE0VlR0S0JmOUVJZFpJdXhR?oc=5",
+      "source": "ZDNET",
+      "published": "2026-04-08T07:00:00+00:00",
+      "published_display": "2026-04-08",
+      "published_date_short": "2026-04-08",
+      "category": "policy_regulation",
+      "category_label": "政策监管",
+      "provider": null,
+      "summary": "Fuites de données en série dans le sport, la CNIL place 30 fédérations sous surveillance &nbsp;&nbsp; ZDNET",
+      "event_type": "policy_law",
+      "event_type_label": "政策法规",
+      "event_type_icon": "📜",
+      "entities": [
+        {
+          "display": "CNIL",
+          "color": "#E1000F",
+          "group": "regulators"
+        }
+      ],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 60,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T17:38:15.499338+00:00",
+      "title_original": "Fuites de données en série dans le sport, la CNIL place 30 fédérations sous surveillance - ZDNET",
+      "title_zh": "",
+      "summary_original": "Fuites de données en série dans le sport, la CNIL place 30 fédérations sous surveillance &nbsp;&nbsp; ZDNET",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiygFBVV95cUxNS0tKN2d6dktza3V1cXY4cERRcU9kWms2UFpIT3ZDcm84MnVqZmJqUzJDdzRoOFZ1eGhJb21PdWptWWhXblJuTHlEb3ZOSV9tVnA0dlZCdFVNUzRRUEctWkczOHRqOHZlcjBrOC1ETmtTY2lOWTlraDk3bTE4azJPTXdEQVVpVDZPZ1RjbS04QWdFYWJ2dUJjU2s2YXlQNGN1QTczclo3UHc5bWVyRXRITUpCaGJFLW5nRDE0VlR0S0JmOUVJZFpJdXhR%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "a520696c941830c5",
+      "title": "OVHcloud sélectionné pour un cloud souverain européen - Zonebourse",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNTS1CZjhPVGJtbWZfSkJVOE1tamFXMUNFUVpkbUdxeHV0VkVoblUzWXI1NEJ6RFdPSUt0QzRYV0pnaHhZSEdrc09RbTJCeFhFajF0anIwanhES1BDYWhhaUgtYjR3R2lJUUQ2S0hBcnJIeTJ1U2ZZaURpRTdmVEw4enRBQkdWVnV0S0xQM0JzcTJyMFJJalFrNTgySkxBVnRJYTVRZkwtby1CSld6VC03MG02aDU?oc=5",
+      "source": "Zonebourse",
+      "published": "2026-04-17T07:00:00+00:00",
+      "published_display": "2026-04-17",
+      "published_date_short": "2026-04-17",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
+      "summary": "OVHcloud sélectionné pour un cloud souverain européen &nbsp;&nbsp; Zonebourse",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "OVHcloud",
+          "color": "#002395",
+          "group": "sovereign_cloud"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 35,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T17:38:30.626101+00:00",
+      "title_original": "OVHcloud sélectionné pour un cloud souverain européen - Zonebourse",
+      "title_zh": "",
+      "summary_original": "OVHcloud sélectionné pour un cloud souverain européen &nbsp;&nbsp; Zonebourse",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitAFBVV95cUxNTS1CZjhPVGJtbWZfSkJVOE1tamFXMUNFUVpkbUdxeHV0VkVoblUzWXI1NEJ6RFdPSUt0QzRYV0pnaHhZSEdrc09RbTJCeFhFajF0anIwanhES1BDYWhhaUgtYjR3R2lJUUQ2S0hBcnJIeTJ1U2ZZaURpRTdmVEw4enRBQkdWVnV0S0xQM0JzcTJyMFJJalFrNTgySkxBVnRJYTVRZkwtby1CSld6VC03MG02aDU%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "8b5dd86c4ae4f9df",
+      "title": "Euro numérique : OvhCloud fournira son infrastructure - ZDNET",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOaFJ0YmpNM1BTN1EwOXRDTHJycGVnWXN1QkRJY2Zfd1RHaXd2VGtWUEduYUNDRjhNck96dGx3bHQ1S2VvcUczQlJIbnlXZWxsVUg1RUtBT2ZxT0ZybXVVR1BfbE03TWxKMEQ4NURqN3ljRVkwR1JMMlRqaU9HbU5BVW9WYl8wR1pXYzlaNFFKR01YQi1MQ3JUMGZB?oc=5",
+      "source": "ZDNET",
+      "published": "2026-03-20T07:00:00+00:00",
+      "published_display": "2026-03-20",
+      "published_date_short": "2026-03-20",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
+      "summary": "Euro numérique : OvhCloud fournira son infrastructure &nbsp;&nbsp; ZDNET",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "OVHcloud",
+          "color": "#002395",
+          "group": "sovereign_cloud"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 28,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T17:38:30.632622+00:00",
+      "title_original": "Euro numérique : OvhCloud fournira son infrastructure - ZDNET",
+      "title_zh": "",
+      "summary_original": "Euro numérique : OvhCloud fournira son infrastructure &nbsp;&nbsp; ZDNET",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMimgFBVV95cUxOaFJ0YmpNM1BTN1EwOXRDTHJycGVnWXN1QkRJY2Zfd1RHaXd2VGtWUEduYUNDRjhNck96dGx3bHQ1S2VvcUczQlJIbnlXZWxsVUg1RUtBT2ZxT0ZybXVVR1BfbE03TWxKMEQ4NURqN3ljRVkwR1JMMlRqaU9HbU5BVW9WYl8wR1pXYzlaNFFKR01YQi1MQ3JUMGZB%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "b4690195abefe5c6",
+      "title": "Panne OVHcloud à Gravelines : des milliers de sites français inaccessibles - mediaterranee.com",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQWZGN0ZzYm10MHlmT3NPMERaN1YwdGhPT0J2OWNLNE5sMUY2bFFObXNVVEFoZ0UxeG9HYjFSVlRmbTNadm40QjVhX2JLZkwzVnBudkNCU09rMV9NdjF6NVRPV0g5ZGhzSkMyNWhUTlBmZ1hXOXVZZk9sTmo5OEs2bEJnUXBWM05RcHA1b3JOWWxoNzlha3Q2b1VSNGYxMjcwRDdFS1RXRkE2TVRkSVpTdEZLaw?oc=5",
+      "source": "mediaterranee.com",
+      "published": "2026-02-23T08:00:00+00:00",
+      "published_display": "2026-02-23",
+      "published_date_short": "2026-02-23",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
+      "summary": "Panne OVHcloud à Gravelines : des milliers de sites français inaccessibles &nbsp;&nbsp; mediaterranee.com",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "OVHcloud",
+          "color": "#002395",
+          "group": "sovereign_cloud"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 26,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T17:38:30.647668+00:00",
+      "title_original": "Panne OVHcloud à Gravelines : des milliers de sites français inaccessibles - mediaterranee.com",
+      "title_zh": "",
+      "summary_original": "Panne OVHcloud à Gravelines : des milliers de sites français inaccessibles &nbsp;&nbsp; mediaterranee.com",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiswFBVV95cUxOQWZGN0ZzYm10MHlmT3NPMERaN1YwdGhPT0J2OWNLNE5sMUY2bFFObXNVVEFoZ0UxeG9HYjFSVlRmbTNadm40QjVhX2JLZkwzVnBudkNCU09rMV9NdjF6NVRPV0g5ZGhzSkMyNWhUTlBmZ1hXOXVZZk9sTmo5OEs2bEJnUXBWM05RcHA1b3JOWWxoNzlha3Q2b1VSNGYxMjcwRDdFS1RXRkE2TVRkSVpTdEZLaw%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "833210ea10248586",
+      "title": "Panne chez OVHcloud : plusieurs sites web inaccessibles - tomsguide.fr",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOYnRneW84bVBlMEs4X2FoNHlWeHYxdFRLUDJXX3JqZXNzamRlc3NyOTJxX09jVXBzMDBSM3pvcmNheFZFWFRjR2FPQzVXUko0U0hOdzdKX2N3cHBJS2xkWVNTNm5ZeFY1enVRbUNyVWZKMkRSVF8xd2xEdTRTeFRRSkQyWW5MZw?oc=5",
+      "source": "tomsguide.fr",
+      "published": "2026-02-24T08:00:00+00:00",
+      "published_display": "2026-02-24",
+      "published_date_short": "2026-02-24",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
+      "summary": "Panne chez OVHcloud : plusieurs sites web inaccessibles &nbsp;&nbsp; tomsguide.fr",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "OVHcloud",
+          "color": "#002395",
+          "group": "sovereign_cloud"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 23,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T17:38:30.637142+00:00",
+      "title_original": "Panne chez OVHcloud : plusieurs sites web inaccessibles - tomsguide.fr",
+      "title_zh": "",
+      "summary_original": "Panne chez OVHcloud : plusieurs sites web inaccessibles &nbsp;&nbsp; tomsguide.fr",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMihgFBVV95cUxOYnRneW84bVBlMEs4X2FoNHlWeHYxdFRLUDJXX3JqZXNzamRlc3NyOTJxX09jVXBzMDBSM3pvcmNheFZFWFRjR2FPQzVXUko0U0hOdzdKX2N3cHBJS2xkWVNTNm5ZeFY1enVRbUNyVWZKMkRSVF8xd2xEdTRTeFRRSkQyWW5MZw%3Foc%3D5",
       "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     }
