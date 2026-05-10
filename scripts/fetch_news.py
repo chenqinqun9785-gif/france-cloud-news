@@ -29,6 +29,77 @@ from config import (
 # 0. UTILITY HELPERS
 # ═══════════════════════════════════════════════════════════
 
+def build_google_translate_url(original_url):
+    """Build a Google Translate link for full-page Chinese translation."""
+    if not original_url:
+        return ""
+    return f"https://translate.google.com/translate?sl=auto&tl=zh-CN&u={quote(original_url, safe='')}"
+
+# ═══════════════════════════════════════════════════════════
+# 0b. TRANSLATION UTILITIES
+# ═══════════════════════════════════════════════════════════
+
+def translate_text_to_zh(text):
+    """Translate a single text string to Chinese using Google Translate API."""
+    if not text or not text.strip():
+        return text
+    import urllib.request
+    import urllib.parse
+
+    url = "https://translate.googleapis.com/translate_a/single"
+    params = {"client": "gtx", "sl": "auto", "tl": "zh-CN", "dt": "t", "q": text}
+    full_url = url + "?" + urllib.parse.urlencode(params, quote_via=urllib.parse.quote)
+
+    try:
+        req = urllib.request.Request(full_url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            if data and data[0]:
+                return "".join([part[0] for part in data[0] if part[0] is not None])
+    except Exception:
+        pass
+    return text
+
+
+def translate_article(article):
+    """Fill in title_zh and summary_zh for an article. Returns the article."""
+    if not article.get("title_zh") or article.get("translation_status") == "fallback_original":
+        try:
+            article["title_zh"] = translate_text_to_zh(article.get("title_original", article.get("title", "")))
+            article["translation_status"] = "translated"
+        except Exception:
+            article["title_zh"] = article.get("title_original", article.get("title", ""))
+            article["translation_status"] = "fallback_original"
+
+    if not article.get("summary_zh") or article.get("translation_status") == "fallback_original":
+        try:
+            article["summary_zh"] = translate_text_to_zh(article.get("summary_original", article.get("summary", "")))
+        except Exception:
+            article["summary_zh"] = article.get("summary_original", article.get("summary", ""))
+
+    return article
+
+
+def ensure_translation_fields(article):
+    """Fill missing translation fields for backward compatibility."""
+    defaults = {
+        "title_original": article.get("title", ""),
+        "title_zh": article.get("title_zh") or article.get("title", ""),
+        "summary_original": article.get("summary", ""),
+        "summary_zh": article.get("summary_zh") or article.get("summary", ""),
+        "translated_url": article.get("translated_url") or build_google_translate_url(article.get("url", "")),
+        "translation_status": article.get("translation_status", "fallback_original"),
+        "translation_provider": article.get("translation_provider", "google_translate_link"),
+    }
+    for k, v in defaults.items():
+        if k not in article or article[k] is None:
+            article[k] = v
+    return article
+
+# ═══════════════════════════════════════════════════════════
+# 1. CLASSIFICATION
+# ═══════════════════════════════════════════════════════════
+
 def normalize_title(title):
     """Normalize title for dedup comparison."""
     t = title.lower()
@@ -212,6 +283,9 @@ def extract_article(entry, query_config):
     date_short = published_dt.strftime("%Y-%m-%d") if published_dt else ""
     published_iso = published_dt.isoformat() if published_dt else ""
 
+    # Translation URL
+    translated_url = build_google_translate_url(link)
+
     return {
         "id": stable_id(title, source),
         "title": title,
@@ -233,6 +307,14 @@ def extract_article(entry, query_config):
         "importance_score": score,
         "importance_label": IMPORTANCE_LABELS.get(level, "低"),
         "first_seen_at": datetime.now(timezone.utc).isoformat(),
+        # Translation fields (v3.1)
+        "title_original": title,
+        "title_zh": "",  # filled later by translate_article()
+        "summary_original": summary,
+        "summary_zh": "",  # filled later by translate_article()
+        "translated_url": translated_url,
+        "translation_status": "not_translated",
+        "translation_provider": "google_translate_link",
     }
 
 
@@ -297,11 +379,13 @@ def save_history(articles, history_path):
 
 
 def merge_with_history(new_articles, history):
-    """Merge new articles with history, preserving first_seen."""
+    """Merge new articles with history, preserving first_seen and translations."""
     merged = {}
     # Add history first
     for aid, a in history.items():
         a["_from_history"] = True
+        # Ensure compatibility for old history articles
+        a = ensure_translation_fields(a)
         merged[aid] = a
 
     # Add/update new articles
@@ -309,15 +393,37 @@ def merge_with_history(new_articles, history):
         aid = a["id"]
         if aid in merged:
             old = merged[aid]
+            # Preserve existing translations from history
+            for field in ["title_zh", "summary_zh", "translation_status", "translation_provider"]:
+                if old.get(field) and old[field] != "fallback_original" and old[field] != "not_translated":
+                    a[field] = old[field]
+            # Preserve first_seen and translated_url
+            a["first_seen_at"] = old.get("first_seen_at", a["first_seen_at"])
+            a["translated_url"] = old.get("translated_url") or a.get("translated_url", "")
             old["_from_history"] = False
             old["last_seen_at"] = datetime.now(timezone.utc).isoformat()
-            # Keep first_seen from history
-            a["first_seen_at"] = old.get("first_seen_at", a["first_seen_at"])
             merged[aid] = a
         else:
             merged[aid] = a
 
     return list(merged.values())
+
+
+def translate_new_articles(articles, max_translations=50):
+    """Translate titles/summaries for articles missing translations. Capped per run."""
+    to_translate = [a for a in articles
+                    if not a.get("title_zh") or a.get("translation_status") in ("not_translated", "fallback_original")]
+    to_translate = to_translate[:max_translations]
+
+    if not to_translate:
+        return
+
+    print(f"  Translating {len(to_translate)} new articles...")
+    for i, a in enumerate(to_translate):
+        a = translate_article(a)
+        if i < len(to_translate) - 1:
+            time.sleep(0.3)
+    print(f"  Translation complete")
 
 
 # ═══════════════════════════════════════════════════════════
@@ -428,13 +534,12 @@ def send_telegram_digest(articles, bot_token, chat_id):
 
     top = in_24h[:20]
 
-    # Translate titles
-    print(f"  Translating {len(top)} titles...")
-    for i, a in enumerate(top):
-        a["title_cn"] = translate_to_chinese(a["title"])
-        if i < len(top) - 1:
-            time.sleep(0.3)
-    print(f"  Translation complete")
+    # Ensure all have Chinese titles
+    for a in top:
+        if not a.get("title_zh") or a.get("translation_status") in ("not_translated", "fallback_original"):
+            a["title_zh"] = translate_text_to_zh(a.get("title_original", a.get("title", "")))
+        if not a.get("translated_url"):
+            a["translated_url"] = build_google_translate_url(a.get("url", ""))
 
     # Group by category
     groups = {}
@@ -464,7 +569,7 @@ def send_telegram_digest(articles, bot_token, chat_id):
         lines.append(f"*{cat_emoji.get(cat, '')} {cat_labels.get(cat, cat)}*")
 
         for a in items:
-            cn_title = a.get("title_cn", a["title"])
+            cn_title = a.get("title_zh") or a.get("title_cn") or a.get("title_original") or a["title"]
             et_label = a.get("event_type_label", "")
             et_icon = a.get("event_type_icon", "")
             score = a.get("importance_score", 0)
@@ -474,8 +579,10 @@ def send_telegram_digest(articles, bot_token, chat_id):
             entity_str = "｜".join(entity_names) if entity_names else ""
 
             source = a.get("source", "")
+            t_url = a.get("translated_url") or build_google_translate_url(a.get("url", ""))
 
-            lines.append(f"[{score}] [{cn_title}]({a['url']})")
+            lines.append(f"[{score}] [{cn_title}]({t_url})")
+            lines.append(f"    [{a.get('title_original','')[:60]}]({a['url']})")
             tag_line = f"    {et_icon}{et_label}"
             if entity_str:
                 tag_line += f"｜{entity_str}"
@@ -515,9 +622,9 @@ def escape_for_script(json_str):
 
 
 def generate_html(articles):
-    """Generate complete self-contained HTML dashboard (v3)."""
+    """Generate complete self-contained HTML dashboard (v3.1)."""
     generated_at = datetime.now().isoformat()
-    articles_json = escape_for_script(json.dumps(articles, ensure_ascii=False))
+    articles_json = json.dumps(articles, ensure_ascii=False)
     categories_json = escape_for_script(json.dumps(CATEGORIES, ensure_ascii=False))
     event_types_json = escape_for_script(json.dumps(EVENT_TYPES, ensure_ascii=False))
     provider_colors_json = json.dumps(PROVIDER_COLORS, ensure_ascii=False)
@@ -595,6 +702,25 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 .card-meta{{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-muted);flex-wrap:wrap}}
 .card-summary{{font-size:12px;color:var(--text-secondary);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
 
+/* Card: Chinese title */
+.card-title-zh{{font-size:14px;font-weight:600;line-height:1.4;margin-bottom:4px;color:var(--text)}}
+
+/* Card: expandable original */
+.card-original{{margin-top:8px;padding:8px 12px;background:rgba(0,0,0,0.2);border-radius:var(--radius-sm);border-left:2px solid var(--border)}}
+.card-original .orig-title{{font-size:13px;color:var(--text-secondary);font-weight:500;margin-bottom:4px}}
+.card-original .orig-summary{{font-size:11px;color:var(--text-muted);line-height:1.5}}
+
+/* Card: action buttons */
+.card-actions{{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}}
+.btn{{display:inline-block;padding:6px 14px;border-radius:16px;font-size:11px;font-weight:600;text-decoration:none;cursor:pointer;transition:all 0.2s;border:1px solid transparent;white-space:nowrap}}
+.btn-translate{{background:#2563EB;color:#fff;border-color:#2563EB}}
+.btn-translate:hover{{background:#1D4ED8}}
+.btn-translate:active{{background:#1E40AF}}
+.btn-original{{background:var(--bg-card);color:var(--text-secondary);border-color:var(--border)}}
+.btn-original:hover{{background:var(--bg-hover);color:var(--text)}}
+.btn-toggle{{background:transparent;color:var(--text-muted);border-color:var(--border);font-family:inherit}}
+.btn-toggle:hover{{color:var(--text);border-color:var(--text-muted)}}
+
 .empty-state{{text-align:center;padding:60px 20px;color:var(--text-muted)}}
 .empty-state .empty-icon{{font-size:48px;margin-bottom:12px}}
 .footer{{text-align:center;padding:24px 16px;color:var(--text-muted);font-size:11px;border-top:1px solid var(--border);margin-top:28px}}
@@ -652,8 +778,9 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
     Donnees fournies par Google News · Filtees sur la France · Mise a jour quotidienne · v3
 </footer>
 
+<script id="articles-data" type="application/json">{articles_json}</script>
 <script>
-const ALL_ARTICLES = {articles_json};
+const ALL_ARTICLES = JSON.parse(document.getElementById('articles-data').textContent);
 const CATEGORIES = {categories_json};
 const EVENT_TYPES = {event_types_json};
 const PROVIDER_COLORS = {provider_colors_json};
@@ -819,42 +946,62 @@ function renderFeed() {{
 
         articles.forEach(a => {{
             const cardClass = a.importance === "high" ? "news-card card-high" : a.importance === "medium" ? "news-card card-medium" : "news-card";
+            const cardId = 'card-' + (a.id || Math.random().toString(36).slice(2,8));
             html += '<div class="' + cardClass + '">';
 
             // Badges row
             html += '<div class="card-badges">';
-            // Importance stars
             html += '<span class="importance-stars" style="color:' + (IMPORTANCE_COLORS[a.importance]||"#6B7280") + '" title="Score:' + (a.importance_score||0) + '">' + (a.importance_stars||"★") + '</span>';
-            // Event type
             const etInfo = EVENT_TYPES[a.event_type] || EVENT_TYPES.general;
             html += '<span class="event-type-badge" style="background:' + etInfo.color + '">' + etInfo.icon + ' ' + etInfo.label + '</span>';
-            // Provider
             if (a.provider) {{
                 html += '<span class="provider-badge" style="background:' + (PROVIDER_COLORS[a.provider]||"#6B7280") + '">' + a.provider + '</span>';
             }}
-            // Entities
             if (a.entities) {{
                 a.entities.slice(0, 3).forEach(e => {{
                     html += '<span class="entity-tag" style="background:' + e.color + '">' + e.display + '</span>';
                 }});
             }}
-            // Score
             html += '<span class="score-badge">[' + (a.importance_score||0) + ']</span>';
             html += '</div>';
 
-            // Title
-            const titleEsc = a.title.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-            html += '<div class="card-title"><a href="' + a.url + '" target="_blank" rel="noopener noreferrer">' + titleEsc + '</a></div>';
+            // Chinese title (primary display)
+            const cnTitle = (a.title_zh || a.title_original || a.title || "");
+            const cnTitleEsc = cnTitle.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+            const tUrl = a.translated_url || "";
+            html += '<div class="card-title-zh">' + cnTitleEsc + '</div>';
 
             // Meta
             const sourceEsc = (a.source||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
             html += '<div class="card-meta"><span>' + sourceEsc + '</span><span>' + (a.published_date_short||"") + '</span><span>' + (a.published_display||"") + '</span></div>';
 
-            // Summary
-            if (a.summary) {{
-                const sumEsc = a.summary.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-                html += '<div class="card-summary">' + sumEsc + '</div>';
+            // Chinese summary (primary display)
+            const cnSummary = (a.summary_zh || a.summary_original || a.summary || "");
+            if (cnSummary) {{
+                const cnSumEsc = cnSummary.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+                html += '<div class="card-summary">' + cnSumEsc + '</div>';
             }}
+
+            // Expandable original title/summary
+            const origTitle = (a.title_original || a.title || "");
+            const origSummary = (a.summary_original || a.summary || "");
+            const origTitleEsc = origTitle.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+            const origSumEsc = origSummary.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+            html += '<div class="card-original" id="' + cardId + '-orig" style="display:none">';
+            html += '<div class="orig-title">' + origTitleEsc + '</div>';
+            if (origSummary) html += '<div class="orig-summary">' + origSumEsc + '</div>';
+            html += '</div>';
+
+            // Action buttons
+            html += '<div class="card-actions">';
+            if (tUrl) {{
+                html += '<a href="' + tUrl + '" target="_blank" rel="noopener noreferrer" class="btn btn-translate">🌐 中文机翻全文</a>';
+            }}
+            if (a.url) {{
+                html += '<a href="' + a.url + '" target="_blank" rel="noopener noreferrer" class="btn btn-original">📄 查看原文</a>';
+            }}
+            html += '<button class="btn btn-toggle" onclick="var el=document.getElementById(\'' + cardId + '-orig\');el.style.display=el.style.display===\'none\'?\'\':\'none\';this.textContent=el.style.display===\'none\'?\'📋 原文\':\'📋 收起\';" title="显示/隐藏原始标题和摘要">📋 原文</button>';
+            html += '</div>';
 
             html += '</div>';
         }});
@@ -914,14 +1061,21 @@ def main():
     articles = merge_with_history(articles, history)
     print(f"After history merge: {len(articles)}")
 
-    # 3. Write output
+    # 3. Translate new articles (capped per run to avoid rate limits)
+    translate_new_articles(articles, max_translations=50)
+
+    # 4. Ensure all articles have translation fields (backward compat)
+    for a in articles:
+        ensure_translation_fields(a)
+
+    # 6. Write output
     write_output(articles, output_path)
 
-    # 4. Save history
+    # 7. Save history
     save_history(articles, history_path)
     print(f"[OK] History saved to: {history_path}")
 
-    # 5. Telegram
+    # 8. Telegram
     bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
     chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
     if bot_token and chat_id:
