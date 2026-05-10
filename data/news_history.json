@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-10T16:59:18.356088+00:00",
-  "total": 380,
+  "generated_at": "2026-05-10T17:17:51.328054+00:00",
+  "total": 383,
   "articles": [
     {
       "id": "98a5d3890e166fb6",
@@ -615,8 +615,7 @@
       "summary_zh": "SAP et S3ns accélèrent l'adoption du cloud de confiance en France avec Thales comme premier client stratégique &nbsp;&nbsp; Zonebourse",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi8wFBVV95cUxPVnhYQmU3UGkyV2tUejBpODFLaGRnbUVzc0JuUVBQNFFvRXhVRHEyUlcweHVrWjRTT3JfekZESDk2Y2NWckFnWVltTFJXdVpnX0x3QmF0YURfQmlJbmt1MkZhVVlWVVVEakt1NWtxSVp0Y3V4NVFaT3dIZFpiUVhCanJQN1JZUk54NXBqd2tDN2p4MkU4QUhyR0VULUNZZDBJTHZ1OHVibk45MkdoYU5ETWYyZEtqWVdwR3ZFRXhienJoVTdKSGU1ZEg2d3hIOVlVY28zTHdjRzhFRmJVVF9SREZETU8yX0V3bmNiR2tyRmRtckE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "6015c3d29bf14b6d",
@@ -1021,9 +1020,9 @@
       "published": "2026-03-23T07:00:00+00:00",
       "published_display": "2026-03-23",
       "published_date_short": "2026-03-23",
-      "category": "ai_datacenter",
-      "category_label": "AI云与数据中心",
-      "provider": "GCP",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
       "summary": "Souveraineté numérique : pourquoi la France forme ses propres experts en intelligence artificielle ? &nbsp;&nbsp; Sciencepost",
       "event_type": "policy_law",
       "event_type_label": "政策法规",
@@ -1417,7 +1416,8 @@
       "summary_zh": "Souveraineté numérique : Mistral AI promet un cloud IA européen... mais ses puces restent américaines &nbsp;&nbsp; Les Numériques",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi-AFBVV95cUxQbkVjRDdickk3aHZGUk05TXZfNktYVnZQY2pya2gyZHZiRFVoMVRDVW1GdkQ2QVpXSzhZaGxhZ1VQVDJYTzVZRU9UYkdQell1NW9xQ2pjamtOUmdhSXRkUU5pekU0amxzYjNZSTJzZGhyd3ItRUpDM2FIcEQ1MmhINS00Y0RrWnJTZmRjd3FINXRRc1FhMkNvZUI5Y182UmV2X3AxSXZoTHkxeVNJYk5STlJoWlJFc1M2bTNyVWdvcktiMC1KWUVvTzcwaS03aUYtZWVuRVVxNE9FUXFjUzNud0JaWE9iUmRHM0xGNVN3MkRBUF9yYzN0Tg%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "6b768e7a719ab2ae",
@@ -1893,7 +1893,8 @@
       "summary_zh": "Résilience numérique : la priorité des comex banque-assurance face à DORA et NIS 2 &nbsp;&nbsp; Décideurs Magazine",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi4wFBVV95cUxOOEpKdEV1bkRzZi11TEJ3NUNMU282YmdRV3lRNTVMNnExYnNtdk9wem5GTERpMkpsejh2bmQ2Sk9oQmlWWVdsdU5oR2l6WWIzM2lETU5mNmJicE9DY1ZYbklDM0FKOWJIdHJQUWUteHd4azhqdHRwNUlHWVAzSzVtbXpZb2oyUUMxZzdpQUR2aGNzdUY3MXVlVHktZVZEeU4tMzR4ZEhsZ3NLVEtzTU5NQ3c5dUlwN1RsNTVqZ241VDlYZ25BNjc5dEp6ZnBCbjN0R25tQU1DejdMRGVTei02a254RQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "1069382600502e57",
@@ -1980,7 +1981,8 @@
       "summary_zh": "IA : Mistral lève 830 millions de dollars pour un data center en France &nbsp;&nbsp; The Media Leader",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiogFBVV95cUxNMTBpcTYybnF0djVsd0tDUGw3a0FGcTY3aW9qUnJ2dkZtbm05WTA2aklBdGVlV1dnUUFKc0VoeWRCZjFoS3Jqak50VnhUVF9YbGxfZGEycG1KRXMxR1REbDVCODZpVVFLcVRvSEFnSjk5dzR5UkpiTmFuUGp1aTBYa082eGcyR1QzUHJhWURzbUxkaTBObEV1RDA0YjhrV1pIZUE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "81298ba6ddada5d1",
@@ -4390,8 +4392,7 @@
       "summary_zh": "Scaleway : la filiale cloud d’Iliad intègre un nouvel ordinateur quantique à ses offres et “soutient” la souveraineté Européenne &nbsp;&nbsp; Univers Freebox",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi_gFBVV95cUxPRHluQVJ3Y25Zd0NUU24zam5tSEgza3phcHI3eUlNajBtX1ZKTlh1SlVHSlJxUWc1VkdMSDJpSnh5X1N5UVRhTkdoU0tHQzVpZzFrTGtVcC1MQjRCeXU0LXkxWEViaHEzX0JPdHVaX1c2anZDVmhzZG1McmxTZGl6S0c2ZGpzNUg4eWlRZkZ3U1JtQy0wX2hfTURfMjZ1QkNnVHNQV2RybXYzZ3VuVUQ5UWJZTkVKZGY2RHdraTdoNEpiZ2NmcHBSdkNoZzhqcU95bXZCYzM1LWUyamRlVDlyZjdka0ZvQ05KdmJPRFVjWDdWdzNPTnNDZk5LUlEzZ9IBgwJBVV95cUxPQTkteEE0el9kLWw1V3A5UXllMkN2cTBvRHMwbWlMamswSVB0elY5ZC1BVWR0YzlZYUR1VE45cGZlRGpRc1ZOeEROcTN6V2F1eldBSHA1U1dCNUZhMU1EeHZVbjU1RE4zcTRFOXNJQmcxMXg5T2NLZURUTFktRVVSYjZia2ZPWnEwR3FnODNZcDBBMVR2QjZXQU9zbUJVWlRiS3dwSXBRZWNQVklzUEstVFdUbnlOMl9DWjRHZWR3YXMxVnNtcEprQkF3aG82X0pUTTQ4VmdhVGtrMldPeXpCTmJ3M214ZEtzSWR4cXN3aVZ0SUdtWS00UkNtUHlxYThpRFBv%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "562d7eaa25847911",
@@ -5230,8 +5231,7 @@
       "summary_zh": "Cloud de confiance : SAP embarque sur S3NS &nbsp;&nbsp; Silicon.fr",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiiAFBVV95cUxQOHA4dURaQ3l2amZIdVNscTNPSURaQVRoZmVySWN1aGZoeGJKWmlZa3NTRDVra2NWUDA1Wl9lclJsaEQ5VDdwSXRuaXRZc2NUa29MRGlzQUdtLUptLUZXczJha25MNi1GbU91VXBSNlh0bU01eWhNVm9Jck5kb25mVVdQejdOWEt10gGOAUFVX3lxTE5fLTFWOHpqOVFhZG8tZ2NaUl9jbEVjQ3p0d1ZBRExkUXJMcWNoejhXZGRKX01YTy1EYXlzUGpoV1pGOFd1cmdiSG5iYlpQQ2FtUkgxelpaZjJxRjRSSjFWMmU5TWVPSWF6QXNBY2t2REdIRWNSTEEzQThRSXh4ZzZ2amJ0WGQyejhnS1JoSGc%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "c806a628dc1777f5",
@@ -5444,8 +5444,7 @@
       "summary_zh": "Le Health data hub annonce sa migration de Microsoft vers l'hébergeur français Scaleway &nbsp;&nbsp; AEF info",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwgFBVV95cUxOX09KRTZaWlU2RFV1NjZ1SFBDb2xrLVhYUlRMLWFGbF9WeWZmeTFrNFBRcjMxRTM2bkpkUDJiWFJNdGRxdVJTcWxHM05nVEdKZ0lUOUtUUEM1WXI2OWl5Qi1CdUJKamZNUmkyV2JpWVFtU1FtbTFmREJvOUkyc1pRZnFacF9faFlNQVFoNzh1b0Rtczl1S1FIbGc4YWhRaWNvbzFFVE83N2VjcWt3aGhmNFNKVXBmWXY2SmdEZmVuOFV4Zw%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "3c06adefb90c9276",
@@ -5874,7 +5873,7 @@
       "published_date_short": "2026-03-05",
       "category": "sovereign_trusted",
       "category_label": "主权云/可信云",
-      "provider": "Cloud Temple",
+      "provider": null,
       "summary": "Cloud Temple retenu par la CANUT pour son cloud souverain &nbsp;&nbsp; Silicon.fr",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -7053,8 +7052,7 @@
       "summary_zh": "France buys nuclear supercomputing spinoff Bull from Atos for €404M &nbsp;&nbsp; The Register",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMirwFBVV95cUxNdXpCYnhiSDh0Nk9tMFFvSUluLU5QNmJSbF9oc0I4YXZ3c3BUOTdGRW5obmNzczdxb2wzUGJ6ZjFfWDkza2ZfdUpZVU40dmtuWUx5T2I5N0lYMUJvX0VJVXlOTXNrVW91TDFkYk9aZ0I4ZUFuRHY0cmJ2c2h5WFdjN3VXVmx1LVlTemFYeVpaUmNaLUE2ZlVyUXlVbDhPUUpvNElaR0VTVXNVeGJLaGE0%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "6e5c342ca7d00492",
@@ -7083,8 +7081,7 @@
       "summary_zh": "AVIS D’EXPERT – Cloud souverain : l’art de bien placer le curseur &nbsp;&nbsp; Solutions-Numeriques",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMingFBVV95cUxQWC1xY2puZmxucjkxR0E1MjIyM3pZUXpkeWdaU0U4bUZDcG5YcDlqY2JESjRuQ1RhUWJ5ajBVLUVDNWhkb3BqWUJKLVQyLXBzenluTm0wLVFRS1NXNXBSLXZVMHpNZHRleVNHblJOMmNIQk9sa2s2YXA3YmFaOU9MdzZlVEVUS05DRWZaTEJ1ZHN1VWdkcGxsU1lZQXFCUQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "805d7f47e747f733",
@@ -8288,7 +8285,8 @@
       "summary_zh": "5000 personnes sont sans solution d'hébergement en Ile-de-France, a révélé la Nuit de la solidarité &nbsp;&nbsp; La Gazette des Communes",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi2wFBVV95cUxPN2xNdkNMQjg4Z3F3clpBY2FDSGV2V09HdllnbUY3YjhtSnlVc05xNkdNdjAxTWxMQ0t0Tml1aHdPcVZuWEprMTlSRjdreWRLa3FqWmZYUG9QRU0zTXljcHlEak5EUUtEUHNlNE1iTkRRX0tJRjR5Ym9SaTdnOXNNTnc5T0JiRmU5ZmNEU2cxSUI5bmxYMnROQzFUS0xEUHZ3eEhOalBNa1RneWNySjJBbTVVZlc3eTNyVnlzM2pWZ3BkNGJZS3d6MUpVemJNQ3NQcExaNGxtblVBZFk%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "eac058e6689b16ff",
@@ -8457,8 +8455,7 @@
       "summary_zh": "Que fait ce grand navire orange et bleu au large, visible depuis le GR34 dans le Nord-Finistère &nbsp;&nbsp; MaVille.com - Rennes",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi7gFBVV95cUxQd0RpWWdtVGVYYy1fbU4zT3dZbjVnbWMwTVJWY1Bkd0NiblNRbjVkR2hMOEdfSnpsVEhsVXZUYXcwWG1zbGtiQmxINFlEdHdta0dwT2hOV0dOaHI5V1J3VW1FYmI5MkwwMEw5T1BnTXJaU2tDWHY3R2plZGEtVW5DZlZyckZZenZJWUxyN2p3RUFJZzhMbXNscElFZkstYjZqZk5FZG9LaE5HazJfeEllN0tRb1ZxcjY4UmNFMzlPekNxc0ZEaWs0RTdyNEJvdzR4d3NtUDBCaER1dEp5c2d6UWd0aHVmY0FkeDA2NXNn%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "512f5eb054a4c6fd",
@@ -8621,7 +8618,8 @@
       "summary_zh": "Le CA trimestriel de Cegedim plombé par les activités Cloud & Support &nbsp;&nbsp; Option Finance",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi2AFBVV95cUxPdXRRZDRmSGJDVDBPRjdyQlQ0RE1MeDhGZ2tnWjUtNWdwUHhLejZWTDEtYXktQ1NaSVgyRzJ5TkxRekg1YlBGMXd5UmtsWm13RllENGJBZUJIY2V3RG5wOEZySEZ0NzJuSTh5NzFaNjdRS01iNGVXTzgwYlJCRE1keGpJZ1BNNVN6QUJJdHNoR0dVUE8xc0RMeDVZV29vYUE1Y09vQ3FPZnZvb2h2UzlTYlQ3b0lPWllWbmpkeUlxbWFGcC1YaEFZeGxIb3BEMm9XMi1MLXhZeDk%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "a308b4c9fa8ca8ac",
@@ -9554,7 +9552,8 @@
       "summary_zh": "Le paiement 100 % européen Wero cachait un secret américain très embarrassant &nbsp;&nbsp; Frandroid",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwgFBVV95cUxOS1lUaDJkd1RacUlrTnNkWk5zOHhpQVpKZkNockVTNU9sTldfd0tIaXBhc0FyTG81ZU1NcHFFTWx1dXdlanhWSWxuUjJtU0xRSF9IVXNpTVZXdW5nQmlaSnVZRHZVSmU5NlJyVkt2RDEtVUxjUG84NVZkaXpIQjZrVFVWR2l5bDd5aXBVckV0MGM2aWRRU0pLSzhnUnhLQ0lzMGlFcTZSMlhHeXRSSXlaLTNHX1FnM3FpbTA3X1FZTkNjQQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "07b78e54418e202f",
@@ -10182,7 +10181,8 @@
       "summary_zh": "Nutanix &nbsp;&nbsp; L'Informaticien",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiiAFBVV95cUxNY0VVM3lEbDl6M1pnaHktNDZPbWdMZ0ZWUkxmZF9GVXU2NWIwSFJTb0FvTEdrd1N2akJVVXVfQzg1WVRaY1QyVTBralllZTlOMUQ2NkdxZFpSMGlxaXZIUk9haHFuN1lQd2lSSEtaZlduY3R0NFJuVkRjWk4waVJnZS1pOFpVTmh3%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "9e0bfb98beeb916b",
@@ -10275,7 +10275,8 @@
       "summary_zh": "Cyberattaques et fuites de données de l’État français &nbsp;&nbsp; dpo partage",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMihwFBVV95cUxOamJHWUVydXdwMmMzRlV2cWVEcEtnWEZMejVjbHZsMXdvQlZEWGg2cXFEa0VlY3l4V28zaTZlYUN2T1hsRjd3TTVKQVFyVENvZWlCQzhFUVVYbTQwclVtc25PQUx0bzFzNFRnV1ZaZE5fNmtaS0xnR2VSd3JFQnp2OWxoaFhMVk0%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "1cf59fe84eb8e3d2",
@@ -10648,7 +10649,8 @@
       "summary_zh": "Jurgen Hofkens prend la direction technique de NetApp EMEA et LATAM &nbsp;&nbsp; Distributique",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwgFBVV95cUxQLVQzNDB1V0NDXzdlZ3Qwd2x0bGxhUzVDTTdXSnRLZm5WZlp4bzVVbXpjeURtb0RzSGQ4ck9xSkdHazV1ZWFrTFB1dzlEUDlTR2xNeHR5QkpDRGNoR0RaTWtkTzAxRTZEYS1qQVprclNfb1dSUlBPNDBqTExSTTV0aG9BRUt5SzJfTEtZckN5enJjaGtKTmxpenQ0YzhfZEF5dXc1Y3RSeHNkQUJfdTRDM1FvSU1FZ0lZVjZ2R241MklHdw%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "8d9ede5c90728fd6",
@@ -10793,7 +10795,8 @@
       "summary_zh": "Analysis: Will Big Tech's colossal AI spending crush Europe's data sovereignty? &nbsp;&nbsp; Euronews.com",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqAFBVV95cUxOd2lrUHNCSl9BM2FpbzBUSVdNUlhFemFUcWtpTU5QMWs1UmpCX21DRHA0cDAxZkM5UzAzMjIwd05jUFBNZkVDdWdhdk9yQlJZNGFQMGtnUjJUek0wVmNtWHh5YVV6R3MwdXdGNWlZYk56ck1zT0ZLVzd0Z1MxS3RrM3BtUlBEQXR3ekxnMzQzM2d6azRXZHZ0aVpWR0hzaDdobERQOVZGaEQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "22eb9c567973acfe",
@@ -10909,7 +10912,8 @@
       "summary_zh": "Apple pourrait héberger son futur Siri sur les serveurs de Google &nbsp;&nbsp; Mac4Ever",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiogFBVV95cUxPQ3N2by1Dc2d2aEI0OEpIN1JTRXItUS1PUzBXLVdqSHp1d3h5M2x4dFgwdUxkbm1qTWxLUkpFa1l5c1ZuMVZMbjQtVnRmcEhvVlNvWnB1b2FhQW5JMWtoMU5HLVZFRnpjR2hVUzBDNzUtdlUteE5IYXQ2Y3JEOEthZUZLM2JYSExPUnNwNzZPWWliOXlhTzRHVVlzb0IwR0VYbUE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "a835e4e8bdb0da48",
@@ -11263,8 +11267,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiywFBVV95cUxNUTA2NDB0WVg5aGVRZ0E2ZDdNOW8zMlp0Rk9XMDB0YndXb2tmYjFNSC1nYlJBeFNFZHBWVHp3dE5yUVhSb29lS0Z5RFNLU1lBeXU2YlJmU2tKMDZtajVzeE9NTjNfMkJKSXhacVVMbU1hSDZwMGxXcGNKOUd3N0VLM09NcDMybktvemNQRV9vS0FUb1l4cjBWQktmMjZ2dDNwMXE3ODlyRktTUDhDNkJTYjZKVHRMdDNBN2w2UUhSZDJZVG5aSmVTM0Z4Y9IBygFBVV95cUxQNjV6VGJTZFZFWVJPaUd1UGNUc3pBNk5jN084Q2prQlY2djJXdWh3UlNnVHlNaGp1elNjdGNkRG0zcm5NNUZaUFRtMDduaTI3RWw2N2F0N0FWb3BvN1FPMWRIUEVNd2NtQTd3QWgydzhDZ3czQVBTZ2xvcjByeTA4WmpULTBqdFhNQklUZ0VEMDNLLVJfS0hXT3N4R3A4Sm1tTWlzSFBycjlsWHQ4ZDNWVGRzRmxVRTNWQWFCamlFMS1BMnpDLW9GUnFn%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "9e7d78e87dba88bc",
@@ -11655,8 +11658,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqgFBVV95cUxQcmFNZjFoM1RJcXR4MmhfZ1ZnUHFUQWtENXkxVGdIWjFzZzhFa1NBaWRkSVBoZ0FZczRJRDFzai1OamRXTElsWUpUZWhPUTZvc2NTY0tubi1BczF0MU15R3g4V3diUzQ2T05ISVhhT292YzEzNjhwTnZkLXl2OG9kYjNxb0V5R1l4Y3BBczFsdnhPWVpNRHNOYUowdExZOFVMQmVJTEhOLWxZUQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "5be53ad3fb1b033d",
@@ -11887,7 +11889,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi4AFBVV95cUxNSDJ3NFh0ZjdCS2htZ1AzZ3EtSWotaTkwNEF0WDFyN01WUk9XaGdwU0laNWxGeTRvVTlTaGQxcU5KLWk5MzRybnAzYVVBTk5mWnRQYVVIbUU4QWxneGRpM3B6SmFVX1E3Z0plUFVlWUtjZlYyWVMycG9SQ1FEOG45N2RaQW41aTVlY1BkNE5jQWxyTkljdHIyR1ZTd01BaWd4d084U3hlUFc4OVJrQ25vSFpkVi10Ykw1WFJWWlZYUUtmZGR0UXZRMHg4TlBlXzZjSjZLTjIyMF9EbFhJbVZUYg%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "391894d2e2a3d1b1",
@@ -11916,7 +11919,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi-wFBVV95cUxQRFRoeUtmVWFiMXl5a2JlV1VheWlkYmpvOFc3UFI2Y2NkRUVvTm5pZ3haY1RyWjVTYXdKejZfbjRsZ1M2VHFNRmoyc29qaUc3S2dqY1pHNTdWS1lrZ3hMUDFpSTZ0eDJia2gwVFpCZWpTd1ZPTHdUU3psMXNYSGh5NW9RWmZselIzS2ZOUEVZcjRwa1BUTGRiZ0Rkd3ZuWjMzdUd3N2FrZ2tvMndNWHQ3dFJvcHhXWlpnZ0VtRDl6UHFOdVROTEZ2US1uWmJGTlFNd1hMUVcwU2g0RnFBUy1tZUJHT0NDVld5ZVNoN0NqYWR3Z1RLZk1TTzA1b9IB-gFBVV95cUxOSV9DQWFwWmRrdWh6ZE05RGxpcjlCeHdQM2NTWGZMVVZTZnBjUFJ2UW02cVUzWEtRUUF3YjRobjRoZ1NDVDc4ZHlDZ2p5b1dlZDVwYXZ0MFg3X1FfT2x2Y0pKREVTVWZ4M2pyT0RyNE5ELTItNXo2OTVNTWtoTHF0Z1g0Vk85cHRhd0t5YjFkUVBzeTljNTNIVXBwRVdZZ25yY1RXTWF1Y3g2bDA0S1R5SjNwQjZYZnNwVFZ0SnJGQzRhbkpOUU5DenlvczY5RzctQnJDTDIxWDlsWkd6d3NrTVJ2OUlyR1NJZGI3RTdERXJfaDdhZlNuR2Nn%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "cce06216234fd407",
@@ -12076,8 +12080,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqgFBVV95cUxQSTgzbk9oNmZzdUJCNjFhdndrT0Fza1VXWjkwMjZydFNsZUZMWnItZTgzb3VJRlhEYlY1cDdSUWZBSTFELVRGS3U5VWRJaTk2MXhRNmhUZ0d4cGtoc3hvRzlzWVpTc2hpU3I0TzNUTE5ZWjkySjVOMHJPOGdJQXZBQk14TnNNN20xUXBnMk1FUWFZRXdjdTFSZm5ZQmxXWlNIY2dVOUhsZkVodw%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "2aed7487991b1e2b",
@@ -12141,7 +12144,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitgFBVV95cUxNb1RiT2wtZjZWYnBWR2I4RWtTNE9fNmF2V09uM2ZYdzdlZjBndUFENkprZ1FrWU9YR2hhbE5ubjFZV2VHdGp0RUxRNEpsSWlOc2lsYnFkUFZROU9nZDhXYlNUSVVxdXNXSUIzbjN0czJzM0VpRVVpMXZQaDBJSmJSLWFjWXY5Z3RDc0dGRG85ZVVWeVBxZjJLaFN1OGN2VDJDS3BCaU85dlBzMGUzSDFJNm1mZW5oUQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "767d51662455b725",
@@ -12170,7 +12174,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMisAFBVV95cUxQd1FSNEI5cWJVbkZCTzVEY2owUzBEckpIQVpFNi1VSTF4WXRRcTNDZ0lUNTdXZ3hsQmlnRkxKb3Jhd1h4cjVSLU8tTzh2SE9GMEotQ1hfVlZxaTdOVXBESWpac2Z1MUpQUmllUVNYM3RRcXRaTEdiVXdoVXF6eEREZVM1clZxd0xmaWVoZm1TMFBxMkpkS2draHhwb1hVcG5DYldEbXlleGRUUkp1TExVUQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "461fbe7ba7d15347",
@@ -12199,7 +12204,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMigwJBVV95cUxNa2FwTkFtUjZGSkI3d3Blb1pjMmJuVXhacXBlakJaSFFGcEdYYV9CREF3Q0YwbG1lNE5KRm9rMXBhV3pkSGN5dkdWOXFFa1JaSFR4dnhVMmFJRjE5aEhRYnZXSTBSamdiSEtObjRDaWxpNEJlcVlFT2FndnJyNjd1WDZVemJyWUczTy1OWmdxbmMtaGxQTUx5MXNHeWdhb0dmaFl3RUdjR3ZEMWF4QmRzWGV4YWFwQjR1Y241eHFpUlVxazhoc0l3LWphVllJb0dHeHFxYTZ3cU5MenhDUFNNWGxSQVhOMFpaMl9mLXdlNEJrelFyVmdMLVczQnRKYkR0OFVv%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "1da1d0b683e36dd0",
@@ -12297,6 +12303,106 @@
       "summary_original": "Qui va héberger les données de santé des Français à la place de Microsoft ? &nbsp;&nbsp; ChannelNews",
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqwFBVV95cUxOQWViajNfUEdSOU5jbi1yNHM4YUFEUU1rRmp1bHlOSlVmQjRKWElLNU1fSlphaXJnelFOZ01GUFlfZk1BX3hrbXRoZXBHZ2dzWE93dWpiYlpkLUNYeUo3NFJod1R1a0NuRzZid3ZhM3A4REVUcnJkZDZPLWpyNlBlWks4OGMyQnVkWW5OaWFIN0JCZnpFSFBaaHBjQ21zcDc2MFkzc0F0azZVaXc%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link",
+      "_from_history": true
+    },
+    {
+      "id": "4e9c2dac47479a1b",
+      "title": "Data Center Cooling Systems | Cool Cutting-Edge Artificial Intelligence | Boyd - Aerocontact.com",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNUHVBMDBoY3V2eXRwSmxScDNnNGRfdEV6czdwOHRrVXdGcEtjTHJoUXpLVWtadk8zWldJNFVlcWx2S3lTblpFV2JOd1NPYTJhVmE2TTNvMFBFcHdjdTBJRVFzUkRvN0E1c3FzcEJSVW0yVm94UTdlZWpONFNwVnhCMzhfdTVmMEJONi1tcGp3ekhXZFlfXzBGSVh1Q1N1Ukp3OElOV0wyVzZLVmVlZU1oSE1hVUNwYlU?oc=5",
+      "source": "Aerocontact.com",
+      "published": "2026-04-08T17:59:22+00:00",
+      "published_display": "2026-04-08",
+      "published_date_short": "2026-04-08",
+      "category": "ai_datacenter",
+      "category_label": "AI云与数据中心",
+      "provider": null,
+      "summary": "Data Center Cooling Systems | Cool Cutting-Edge Artificial Intelligence | Boyd &nbsp;&nbsp; Aerocontact.com",
+      "event_type": "datacenter",
+      "event_type_label": "数据中心/基础设施",
+      "event_type_icon": "🏗️",
+      "entities": [],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 73,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T17:16:40.559312+00:00",
+      "title_original": "Data Center Cooling Systems | Cool Cutting-Edge Artificial Intelligence | Boyd - Aerocontact.com",
+      "title_zh": "",
+      "summary_original": "Data Center Cooling Systems | Cool Cutting-Edge Artificial Intelligence | Boyd &nbsp;&nbsp; Aerocontact.com",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitwFBVV95cUxNUHVBMDBoY3V2eXRwSmxScDNnNGRfdEV6czdwOHRrVXdGcEtjTHJoUXpLVWtadk8zWldJNFVlcWx2S3lTblpFV2JOd1NPYTJhVmE2TTNvMFBFcHdjdTBJRVFzUkRvN0E1c3FzcEJSVW0yVm94UTdlZWpONFNwVnhCMzhfdTVmMEJONi1tcGp3ekhXZFlfXzBGSVh1Q1N1Ukp3OElOV0wyVzZLVmVlZU1oSE1hVUNwYlU%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "c383cdf4d93b0423",
+      "title": "Atos positionné leader des services multi-cloud en France par ISG - Idéal Investisseur",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNd1VQejRtbVg2YUJvWmdjbzNUeE14Ymw1VW5Yd3RHeEQ3SDFBWXY0WVpoMm4tWUNZYXIyTHVjbC1ZUW5GMGRJTHYzakRVVXp1RzdUeXlQQ01rOHlybDR3a3BNWFg0M0ZFVnZkOElqZDk3T1dZRGx6eUlRMVpPdF81ZzhiX1o4Skh3elctS2hiX2xQNVdTTXpxWWViU2tfRk1MTXZKRXlCUmoyQkJCZEpUQng5bWlfTkxXa3c?oc=5",
+      "source": "Idéal Investisseur",
+      "published": "2026-02-16T08:00:00+00:00",
+      "published_display": "2026-02-16",
+      "published_date_short": "2026-02-16",
+      "category": "ecosystem_partners",
+      "category_label": "云生态合作伙伴",
+      "provider": null,
+      "summary": "Atos positionné leader des services multi-cloud en France par ISG &nbsp;&nbsp; Idéal Investisseur",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "Atos",
+          "color": "#0066A1",
+          "group": "ecosystem_partners"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 27,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T17:17:25.462314+00:00",
+      "title_original": "Atos positionné leader des services multi-cloud en France par ISG - Idéal Investisseur",
+      "title_zh": "",
+      "summary_original": "Atos positionné leader des services multi-cloud en France par ISG &nbsp;&nbsp; Idéal Investisseur",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiugFBVV95cUxNd1VQejRtbVg2YUJvWmdjbzNUeE14Ymw1VW5Yd3RHeEQ3SDFBWXY0WVpoMm4tWUNZYXIyTHVjbC1ZUW5GMGRJTHYzakRVVXp1RzdUeXlQQ01rOHlybDR3a3BNWFg0M0ZFVnZkOElqZDk3T1dZRGx6eUlRMVpPdF81ZzhiX1o4Skh3elctS2hiX2xQNVdTTXpxWWViU2tfRk1MTXZKRXlCUmoyQkJCZEpUQng5bWlfTkxXa3c%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "610d97abc8ca1526",
+      "title": "Non, le curaçao bleu n'est pas bleu - France 24",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxON0NHTUFYNjdIVWw2bDMtWkV0ZVEteXdtbUJOVDBoclhYSEczTmsyVVdaTUhIZzdwSE5yS3JKek9IZXdROUxZa1lLU0pFVnY2LWc4TmVOdXV1ZWZ0cEJYQ0JRUEd6RWphb1dyWW8wb1FKMU50cFQ3azJPZUxJNVdhcXRRTHFfOWF1eDlVZkpnSmdKX1gtSTlB?oc=5",
+      "source": "France 24",
+      "published": "2026-04-11T07:00:00+00:00",
+      "published_display": "2026-04-11",
+      "published_date_short": "2026-04-11",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": "Bleu",
+      "summary": "Non, le curaçao bleu n'est pas bleu &nbsp;&nbsp; France 24",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "Bleu",
+          "color": "#000091",
+          "group": "sovereign_cloud"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 25,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T17:16:06.477408+00:00",
+      "title_original": "Non, le curaçao bleu n'est pas bleu - France 24",
+      "title_zh": "",
+      "summary_original": "Non, le curaçao bleu n'est pas bleu &nbsp;&nbsp; France 24",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMilwFBVV95cUxON0NHTUFYNjdIVWw2bDMtWkV0ZVEteXdtbUJOVDBoclhYSEczTmsyVVdaTUhIZzdwSE5yS3JKek9IZXdROUxZa1lLU0pFVnY2LWc4TmVOdXV1ZWZ0cEJYQ0JRUEd6RWphb1dyWW8wb1FKMU50cFQ3azJPZUxJNVdhcXRRTHFfOWF1eDlVZkpnSmdKX1gtSTlB%3Foc%3D5",
       "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     }
