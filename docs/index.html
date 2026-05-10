@@ -104,12 +104,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica N
 
     <!-- Summary Cards -->
     <div class="summary-cards">
-        <div class="summary-card"><div class="card-num" id="sum-total">2404</div><div class="card-label">总文章</div></div>
+        <div class="summary-card"><div class="card-num" id="sum-total">2406</div><div class="card-label">总文章</div></div>
         <div class="summary-card"><div class="card-num" id="sum-today">0</div><div class="card-label">今日新增</div></div>
-        <div class="summary-card"><div class="card-num" id="sum-high">123</div><div class="card-label">高重要性</div></div>
-        <div class="summary-card"><div class="card-num">498</div><div class="card-label">主权云</div></div>
-        <div class="summary-card"><div class="card-num">257</div><div class="card-label">合作伙伴</div></div>
-        <div class="summary-card"><div class="card-num">306</div><div class="card-label">AI/数据中心</div></div>
+        <div class="summary-card"><div class="card-num" id="sum-high">125</div><div class="card-label">高重要性</div></div>
+        <div class="summary-card"><div class="card-num">494</div><div class="card-label">主权云</div></div>
+        <div class="summary-card"><div class="card-num">253</div><div class="card-label">合作伙伴</div></div>
+        <div class="summary-card"><div class="card-num">309</div><div class="card-label">AI/数据中心</div></div>
     </div>
 
     <!-- Category Filter -->
@@ -143,7 +143,7 @@ const CATEGORIES = {"public_cloud": {"label": "公有云厂商", "label_fr": "Pu
 const EVENT_TYPES = {"product": {"label": "产品发布", "icon": "🆕", "color": "#10B981", "score_bonus": 40}, "partnership": {"label": "商务合作", "icon": "🤝", "color": "#3B82F6", "score_bonus": 35}, "client_win": {"label": "客户中标", "icon": "🎯", "color": "#8B5CF6", "score_bonus": 45}, "ma_investment": {"label": "并购投资", "icon": "💰", "color": "#F97316", "score_bonus": 50}, "datacenter": {"label": "数据中心/基础设施", "icon": "🏗️", "color": "#EC4899", "score_bonus": 48}, "policy_law": {"label": "政策法规", "icon": "📜", "color": "#F59E0B", "score_bonus": 42}, "certification": {"label": "认证资质", "icon": "✅", "color": "#14B8A6", "score_bonus": 38}, "financial": {"label": "财务表现", "icon": "📊", "color": "#6366F1", "score_bonus": 30}, "personnel": {"label": "人事组织", "icon": "👤", "color": "#6B7280", "score_bonus": 20}, "general": {"label": "综合动态", "icon": "📰", "color": "#94A3B8", "score_bonus": 10}};
 const PROVIDER_COLORS = {"AWS": "#FF9900", "Azure": "#0078D4", "GCP": "#4285F4", "Oracle Cloud": "#F80000", "Huawei Cloud": "#CF0A2C", "Alibaba Cloud": "#FF6A00", "IBM Cloud": "#052FAD", "VMware": "#607078", "Broadcom": "#E21A1A", "Nutanix": "#1D6F93", "Red Hat": "#EE0000", "HPE GreenLake": "#01B169", "Dell APEX": "#007DB8", "Cisco": "#1BA0D7", "NetApp": "#0067C5", "Lenovo": "#E2231A", "OVHcloud": "#002395", "3DS Outscale": "#005386", "Scaleway": "#E6007A", "S3NS": "#FF6600", "Bleu": "#000091", "NumSpot": "#4051B5", "Cloud Temple": "#00A99D", "Cegedim.Cloud": "#1B998B", "Free Pro": "#C8191E"};
 const IMPORTANCE_COLORS = {"high": "#F59E0B", "medium": "#9CA3AF", "low": "#4B5563"};
-const GENERATED_AT = "2026-05-10T23:50:48.716904";
+const GENERATED_AT = "2026-05-10T15:53:30.917832";
 
 let activeCategories = new Set(Object.keys(CATEGORIES));
 let activeEventType = null;
