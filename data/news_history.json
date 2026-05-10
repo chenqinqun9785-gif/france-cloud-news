@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-10T15:50:48.964561+00:00",
-  "total": 357,
+  "generated_at": "2026-05-10T16:45:43.421181+00:00",
+  "total": 370,
   "articles": [
     {
       "id": "98a5d3890e166fb6",
@@ -159,9 +159,9 @@
       "published": "2026-04-27T07:00:00+00:00",
       "published_display": "2026-04-27",
       "published_date_short": "2026-04-27",
-      "category": "public_cloud",
-      "category_label": "公有云厂商",
-      "provider": null,
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": "S3NS",
       "summary": "SAP rejoint S3NS, le cloud de confiance en France, avec Thales comme premier client stratégique &nbsp;&nbsp; Business Wire",
       "event_type": "client_win",
       "event_type_label": "客户中标",
@@ -615,8 +615,7 @@
       "summary_zh": "SAP et S3ns accélèrent l'adoption du cloud de confiance en France avec Thales comme premier client stratégique &nbsp;&nbsp; Zonebourse",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi8wFBVV95cUxPVnhYQmU3UGkyV2tUejBpODFLaGRnbUVzc0JuUVBQNFFvRXhVRHEyUlcweHVrWjRTT3JfekZESDk2Y2NWckFnWVltTFJXdVpnX0x3QmF0YURfQmlJbmt1MkZhVVlWVVVEakt1NWtxSVp0Y3V4NVFaT3dIZFpiUVhCanJQN1JZUk54NXBqd2tDN2p4MkU4QUhyR0VULUNZZDBJTHZ1OHVibk45MkdoYU5ETWYyZEtqWVdwR3ZFRXhienJoVTdKSGU1ZEg2d3hIOVlVY28zTHdjRzhFRmJVVF9SREZETU8yX0V3bmNiR2tyRmRtckE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "6015c3d29bf14b6d",
@@ -922,8 +921,8 @@
       "published": "2026-03-31T06:07:35+00:00",
       "published_display": "2026-03-31",
       "published_date_short": "2026-03-31",
-      "category": "sovereign_trusted",
-      "category_label": "主权云/可信云",
+      "category": "industry_cloud",
+      "category_label": "行业云/客户案例",
       "provider": null,
       "summary": "Données de santé : la France abandonne Microsoft pour migrer vers un cloud SecNumCloud &nbsp;&nbsp; DigiTechnologie",
       "event_type": "certification",
@@ -1021,9 +1020,9 @@
       "published": "2026-03-23T07:00:00+00:00",
       "published_display": "2026-03-23",
       "published_date_short": "2026-03-23",
-      "category": "ai_datacenter",
-      "category_label": "AI云与数据中心",
-      "provider": "GCP",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
       "summary": "Souveraineté numérique : pourquoi la France forme ses propres experts en intelligence artificielle ? &nbsp;&nbsp; Sciencepost",
       "event_type": "policy_law",
       "event_type_label": "政策法规",
@@ -1417,7 +1416,8 @@
       "summary_zh": "Souveraineté numérique : Mistral AI promet un cloud IA européen... mais ses puces restent américaines &nbsp;&nbsp; Les Numériques",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi-AFBVV95cUxQbkVjRDdickk3aHZGUk05TXZfNktYVnZQY2pya2gyZHZiRFVoMVRDVW1GdkQ2QVpXSzhZaGxhZ1VQVDJYTzVZRU9UYkdQell1NW9xQ2pjamtOUmdhSXRkUU5pekU0amxzYjNZSTJzZGhyd3ItRUpDM2FIcEQ1MmhINS00Y0RrWnJTZmRjd3FINXRRc1FhMkNvZUI5Y182UmV2X3AxSXZoTHkxeVNJYk5STlJoWlJFc1M2bTNyVWdvcktiMC1KWUVvTzcwaS03aUYtZWVuRVVxNE9FUXFjUzNud0JaWE9iUmRHM0xGNVN3MkRBUF9yYzN0Tg%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "6b768e7a719ab2ae",
@@ -2741,7 +2741,7 @@
       "title": "Le cloud révèle que 95% de la puissance GPU payée par les entreprises reste inutilisée - mediavenir.fr",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNTXJPX28wNW1uWVI5NkdEd2lBSkpHUUtVbW11T2d1QlZ3ZGdjVnlTSlFlYUxXaXVIWnNraUlxeGY1Zkp1SWdVOWk1U3JCX2NmN0I4ZWlZRlBQdkJwWjhyX0IxaklqV1ZBODNzSnZYZXBqcGNXUkxsZ3dMYU1nV0d2UVBJekUtTkZsMnFTOXNRMk1JTjI3ay1pLWxkVHpZcWU2azg0SWdjZVhYMnkwd3o3bWdB?oc=5",
       "source": "mediavenir.fr",
-      "published": "2026-04-24T10:00:19+00:00",
+      "published": "2026-04-24T09:51:03+00:00",
       "published_display": "2026-04-24",
       "published_date_short": "2026-04-24",
       "category": "private_hybrid",
@@ -4581,8 +4581,7 @@
       "summary_zh": "Cloud souverain santé : Scaleway remplace Microsoft &nbsp;&nbsp; parlons-politique.fr",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiggJBVV95cUxObkVrQW5hTkxvSFZXYjdkbFRmYktDRWpUNUY4VWh4dVlxVGhfV3dSWWVDRXFER1VuZWpLanZ6SVZocG1NMERzTFI1UENRTkUtdlVmZTk3eDBkb3JvOFdQdGNxVEc3V2JYdGJSWVFKb2pxV3BZRE91UE1MVFM4TXg2d1VQQjc4QmdFUkFaaWEtOE14U2pFTmxGcWRMVVNyWEIwWTFkc3U4Z3VtSHpGX28zX3JFSzlHQ0wtZ1d3NG50RXlfRkQ4WkZlSGNwNmdhZjNHazBlM2hHUXA2R2g0THNhTDRJRGZSc1c5ZC1KajAyenNaQndEWVdOdEM2NmRtS1g1YkE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "33603376870858a4",
@@ -4699,7 +4698,7 @@
       "published_date_short": "2026-04-22",
       "category": "ai_datacenter",
       "category_label": "AI云与数据中心",
-      "provider": null,
+      "provider": "GCP",
       "summary": "Intelligence artificielle : Google va à contre-courant de Nvidia et d’Amazon en lançant deux nouveaux TPU aux architectures différentes, l’un pour l’entraînement et l’autre pour l’inférence &nbsp;&nbsp; L'Usine Digitale",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -5049,7 +5048,8 @@
       "summary_zh": "Signature d’un partenariat stratégique entre TCS France et l’EPITA pour la formation des talents de demain dans le domaine de l’informatique. &nbsp;&nbsp; Tata Consultancy Services",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMikAFBVV95cUxPMkk1Ry1kX1p4S1RibmJWUjYxY3JFY2tyeTYyaERwVGRndWZiN2lJR09JZ0Y3ZXRaR29na1NJVkxqeXhhcHNrMk84eVdKUkZ1Vy1Kd0J6VVBOdE1Sa3Q3ZWhzZjBQS1BTNUg1YURuSUZlUEJFYVZpQ01VbEUzNXlvbXNxLU1tQWRNRFpLeFg5M1E%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "c1e95fd8c83c6e61",
@@ -5099,8 +5099,8 @@
       "published": "2026-03-20T07:00:00+00:00",
       "published_display": "2026-03-20",
       "published_date_short": "2026-03-20",
-      "category": "public_cloud",
-      "category_label": "公有云厂商",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
       "provider": null,
       "summary": "SAP lance son cloud souverain en France avec Bleu &nbsp;&nbsp; L'Informaticien",
       "event_type": "general",
@@ -5779,7 +5779,8 @@
       "summary_zh": "Oracle Red Bull Racing prolonge son partenariat titre avec Oracle dans le cadre d’un accord pluriannuel pour inaugurer une nouvelle ère de performance pilotée par la donnée &nbsp;&nbsp; Oracle",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitwFBVV95cUxNZWJxaktVVk9XcUNMdUdDd1NBWlVPY0FWVFhoQ21NWFlvcGFiRV9ybzRVSWV2X3U3MnNQM0t6UkpFYm1ZUllfSWxLa01Lek9TYUNPX2lUQm1xbF9QaElQZUFIN0I4UkZUbEhfM3d6WXk4LUx3S215ZUdhcVo5VXlxcTA5d2dxSTVsZVB5eFVCa2FTMldhenI1RmZPQzNDdzRZSjFpdHRvZnlyTXZPZTkySGpkd0tIU1k%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "4e224955cdca32dc",
@@ -5853,13 +5854,12 @@
       "importance_score": 38,
       "importance_label": "低",
       "first_seen_at": "2026-05-10T14:38:08.806855+00:00",
-      "_from_history": true,
       "title_original": "Données de santé : vos informations quittent Microsoft pour Scaleway, ce changement discret n'est pas anodin - Homéophyto",
       "title_zh": "Données de santé : vos informations quittent Microsoft pour Scaleway, ce changement discret n'est pas anodin - Homéophyto",
       "summary_original": "Données de santé : vos informations quittent Microsoft pour Scaleway, ce changement discret n'est pas anodin &nbsp;&nbsp; Homéophyto",
       "summary_zh": "Données de santé : vos informations quittent Microsoft pour Scaleway, ce changement discret n'est pas anodin &nbsp;&nbsp; Homéophyto",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi7wFBVV95cUxPd0hoUXpiNGNjYmlMQW5iM1cyRUlheW1HOU5LaXhmRzZ2RTF1d1k0cHpPSGFOZWY3dzZVRkFEREJtT0NRZmptb2pma2t5OFEzblpsNGh5VmZVdFlVY0cxdmpJOHItQlJTemUteXg0ZGpqWFJXWGJ4SnRRcjVueHpOVVo5ME1mNHhuajJrUlVOOVZqdUx1dDk3SklvRVlDMWtNTGl3NjNubjJ4RkZOdHZ3TDlITklSb0c3WkhUZjhtbU5IM0J5VDFIR0dXWU9WX0d2VGhQOW4wUWlvc0ZpNHJuZjg1VlhFbkk3aTdzZWEtSQ%3Foc%3D5",
-      "translation_status": "fallback_original",
+      "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     },
     {
@@ -6167,9 +6167,9 @@
       "published": "2026-04-27T07:00:00+00:00",
       "published_display": "2026-04-27",
       "published_date_short": "2026-04-27",
-      "category": "public_cloud",
-      "category_label": "公有云厂商",
-      "provider": null,
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": "S3NS",
       "summary": "« La tech est devenue géopolitique » : SAP lance son offre souveraine en France avec S3ns &nbsp;&nbsp; Les Echos",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -6488,7 +6488,7 @@
     {
       "id": "ed5ee70887d2a2f1",
       "title": "Cloud Temple retenu par la CANUT pour son cloud de confiance - L'Informaticien",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOOURaaFUwR2l6dlVrSy1FTHBCYkQ2LXlJQ2NscnNDcWdROGZKSy1TVUFiY0YxQmJPcWxFeGRoOUVCa0xudUNhNDIxVDBaZFVwdVlsOXJPRnV4bHl2aTRORDduUS0xTjZXV29MVEFnbFV3UVdzWGxjOXZSaml5ZlEyRHRtYjhKakV5VFJFX0hTTy1YNzY4QzZiM2puMmZNb2tlclhuc1hFaFJpVmI2NWdCampCM0VzM0hp?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQS25nbUtHMW1TWkFNeGFObXh6VnRiblUwQVBWaS1TOWlwRGFodEhIUF9tbENwZUM3TDF4X0xjQ0VoVG9kN0I1TFZueEpQYkl6VXhjN2RPdTFOUmRSYVZUTEVDXzdCbDFFVm1ZOUk4Ql9mVzJhb3FhMFhtNWVDOU1CbEFwSFpKVEh1Y0pSTzhzWWRmMldyOUV6a2V6YVFmZGRNYVZMTFQ3d2Q0SVh2bFlKWDEwYXZ2THpUdUh5R0M1RVZMVHZzeXdpc1BaQWtNRm9VRnZaLVdvd1hMbTIxYkE?oc=5",
       "source": "L'Informaticien",
       "published": "2026-03-06T08:00:00+00:00",
       "published_display": "2026-03-06",
@@ -7115,8 +7115,7 @@
       "summary_zh": "Creative Agent d'Amazon débarque en France pour transformer n'importe qui en créateur publicitaire professionnel &nbsp;&nbsp; Clubic",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi7gFBVV95cUxQMldVc00tOFcwOGNPNXpsd1ZLc2pYRDNEUl9XSmhzeUdvbEFONURZOGNhOWNoUGRSN1hrbllxdTR5amV4V1h0cUowa25zQlVlZXIyZkxEQThtT2NpM2RuZjFnZG5YXzljYlA5bjRKVTcxVmtLaVMxNUk4YlZ0VWNoc28tUkUydFBhWGxZTmdPU1NCb3k0VjRFQldwNTZuSERXd0xZZHVvU1VtUmhJZVI1aTNtb3NDVkhySWR4VF91Rk1PQWFDLTVyV1Nzb25oM29KRm9kS2tHNkZyNFNUWEFtYXBCdXF2Q1IyeFBlSm13%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "8cd6db050600b19a",
@@ -7499,7 +7498,7 @@
     {
       "id": "f22e3d163c97fcab",
       "title": "Équipe de France : “La fin de Griezmann en Bleu me laisse un goût amer”, explique Dugarry - Sports - Orange",
-      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNWTUxd1hFMFZUX09hQXQ1ZGdZaUNZak5CV2hiVmtFTVhtUGxJUHJCNmRDTklGQ3h3V0dYcUI3LVlfR2lHM0NmSVo2emtQc1hoeldyNmZyckkwMWFzZ2tfc1h2WGhzdlB2NnluSzJ4eTN6VS1tZWRPOGE1SGNwQzVQa0QxYXZ3eXFOZ0oza21oSGhfb19talU1aFQyM0RpT1hLazY4ZjdTdVNiZVdJdjJpS0lqWWhYSl9vS0tkcGdrMmd0TzBjd0FTVjhEZVdlVGtYa2ZpTk5VR212TU9nMWc?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNcGxtcmVua09XUzBQY1RPSERMdWNuTWZkTk50dXVyM2tfaS1hbzZvWXJ1cUV1R1BnQ3JOV2llU214Mzh1Qy1TUlh2VHdEcXlmM3R4YklJSmFYSldmajQ0MmxJcDRfM0luQXdNNGpDQzRyVDY0XzlaOElxdmN1ZFlLbERkYUN5T25IZGxrcDdRS2Z4blcxRFNLdUNLSTJFZ3VuYVB4eFZjOUlkNTFvTF9udXhQd2dvUndMN1hNV0RtVFg1dkRHV3BPZ0VCc3RpYWlNUFB5Q09GNG9Gd2QzcVE?oc=5",
       "source": "Sports - Orange",
       "published": "2026-04-07T07:00:00+00:00",
       "published_display": "2026-04-07",
@@ -7784,7 +7783,8 @@
       "summary_zh": "Le Bleu de Termignon, fromage le plus rare de France &nbsp;&nbsp; Orange Actualités",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMirgFBVV95cUxQQnpzMnVEeEE4RkNxYXQwRVllbGdtOGF3TjhtWEhEWXpiRzZ3Y0FaSWZrOHJsdG5UY1l3UmoxSDVSSlFCZXNBcmFic04yRjVOYjBDTHEyZTQ1NUxreXRvVEc3SjBqc3FIWVA1dzVyZHhRTjEwUjFMelBTbFcxeW1rdThiVDF0YjhKOUxmLVpPZnB5cXVNNUhSNWQxOTc5OExNVjQ5RXFoSXFDTDk4M3c%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "051a696f4d18b5b4",
@@ -8059,7 +8059,7 @@
       "title": "À Chicago, Nutanix met en lumière sa stratégie de la pieuvre - ITforBusiness.fr",
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSHNBakNRbmJOTDRESTU1ZmxQVnZMS2NjRjRuUnJzeWswQjlFMFUzR2V4MTBJQTc0R0FGVWZ2djVXUndRUndicU5yeHMwSzNlZXp1ZTllLUNlaDl0V3dOQkRVMDZ1eTlUc1dRZHdqMTkzaDhZM2VEc05UcUw0NUNhNWZIQW9rVHZHUHJFQW1DWldhcVNVUlAzRHdCQQ?oc=5",
       "source": "ITforBusiness.fr",
-      "published": "2026-04-15T12:00:05+00:00",
+      "published": "2026-04-15T07:00:00+00:00",
       "published_display": "2026-04-15",
       "published_date_short": "2026-04-15",
       "category": "private_hybrid",
@@ -8278,13 +8278,12 @@
       "importance_score": 25,
       "importance_label": "低",
       "first_seen_at": "2026-05-10T14:38:49.162586+00:00",
-      "_from_history": true,
       "title_original": "5000 personnes sont sans solution d'hébergement en Ile-de-France, a révélé la Nuit de la solidarité - La Gazette des Communes",
       "title_zh": "5000 personnes sont sans solution d'hébergement en Ile-de-France, a révélé la Nuit de la solidarité - La Gazette des Communes",
       "summary_original": "5000 personnes sont sans solution d'hébergement en Ile-de-France, a révélé la Nuit de la solidarité &nbsp;&nbsp; La Gazette des Communes",
       "summary_zh": "5000 personnes sont sans solution d'hébergement en Ile-de-France, a révélé la Nuit de la solidarité &nbsp;&nbsp; La Gazette des Communes",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi2wFBVV95cUxPN2xNdkNMQjg4Z3F3clpBY2FDSGV2V09HdllnbUY3YjhtSnlVc05xNkdNdjAxTWxMQ0t0Tml1aHdPcVZuWEprMTlSRjdreWRLa3FqWmZYUG9QRU0zTXljcHlEak5EUUtEUHNlNE1iTkRRX0tJRjR5Ym9SaTdnOXNNTnc5T0JiRmU5ZmNEU2cxSUI5bmxYMnROQzFUS0xEUHZ3eEhOalBNa1RneWNySjJBbTVVZlc3eTNyVnlzM2pWZ3BkNGJZS3d6MUpVemJNQ3NQcExaNGxtblVBZFk%3Foc%3D5",
-      "translation_status": "fallback_original",
+      "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     },
     {
@@ -8454,7 +8453,8 @@
       "summary_zh": "Que fait ce grand navire orange et bleu au large, visible depuis le GR34 dans le Nord-Finistère &nbsp;&nbsp; MaVille.com - Rennes",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi7gFBVV95cUxQd0RpWWdtVGVYYy1fbU4zT3dZbjVnbWMwTVJWY1Bkd0NiblNRbjVkR2hMOEdfSnpsVEhsVXZUYXcwWG1zbGtiQmxINFlEdHdta0dwT2hOV0dOaHI5V1J3VW1FYmI5MkwwMEw5T1BnTXJaU2tDWHY3R2plZGEtVW5DZlZyckZZenZJWUxyN2p3RUFJZzhMbXNscElFZkstYjZqZk5FZG9LaE5HazJfeEllN0tRb1ZxcjY4UmNFMzlPekNxc0ZEaWs0RTdyNEJvdzR4d3NtUDBCaER1dEp5c2d6UWd0aHVmY0FkeDA2NXNn%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "512f5eb054a4c6fd",
@@ -8611,13 +8611,12 @@
       "importance_score": 24,
       "importance_label": "低",
       "first_seen_at": "2026-05-10T14:38:08.803337+00:00",
-      "_from_history": true,
       "title_original": "Le CA trimestriel de Cegedim plombé par les activités Cloud & Support - Option Finance",
       "title_zh": "Le CA trimestriel de Cegedim plombé par les activités Cloud & Support - Option Finance",
       "summary_original": "Le CA trimestriel de Cegedim plombé par les activités Cloud & Support &nbsp;&nbsp; Option Finance",
       "summary_zh": "Le CA trimestriel de Cegedim plombé par les activités Cloud & Support &nbsp;&nbsp; Option Finance",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi2AFBVV95cUxPdXRRZDRmSGJDVDBPRjdyQlQ0RE1MeDhGZ2tnWjUtNWdwUHhLejZWTDEtYXktQ1NaSVgyRzJ5TkxRekg1YlBGMXd5UmtsWm13RllENGJBZUJIY2V3RG5wOEZySEZ0NzJuSTh5NzFaNjdRS01iNGVXTzgwYlJCRE1keGpJZ1BNNVN6QUJJdHNoR0dVUE8xc0RMeDVZV29vYUE1Y09vQ3FPZnZvb2h2UzlTYlQ3b0lPWllWbmpkeUlxbWFGcC1YaEFZeGxIb3BEMm9XMi1MLXhZeDk%3Foc%3D5",
-      "translation_status": "fallback_original",
+      "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     },
     {
@@ -8944,8 +8943,7 @@
       "summary_zh": "Comment Decathlon automatise la génération de métadonnées pour 2,5 millions d’images avec Amazon Bedrock &nbsp;&nbsp; Amazon Web Services (AWS)",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi2gFBVV95cUxQWGFnemZVd25aMDNEM0xhc2QwVTI5QUZHaVJQV3dIelp0V1l0SlZrNU90UzBranFXNW95R2tHZUh5eTZwSGpsZzBVSk9JU1VidkpCaHg2N3p3a2F3LWVEZGE1d1lOYnlFUEJjRDlhSjlFOENIejBqRHpoUXI5VVhBR2JmbzI5azhNWWU3b2ZZc3ZGanJvcHB3N1dQdVZRUWxvcXVNNDJMLWd1b0dLSDROSEZ2YXVFRVNmNmY2cEtDZmZ6QjBQcmw2YjlLVjFUN1RYanVOOFp4c0Q1UQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "314212363f8a6313",
@@ -9073,8 +9071,7 @@
       "summary_zh": "Numérique. Philippe Plantive (Proginov) : « Trump est un formidable exhausteur de goût de la tech française » &nbsp;&nbsp; Ouest-France",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMirwJBVV95cUxQaS1rZk5PUGxLaGowUUR2T25yd2tXbnE0VG5EMWRDNnRTRFRGNTk2SVRyNTFpOWk2WFNERUluU2lKb044T2owNkc2VW9STjBsSmtNMDNHbXFiUzFLQ2dwS01qbHJ1SGVkQlNkRzlfVU5sRG1rSGdHcXUtVkZqcy1sX0FjUnBzNEpyX0VUUzlsRnVyZmwyRkdFYjNGc2xmZ3JGWVpqd0QybDA5OTJiU1NETl9Pa3hCUm00RjdHdUZyTjFWSDRUTjVma1NZTGs1MUdCQUJfVTRvU1lidjRmWmxpTHJUZTN1UVRpaHlNclVTZnU5cW8wejJUWW5vcGlHeTM4LUx0MWY1dXRXbFM5MmNDVVUwNHhndW9UTHZqWm95WWpjTDRKbjJKS2I1R1hEUkE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "07b1d921f6009a4f",
@@ -9103,7 +9100,8 @@
       "summary_zh": "NVIDIA GTC : la conférence où l’industrie de l’IA se donne rendez-vous &nbsp;&nbsp; frenchweb.fr",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMinwFBVV95cUxOWmw2M2hqY09USHNFWkJ2VHdvcExIUkZfZFpWQXk2MWlOV3NZSVlac3U0TkFoc3NCbzRBbERFVlk4NWNyMzNlMVpxVlBOWWdiNlBrT0ctVUF0dXY2aGI5MjJpTjVWUWlTOC1WVFhESkZ3ODVEUm93eTBNSThRN3h3eXNQdmVQLXRMTHIxX2JGSlY0RTJfbEhuZ1Vrc1FLRjg%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "f9da4a5e2efd83ee",
@@ -9138,7 +9136,8 @@
       "summary_zh": "NetApp place la donnée comme boussole dans la tempête du Flash &nbsp;&nbsp; ITforBusiness.fr",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMinwFBVV95cUxQVUtmT25KWDlDeWhacGxHWk1sSS15MEpZbnRWamgwYzVLOENHZHQzdHZ4amduNHZHR1JscEZwRk1jU09LOHl0dENDOThqVGhZbTA3UUFpX2VRcmM0V01yVmN0VFdVenZEWFplU1JYcnJBM052al94cU9ZTld2TmVXWDJiMlYzdlNXa0E3dWphWXdvbG82bG1hc3VjbVVSbFU%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "92a3530d3dacc32d",
@@ -9260,7 +9259,8 @@
       "summary_zh": "La France passe la barre des 1000 start-ups IA &nbsp;&nbsp; Le Monde Informatique",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMirAFBVV95cUxQNkZBa2Vwa1NGa0NaeTEyUDhMVWNrcVc3Z1V5a0g4Z3d2Ql9UbXlCRzRKNXpsX0FCYkI5RHFIWUd3aUVia0diR0pjeUFTSXdRbk0xSnhMbC1JQm10SjU2SHBKU1FrNmI4Tk5kc2x2UnUwbjRPcW44RUJnaEN2Y1VfSWY0d0hwUlFOSnN3SkFaRzBSaERVSmhsdks4TGh1S0xGajMyUUNDUGZNb1N30gGwAUFVX3lxTFBpY1JnSG93Zm9lYXJqNEp3VGsyUHhaTXY3ZWJGbG1MaVBLb0sydTJsOS1aMFdKQ0w0cTVBQ0JpY1Q0dFM5bElrWm5RM04tS3JIM3d3THA0a2lkbmdhbXAzTFU3MW5nbWI3NENnSUxwcnBhZHFqeEMxakxIOGdFTDFOSUlGaHhhdldRM0ZkRlk1WnZoWGN2dFlQU2JVTkJoTGNHV3hpSGJrdGdoTDNmaC16%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "f746e9364e105c88",
@@ -9749,7 +9749,8 @@
       "summary_zh": "Une pluie d'or, d'argent, de bronze et beaucoup d'émotions : les 23 médailles françaises du record &nbsp;&nbsp; Eurosport",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMilAJBVV95cUxOUmxQc19mOW9mZGszZGlyU0NvVGc5TTNoLTVUNFBGWGpGRVB1N1FjR25Jb1hVZUUwb2pzQTVsNEN6SnpGRTlmeFBkX0VFOHZfLW94SUhFaTJnbFJJYzJLcm1JVTZ0TEF5aW5qZ3lLX0JEUEhyUUI0eEpsMlNqV0xHZDlrdjJEQmlhc3hfUG1kR3RHY2tGZ1dFenVxWU5TeGJVM296clhLVXFDcC1NMDFLZkRBS1o3cGhBSENNZXNNLXRFMDQtQ3I5Tzl6QVowMjJyY1VFaHdCRm9zYXlGanl6N3RnX1kzbTZMYklUQ1VHeWFpUl9ic3lkM1R1Tmg4MENhbGlLSWVrajVfV0JZc181SDd2QlQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "238d3d76de96a7b8",
@@ -9964,13 +9965,12 @@
       "importance_score": 19,
       "importance_label": "低",
       "first_seen_at": "2026-05-10T14:38:10.861156+00:00",
-      "_from_history": true,
       "title_original": "Cybersécurité en France : guide complet des menaces, protections et droits des victimes - DigiTechnologie",
       "title_zh": "Cybersécurité en France : guide complet des menaces, protections et droits des victimes - DigiTechnologie",
       "summary_original": "Cybersécurité en France : guide complet des menaces, protections et droits des victimes &nbsp;&nbsp; DigiTechnologie",
       "summary_zh": "Cybersécurité en France : guide complet des menaces, protections et droits des victimes &nbsp;&nbsp; DigiTechnologie",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiYkFVX3lxTE4zU1YwZlNmSjN3cGdJRDBpT1VOVy0yeWdBY3dYVm1leUxGY0FjQTNrd3EzajRvV041MHdXQnluTk5mVzVlcDduWEtZQm1GM2NWV2lKbThRcExfbjZPdEVYQkNn%3Foc%3D5",
-      "translation_status": "fallback_original",
+      "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     },
     {
@@ -10157,7 +10157,7 @@
       "published_date_short": "2026-04-28",
       "category": "private_hybrid",
       "category_label": "私有云/混合云",
-      "provider": "Nutanix",
+      "provider": "Cisco",
       "summary": "Nutanix &nbsp;&nbsp; L'Informaticien",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -10360,13 +10360,12 @@
       "importance_score": 16,
       "importance_label": "低",
       "first_seen_at": "2026-05-10T14:38:08.801337+00:00",
-      "_from_history": true,
       "title_original": "La cyberattaque Cegedim prouve que nos médecins notent et conservent le pire de notre vie intime - Clubic",
       "title_zh": "La cyberattaque Cegedim prouve que nos médecins notent et conservent le pire de notre vie intime - Clubic",
       "summary_original": "La cyberattaque Cegedim prouve que nos médecins notent et conservent le pire de notre vie intime &nbsp;&nbsp; Clubic",
       "summary_zh": "La cyberattaque Cegedim prouve que nos médecins notent et conservent le pire de notre vie intime &nbsp;&nbsp; Clubic",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi2AFBVV95cUxPT3R1UVhnZXVfTDh6VW1PWnN5YXZOU3ZFazVvMnBta2NHUHlWSFB0RXhKbkg4RHZKQl9nRE5EdjlGOFNzeU9YOW9sd3ZYa1dTQ2N0ZTVpckxCR1hUQndyVDlyd2xyNGtuaHhjTC00a2JXaXNWT1FRZGZrU0FVeFJ5enFJNGVBRTQ3YmdUV0dBd3hCcWRad1N6b1RfUUx4U240ZWd6VFFNejRkMlc5cHFOaUNIdURzdFExd0VYUm80dFBvREdsRDdORm5VTzA5YWhVM3BBbWhjNU8%3Foc%3D5",
-      "translation_status": "fallback_original",
+      "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     },
     {
@@ -10647,7 +10646,8 @@
       "summary_zh": "Jurgen Hofkens prend la direction technique de NetApp EMEA et LATAM &nbsp;&nbsp; Distributique",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwgFBVV95cUxQLVQzNDB1V0NDXzdlZ3Qwd2x0bGxhUzVDTTdXSnRLZm5WZlp4bzVVbXpjeURtb0RzSGQ4ck9xSkdHazV1ZWFrTFB1dzlEUDlTR2xNeHR5QkpDRGNoR0RaTWtkTzAxRTZEYS1qQVprclNfb1dSUlBPNDBqTExSTTV0aG9BRUt5SzJfTEtZckN5enJjaGtKTmxpenQ0YzhfZEF5dXc1Y3RSeHNkQUJfdTRDM1FvSU1FZ0lZVjZ2R241MklHdw%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "8d9ede5c90728fd6",
@@ -10792,7 +10792,8 @@
       "summary_zh": "Analysis: Will Big Tech's colossal AI spending crush Europe's data sovereignty? &nbsp;&nbsp; Euronews.com",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqAFBVV95cUxOd2lrUHNCSl9BM2FpbzBUSVdNUlhFemFUcWtpTU5QMWs1UmpCX21DRHA0cDAxZkM5UzAzMjIwd05jUFBNZkVDdWdhdk9yQlJZNGFQMGtnUjJUek0wVmNtWHh5YVV6R3MwdXdGNWlZYk56ck1zT0ZLVzd0Z1MxS3RrM3BtUlBEQXR3ekxnMzQzM2d6azRXZHZ0aVpWR0hzaDdobERQOVZGaEQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "22eb9c567973acfe",
@@ -10908,7 +10909,8 @@
       "summary_zh": "Apple pourrait héberger son futur Siri sur les serveurs de Google &nbsp;&nbsp; Mac4Ever",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiogFBVV95cUxPQ3N2by1Dc2d2aEI0OEpIN1JTRXItUS1PUzBXLVdqSHp1d3h5M2x4dFgwdUxkbm1qTWxLUkpFa1l5c1ZuMVZMbjQtVnRmcEhvVlNvWnB1b2FhQW5JMWtoMU5HLVZFRnpjR2hVUzBDNzUtdlUteE5IYXQ2Y3JEOEthZUZLM2JYSExPUnNwNzZPWWliOXlhTzRHVVlzb0IwR0VYbUE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "a835e4e8bdb0da48",
@@ -11183,7 +11185,7 @@
       "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPc1ZaQktRbWFCa0lXRTByeXhMcUNWTFhkbDhxSWZtRnRPV1VjLVd0UzZqSFphdFRBQWNqLTRERlJhOTlQRl9BSFcxUWNYZHExWFBYeDVnUnk3RHBiQXZmU2RNbTA4WUFFdWtnM1VqZlM4Z3FEcE54ckNnVEItZGpOTmQwYzR2bGROUDJkVHJGSmdhU3lVd3dCRHMwV0Q3T2ZHbFNWSzVpY3JIakliZnY4a1ZsdHhOcThzSkpTMVNnbTJNbVVQSFp4TzZ0ZG1oVjNCanZXTlRR0gHaAUFVX3lxTE5SMzN2MlgxdTRFWXZvT05tSGpkT2VReU8yTE1kZ2V2QkptTFBFVWQ2SHB4ZHBiZlNjc2hkM1NIcGR1d2c2U0NOM1NpQ0FJRTFMdW1Lc0pQdElZLTZVZW5GS3RYeTF2YmplZHNGOXNCTl9BQXFWN2t2SURYY21qcWtKazU1YmxGeEZWMkc4SGxuQ3AxMmJIVUJtN09iaW82a21yeUVTbW9CaFRaUWtXRGIxcHUyVGhNWFQwX0R1NnkzR1BmUkEwM3lxV3pNQ0lxZ1RHVl9RLXVjYkFn?oc=5",
       "source": "Le Monde Informatique",
       "published": "2026-05-05T15:57:21+00:00",
-      "published_display": "Il y a 4j",
+      "published_display": "Il y a 5j",
       "published_date_short": "2026-05-05",
       "category": "private_hybrid",
       "category_label": "私有云/混合云",
@@ -11262,7 +11264,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiywFBVV95cUxNUTA2NDB0WVg5aGVRZ0E2ZDdNOW8zMlp0Rk9XMDB0YndXb2tmYjFNSC1nYlJBeFNFZHBWVHp3dE5yUVhSb29lS0Z5RFNLU1lBeXU2YlJmU2tKMDZtajVzeE9NTjNfMkJKSXhacVVMbU1hSDZwMGxXcGNKOUd3N0VLM09NcDMybktvemNQRV9vS0FUb1l4cjBWQktmMjZ2dDNwMXE3ODlyRktTUDhDNkJTYjZKVHRMdDNBN2w2UUhSZDJZVG5aSmVTM0Z4Y9IBygFBVV95cUxQNjV6VGJTZFZFWVJPaUd1UGNUc3pBNk5jN084Q2prQlY2djJXdWh3UlNnVHlNaGp1elNjdGNkRG0zcm5NNUZaUFRtMDduaTI3RWw2N2F0N0FWb3BvN1FPMWRIUEVNd2NtQTd3QWgydzhDZ3czQVBTZ2xvcjByeTA4WmpULTBqdFhNQklUZ0VEMDNLLVJfS0hXT3N4R3A4Sm1tTWlzSFBycjlsWHQ4ZDNWVGRzRmxVRTNWQWFCamlFMS1BMnpDLW9GUnFn%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "9e7d78e87dba88bc",
@@ -11320,7 +11323,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi5gFBVV95cUxNUXlrSjhBWFVRWl9ISE9yaXp1a1J6NC1MZW1BSktESnhCVzVrMndUQnBnWnJnck5meHpTcVBvTV9PRWJiVkdraDdwVDZWbHVDNWZMUUdmLXVhbEYxQWdSNFJoZ1FrX3lhWm1IMUJiZmRGWG1IdmxmbTR6bDctU0d3V0NCVF9jN2JmVXhpcVV6ZUJHbUJXaHZkbk8xS2sxejBYQ3FMbHZCSXVVbGVSS2ZNVExaX3ZyVFZpMHJXa09WVjZyR1VFOTJOYlY2NjV1QUgyckQ5aGRRcE0ySVhYc2p6WHN4NmluUQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "df69188c3b73920a",
@@ -11349,7 +11353,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMingFBVV95cUxQN3Y5UzZXVjBwNGdiZlNFeXNXU3A3YzZwd0pPNW9ublBCMzdkNk1qcWhpaWRCblRNdE1EbVdCOFFSNTRGR05vRUY4VkdDUFpRcFZnVGdSNGM4R0J5V0Yya0V5SFNtSmoxY0Q3ZUg2NWRfWmd6Z01VSkhqbzBaa3JyNnRIbE53R2xXX0c2eVk3SHNHRjFfWmhLTTVhSkVDdw%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "56c347169275da95",
@@ -11384,7 +11389,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMimgFBVV95cUxPWGlMQ1ZBcVlIYnlPTDBRUWZmdXJMaXNFQmpZdVVCRzBnZ2FiREcyaVNwbmVZWlE0WFg3RjRwc05udXk3clpyeDB0SkRRVkJrd083RTI4UmVfaGx3NVNNeUFlTVB3cnFUTE00ZmFpU0ZmejVIMWlDb1k0ajRjdGRzTGltTjM0VjRabFBLUmE2VERmajBzTGd5VWtn0gGeAUFVX3lxTE13LURoM0YtaUVnYnVCczZwLWFvRzNEbVQ4YXJoci0wYW1XWkF1OW9najVxS2F5ODNiUUQzdk9uOWNtSGlDRmMzMG1IaHJ0d2V0d2VySlVybjdoUC1XaHpBQ0x2c0hwcXAzSy1PQ3FXbUJMc1VLZTIyYl90VmxiR0x3YzlHTmloWG9TLVp2UmRuTVhyZmkwX3FjMERjX0JB%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "eeb93b0cc3ae0c30",
@@ -11453,7 +11459,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiywFBVV95cUxQSkhUcFRjbU1kYkpJcDgtUzc2MVFNVE5JUGFkYS1PSGFXd1J6NXlrREFBcUhxTDUtTWJITFE1NXRzclJ5N05iWUtHQUt4dHhPSjF1LXF0aEs2S0pNZzRET1dQeVd4cWI3Y292VGZDZGZCYjQwaDAzX041S2VBNFRNTVVWWGVhMWhWRDVleXNwakxSdEtMMW8wcWZmQVpZdVZWX1l6UGNONlluc19EaGpMQ21sTTRtLUc0UzY0c1FFa0J0RjB0YVllbkhnc9IBzwFBVV95cUxPaE5WYTZoM2pkOTlTTkNnNGo0cGNwR2VyOGpIQnhvSjE1MnpOQ0NlZGx3X01HSEkyNUtMa1VmRnBZVjczU3RHYkc1Z1RtNnh6M2dTNHFnMUZ6Uzl3S240MmdQSHpwYzM5LWxtOVlUY3VzTk9tZTZla3g4RXRBejhEZmxsUmFlYm1fams5QjYyWVVjcElFS1NtSG5PLXJRQW5rdmZnNTVCQ1pjVlZxWFNjeDFoVkNidm9RRC12UkFBQ29EZGg2NXlUUDBaaW0tTGM%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "b73a963a6856a7a2",
@@ -11546,6 +11553,424 @@
       "summary_original": "Snowflake s'attaque à la souveraineté des données &nbsp;&nbsp; Le Monde Informatique",
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMisgFBVV95cUxQVXJCdldJR0tSRU1DeEFjR0lXbjhHXzdBN1BQcVVjTVZ0TEZnTlpOXy12WGhjeUk4MkRCWWpSTWVyRkQtelRMS2pzRDJUSW03RkdZSS04V2ZFamRsem9NOXkwVnNYNzFnOHI5MFNzc3ktazZjLTJIY1JlYmxWbFo0MWJUYVYwcmZkeDRZc3ZHUzdEd0lJYS1nTHhuMjh2Sy1UU2drOVZETVhMWldXdmlWNG5B0gG2AUFVX3lxTFBiU2JDLTNiTllZZjJMWXYtRDZPSzNiWFVabHB5d3pYQmJnS25KMVNhUlZOOXVXMXJpaFJuaTVuSmM1ZmgwMXdEUlhGVmdHckdkcks0dlJpcWtWcUVXSUlxSG8wWXVKZ3NIbzZrcEJDUHExeFgxeTNoa0VLLXNCcGxndFdmNDNmdEd1dDRrYS03QjZuVDRqRVBkU1o0OGFjVlpOZEhZWU0zUXFYSHQyb0VoVmdJRElB%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link",
+      "_from_history": true
+    },
+    {
+      "id": "3e91d458c94f5428",
+      "title": "Cloud souverain : SAP va proposer sa solution de business intelligence pour ERP sur S3NS, avec Thales comme premier client - L'Usine Digitale",
+      "url": "https://news.google.com/rss/articles/CBMipwJBVV95cUxNdkhPN2NzUE16U0JXaE8xTHBHNnB3N0VfRmxSWXdWMWRHMzRDSWNXdzJXdkVTcXJJc1pHMVJfM2VYa3VSbGhnWTdrVnc2T1E5a3NPQVlxWFR0V1lnd0V0QXdwYjRZQ1ZFYV9scGFvZ2Q5dHdMX0dBUS0xMXl4aHYzWGlaejZJZkZPVnN1cVZsRjhjVkxqbV82MlpKZlZfTURoRWVReGswbnBCUHE1bmFCTkZxOFFwYXp2cEd4Z3E0bHZXUUJuc3Z4YS1jbE1EelhpblpOX3FjbmExdHdPQVU0cjZORElTMi1VODFpTVp3LUJNblpSaTdWMllFZUFxRFpESmtpVEFwOUlJMVJRVEhYNk5HNUM5QjRLeVdTOHZHMGxnNGpwMVhz?oc=5",
+      "source": "L'Usine Digitale",
+      "published": "2026-04-27T07:00:00+00:00",
+      "published_display": "2026-04-27",
+      "published_date_short": "2026-04-27",
+      "category": "ai_datacenter",
+      "category_label": "AI云与数据中心",
+      "provider": null,
+      "summary": "Cloud souverain : SAP va proposer sa solution de business intelligence pour ERP sur S3NS, avec Thales comme premier client &nbsp;&nbsp; L'Usine Digitale",
+      "event_type": "client_win",
+      "event_type_label": "客户中标",
+      "event_type_icon": "🎯",
+      "entities": [
+        {
+          "display": "S3NS",
+          "color": "#FF6600",
+          "group": "sovereign_cloud"
+        }
+      ],
+      "importance": "high",
+      "importance_stars": "★★★",
+      "importance_score": 83,
+      "importance_label": "重要",
+      "first_seen_at": "2026-05-10T16:44:27.253836+00:00",
+      "title_original": "Cloud souverain : SAP va proposer sa solution de business intelligence pour ERP sur S3NS, avec Thales comme premier client - L'Usine Digitale",
+      "title_zh": "",
+      "summary_original": "Cloud souverain : SAP va proposer sa solution de business intelligence pour ERP sur S3NS, avec Thales comme premier client &nbsp;&nbsp; L'Usine Digitale",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMipwJBVV95cUxNdkhPN2NzUE16U0JXaE8xTHBHNnB3N0VfRmxSWXdWMWRHMzRDSWNXdzJXdkVTcXJJc1pHMVJfM2VYa3VSbGhnWTdrVnc2T1E5a3NPQVlxWFR0V1lnd0V0QXdwYjRZQ1ZFYV9scGFvZ2Q5dHdMX0dBUS0xMXl4aHYzWGlaejZJZkZPVnN1cVZsRjhjVkxqbV82MlpKZlZfTURoRWVReGswbnBCUHE1bmFCTkZxOFFwYXp2cEd4Z3E0bHZXUUJuc3Z4YS1jbE1EelhpblpOX3FjbmExdHdPQVU0cjZORElTMi1VODFpTVp3LUJNblpSaTdWMllFZUFxRFpESmtpVEFwOUlJMVJRVEhYNk5HNUM5QjRLeVdTOHZHMGxnNGpwMVhz%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "6c9bd25a3f380469",
+      "title": "SAP rejoint S3NS, le cloud de confiance en France, avec Thales comme premier client stratégique - SAP News Center",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOLUgzRi0zTWs1ZHlYaHZWcDloVGVITjVKMEtjWWlDSXQwRmpVZ05aLVV3ckdGc3FvdFNGUldGTWRQWTlmNWg3U3lFTU1ja3c5aE5jN0RRMlB6X1hleGlTZDhGd0tySjBIbU5WQ0xsUzJfTDhDVlJ6M2J4V1FreW5qV1AzZ1hWWG9rOFVPWkNGbzFNdHItbkRBdFgyZURKeHR0Q19HNXU1ZlJJemduMkJTUW1lajBrM2p0ZVNyRm55Njhmdll2UlcxTy1R?oc=5",
+      "source": "SAP News Center",
+      "published": "2026-04-27T10:59:01+00:00",
+      "published_display": "2026-04-27",
+      "published_date_short": "2026-04-27",
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": null,
+      "summary": "SAP rejoint S3NS, le cloud de confiance en France, avec Thales comme premier client stratégique &nbsp;&nbsp; SAP News Center",
+      "event_type": "client_win",
+      "event_type_label": "客户中标",
+      "event_type_icon": "🎯",
+      "entities": [
+        {
+          "display": "S3NS",
+          "color": "#FF6600",
+          "group": "sovereign_cloud"
+        }
+      ],
+      "importance": "high",
+      "importance_stars": "★★★",
+      "importance_score": 78,
+      "importance_label": "重要",
+      "first_seen_at": "2026-05-10T16:43:26.511705+00:00",
+      "title_original": "SAP rejoint S3NS, le cloud de confiance en France, avec Thales comme premier client stratégique - SAP News Center",
+      "title_zh": "",
+      "summary_original": "SAP rejoint S3NS, le cloud de confiance en France, avec Thales comme premier client stratégique &nbsp;&nbsp; SAP News Center",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiygFBVV95cUxOLUgzRi0zTWs1ZHlYaHZWcDloVGVITjVKMEtjWWlDSXQwRmpVZ05aLVV3ckdGc3FvdFNGUldGTWRQWTlmNWg3U3lFTU1ja3c5aE5jN0RRMlB6X1hleGlTZDhGd0tySjBIbU5WQ0xsUzJfTDhDVlJ6M2J4V1FreW5qV1AzZ1hWWG9rOFVPWkNGbzFNdHItbkRBdFgyZURKeHR0Q19HNXU1ZlJJemduMkJTUW1lajBrM2p0ZVNyRm55Njhmdll2UlcxTy1R%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "1e1bf1dfff1519d2",
+      "title": "Google boucle le rachat de Wiz pour 32 milliards de dollars : la plus grosse acquisition de son histoire - BlogNT",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQcmFNZjFoM1RJcXR4MmhfZ1ZnUHFUQWtENXkxVGdIWjFzZzhFa1NBaWRkSVBoZ0FZczRJRDFzai1OamRXTElsWUpUZWhPUTZvc2NTY0tubi1BczF0MU15R3g4V3diUzQ2T05ISVhhT292YzEzNjhwTnZkLXl2OG9kYjNxb0V5R1l4Y3BBczFsdnhPWVpNRHNOYUowdExZOFVMQmVJTEhOLWxZUQ?oc=5",
+      "source": "BlogNT",
+      "published": "2026-03-12T07:00:00+00:00",
+      "published_display": "2026-03-12",
+      "published_date_short": "2026-03-12",
+      "category": "ai_datacenter",
+      "category_label": "AI云与数据中心",
+      "provider": "GCP",
+      "summary": "Google boucle le rachat de Wiz pour 32 milliards de dollars : la plus grosse acquisition de son histoire &nbsp;&nbsp; BlogNT",
+      "event_type": "ma_investment",
+      "event_type_label": "并购投资",
+      "event_type_icon": "💰",
+      "entities": [],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 63,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T16:44:36.864737+00:00",
+      "title_original": "Google boucle le rachat de Wiz pour 32 milliards de dollars : la plus grosse acquisition de son histoire - BlogNT",
+      "title_zh": "",
+      "summary_original": "Google boucle le rachat de Wiz pour 32 milliards de dollars : la plus grosse acquisition de son histoire &nbsp;&nbsp; BlogNT",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqgFBVV95cUxQcmFNZjFoM1RJcXR4MmhfZ1ZnUHFUQWtENXkxVGdIWjFzZzhFa1NBaWRkSVBoZ0FZczRJRDFzai1OamRXTElsWUpUZWhPUTZvc2NTY0tubi1BczF0MU15R3g4V3diUzQ2T05ISVhhT292YzEzNjhwTnZkLXl2OG9kYjNxb0V5R1l4Y3BBczFsdnhPWVpNRHNOYUowdExZOFVMQmVJTEhOLWxZUQ%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "5be53ad3fb1b033d",
+      "title": "Nutanix disponible sur SecNumCloud - L'Informaticien",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQaGExMXZrUC1nNmh2YW50c01wdlpzNjV0cUdZT3g2bV9XUUpWeVloalVhNFZ0UHBjZDNaSVpZbmU5cDcyRm4wVlFoRGtaQ3JaY0ZjUmZXUHlGZ3ptLWhhUWRxRTdjemtjdXExWHVTNjlGaFd1LURzbEdkaG4ya1dYMnJfSVhOMFFCOG1XWXNQNEdWQjFyVEE?oc=5",
+      "source": "L'Informaticien",
+      "published": "2026-02-10T08:00:00+00:00",
+      "published_display": "2026-02-10",
+      "published_date_short": "2026-02-10",
+      "category": "private_hybrid",
+      "category_label": "私有云/混合云",
+      "provider": "Nutanix",
+      "summary": "Nutanix disponible sur SecNumCloud &nbsp;&nbsp; L'Informaticien",
+      "event_type": "product",
+      "event_type_label": "产品发布",
+      "event_type_icon": "🆕",
+      "entities": [
+        {
+          "display": "Nutanix",
+          "color": "#1D6F93",
+          "group": "private_hybrid_vendors"
+        }
+      ],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 62,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T16:43:30.403912+00:00",
+      "title_original": "Nutanix disponible sur SecNumCloud - L'Informaticien",
+      "title_zh": "",
+      "summary_original": "Nutanix disponible sur SecNumCloud &nbsp;&nbsp; L'Informaticien",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMilgFBVV95cUxQaGExMXZrUC1nNmh2YW50c01wdlpzNjV0cUdZT3g2bV9XUUpWeVloalVhNFZ0UHBjZDNaSVpZbmU5cDcyRm4wVlFoRGtaQ3JaY0ZjUmZXUHlGZ3ptLWhhUWRxRTdjemtjdXExWHVTNjlGaFd1LURzbEdkaG4ya1dYMnJfSVhOMFFCOG1XWXNQNEdWQjFyVEE%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "701b4001bc3e39d4",
+      "title": "Bonne nouvelle : ces clients Freebox peuvent avoir une box encore plus performante (et sans débourser le moindre centime) - DegroupTest",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPLTJFNFlNQmZYU1VHY1BYOGNuQzRval90XzNJd2t1ZWxFZ2tlSkdRdEV1c1BvckNLU2hSUXRkT2Q5d29tZURuSndzNjBYckFNZEdRVjd2MlI3c3FqTDFwRGNkbEhkYXhqdUZVd0VVUG9KTzVWcFBoTmtYdmFTN3lGQmNIUl8yNkczb2R1TEtxUVl6OTZFRXJUZmZHZlBuWDg2TllfM1R5SWlUendKV19OX3JkaWt1SFV0LUtVWFdqU0N3Vzd4UVlETWRaVW9NWlFmeEQ3THF5bU5xSlZEM094ZHRFRkZMVnJGd0tv?oc=5",
+      "source": "DegroupTest",
+      "published": "2026-02-11T08:00:00+00:00",
+      "published_display": "2026-02-11",
+      "published_date_short": "2026-02-11",
+      "category": "industry_cloud",
+      "category_label": "行业云/客户案例",
+      "provider": null,
+      "summary": "Bonne nouvelle : ces clients Freebox peuvent avoir une box encore plus performante (et sans débourser le moindre centime) &nbsp;&nbsp; DegroupTest",
+      "event_type": "client_win",
+      "event_type_label": "客户中标",
+      "event_type_icon": "🎯",
+      "entities": [],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 48,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T16:44:58.192948+00:00",
+      "title_original": "Bonne nouvelle : ces clients Freebox peuvent avoir une box encore plus performante (et sans débourser le moindre centime) - DegroupTest",
+      "title_zh": "",
+      "summary_original": "Bonne nouvelle : ces clients Freebox peuvent avoir une box encore plus performante (et sans débourser le moindre centime) &nbsp;&nbsp; DegroupTest",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi6wFBVV95cUxPLTJFNFlNQmZYU1VHY1BYOGNuQzRval90XzNJd2t1ZWxFZ2tlSkdRdEV1c1BvckNLU2hSUXRkT2Q5d29tZURuSndzNjBYckFNZEdRVjd2MlI3c3FqTDFwRGNkbEhkYXhqdUZVd0VVUG9KTzVWcFBoTmtYdmFTN3lGQmNIUl8yNkczb2R1TEtxUVl6OTZFRXJUZmZHZlBuWDg2TllfM1R5SWlUendKV19OX3JkaWt1SFV0LUtVWFdqU0N3Vzd4UVlETWRaVW9NWlFmeEQ3THF5bU5xSlZEM094ZHRFRkZMVnJGd0tv%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "4f2100fb74c4e40b",
+      "title": "NetApp et Nutanix allient stockage et virtualisation pour accélérer l’exode des déçus de VMware - it social",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxPTGRBNWEyejVONk9oR09DY2Nha1JNWm9zMjdydlhONER3NlNXbGt0SUhrVDdjaExDMUdmcERyVkpXYm1ZNHJNbC1pclNxMm5UNTZKSGM4UjVrU09xU1V1SHp5Wm0yNlJMTFFpVG5WbmFNS25KLXBwYi13VWZvWW5Td29JM3QyUWJSSTFaRDRJOFA5UGI3WFlqclBzRW9pdC1Va1RtUXBwQmNHZXlBY0hXSWd3R0NKNWQxN2F4OTNKNHZZNGJzbVl4djJxY1BydjhyaTYySkc5b2ExTTVKTUZxRENWcHQwZU1ZVFozNFZPNVYwY256cXpQX01xbU9KaWp2XzNwaw?oc=5",
+      "source": "it social",
+      "published": "2026-04-09T07:00:00+00:00",
+      "published_display": "2026-04-09",
+      "published_date_short": "2026-04-09",
+      "category": "private_hybrid",
+      "category_label": "私有云/混合云",
+      "provider": "NetApp",
+      "summary": "NetApp et Nutanix allient stockage et virtualisation pour accélérer l’exode des déçus de VMware &nbsp;&nbsp; it social",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "VMware",
+          "color": "#607078",
+          "group": "private_hybrid_vendors"
+        },
+        {
+          "display": "Nutanix",
+          "color": "#1D6F93",
+          "group": "private_hybrid_vendors"
+        },
+        {
+          "display": "NetApp",
+          "color": "#0067C5",
+          "group": "private_hybrid_vendors"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 30,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:43:39.523474+00:00",
+      "title_original": "NetApp et Nutanix allient stockage et virtualisation pour accélérer l’exode des déçus de VMware - it social",
+      "title_zh": "",
+      "summary_original": "NetApp et Nutanix allient stockage et virtualisation pour accélérer l’exode des déçus de VMware &nbsp;&nbsp; it social",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMihAJBVV95cUxPTGRBNWEyejVONk9oR09DY2Nha1JNWm9zMjdydlhONER3NlNXbGt0SUhrVDdjaExDMUdmcERyVkpXYm1ZNHJNbC1pclNxMm5UNTZKSGM4UjVrU09xU1V1SHp5Wm0yNlJMTFFpVG5WbmFNS25KLXBwYi13VWZvWW5Td29JM3QyUWJSSTFaRDRJOFA5UGI3WFlqclBzRW9pdC1Va1RtUXBwQmNHZXlBY0hXSWd3R0NKNWQxN2F4OTNKNHZZNGJzbVl4djJxY1BydjhyaTYySkc5b2ExTTVKTUZxRENWcHQwZU1ZVFozNFZPNVYwY256cXpQX01xbU9KaWp2XzNwaw%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "867b0ad112c77dbb",
+      "title": "Dossier Nutanix : ce qu’il faut retenir de la conférence .Next’26 - LeMagIT",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNVEFuUmdnaElIa1BaRVBKSV9OZERRNXlwYWpicldTRzhFOHkyU0JTdEVVT2ZWWlFkNzBnY0NCaVJPM2RtdjFreXZhTHVwbDNhZkd5MDNfMDZuWEo2bkFXVnNpSGhfQTNTVDZkaXhVT1pJZTQ3UXM3T2wyek9uR2Y2QXgwckFKV3BoMUhUbVJzZFZqNDZIVGFrS2Nla21HS3c?oc=5",
+      "source": "LeMagIT",
+      "published": "2026-04-16T17:20:14+00:00",
+      "published_display": "2026-04-16",
+      "published_date_short": "2026-04-16",
+      "category": "private_hybrid",
+      "category_label": "私有云/混合云",
+      "provider": "Nutanix",
+      "summary": "Dossier Nutanix : ce qu’il faut retenir de la conférence .Next’26 &nbsp;&nbsp; LeMagIT",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "Nutanix",
+          "color": "#1D6F93",
+          "group": "private_hybrid_vendors"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 25,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:43:30.406941+00:00",
+      "title_original": "Dossier Nutanix : ce qu’il faut retenir de la conférence .Next’26 - LeMagIT",
+      "title_zh": "",
+      "summary_original": "Dossier Nutanix : ce qu’il faut retenir de la conférence .Next’26 &nbsp;&nbsp; LeMagIT",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMinwFBVV95cUxNVEFuUmdnaElIa1BaRVBKSV9OZERRNXlwYWpicldTRzhFOHkyU0JTdEVVT2ZWWlFkNzBnY0NCaVJPM2RtdjFreXZhTHVwbDNhZkd5MDNfMDZuWEo2bkFXVnNpSGhfQTNTVDZkaXhVT1pJZTQ3UXM3T2wyek9uR2Y2QXgwckFKV3BoMUhUbVJzZFZqNDZIVGFrS2Nla21HS3c%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "36f4a7590923bd40",
+      "title": "Tunisie Telecom : De l’opérateur télécoms au partenaire de la santé numérique - webdo",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQYXhnWkwybVpBNmtKT2o1Qno1NFYzYlB4bURKRldXRXl4eFFoY1k5ZlpyVUZ5a1FjT3pMcjVLZmNkYnB3Yi1MTkZyLVB0bnpINUtVR3YzcTdLYzhXR1lfOU91bDFpVEhuVkJkdnFMR3R3WkE0cXNsLWg4RVMyU3JMUmN0SmxGcHJxRmUtZEFmZGtQTm9tbFFTNDUwaVlMTmNyOFloSVV2bVZzazB6bnNxM25IUEltUkctZWs0SGNFLW8yZTA?oc=5",
+      "source": "webdo",
+      "published": "2026-05-05T16:55:00+00:00",
+      "published_display": "Il y a 4j",
+      "published_date_short": "2026-05-05",
+      "category": "industry_cloud",
+      "category_label": "行业云/客户案例",
+      "provider": null,
+      "summary": "Tunisie Telecom : De l’opérateur télécoms au partenaire de la santé numérique &nbsp;&nbsp; webdo",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 21,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:44:50.546695+00:00",
+      "title_original": "Tunisie Telecom : De l’opérateur télécoms au partenaire de la santé numérique - webdo",
+      "title_zh": "",
+      "summary_original": "Tunisie Telecom : De l’opérateur télécoms au partenaire de la santé numérique &nbsp;&nbsp; webdo",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwwFBVV95cUxQYXhnWkwybVpBNmtKT2o1Qno1NFYzYlB4bURKRldXRXl4eFFoY1k5ZlpyVUZ5a1FjT3pMcjVLZmNkYnB3Yi1MTkZyLVB0bnpINUtVR3YzcTdLYzhXR1lfOU91bDFpVEhuVkJkdnFMR3R3WkE0cXNsLWg4RVMyU3JMUmN0SmxGcHJxRmUtZEFmZGtQTm9tbFFTNDUwaVlMTmNyOFloSVV2bVZzazB6bnNxM25IUEltUkctZWs0SGNFLW8yZTA%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "9f9854aa85d6d7ab",
+      "title": "IA : avec plus de 1 000 start-up d’IA, la France championne d’Europe ?​​ - TIME France",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNX0NsX3V3REZ5ZjNKdzRmZUlQenRKSlN6M21fTDNrUUkzb0RMWDlub09iblpMeWpESl9CTzJjMTJNVjF5WjVpMEdZbkhxZ1VacjFXT2Y5VEtHTUZ0RkUzanFNRkhISzRkam92d3IzT2VDek93cFBaVzdBWXBPLXhEY2lYSWtkTW9CbGswaDdaVU1jenRoQWViRA?oc=5",
+      "source": "TIME France",
+      "published": "2026-02-11T08:00:00+00:00",
+      "published_display": "2026-02-11",
+      "published_date_short": "2026-02-11",
+      "category": "ecosystem_partners",
+      "category_label": "云生态合作伙伴",
+      "provider": "Sopra Steria",
+      "summary": "IA : avec plus de 1 000 start-up d’IA, la France championne d’Europe ?​​ &nbsp;&nbsp; TIME France",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 16,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:44:14.083733+00:00",
+      "title_original": "IA : avec plus de 1 000 start-up d’IA, la France championne d’Europe ?​​ - TIME France",
+      "title_zh": "",
+      "summary_original": "IA : avec plus de 1 000 start-up d’IA, la France championne d’Europe ?​​ &nbsp;&nbsp; TIME France",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMimAFBVV95cUxNX0NsX3V3REZ5ZjNKdzRmZUlQenRKSlN6M21fTDNrUUkzb0RMWDlub09iblpMeWpESl9CTzJjMTJNVjF5WjVpMEdZbkhxZ1VacjFXT2Y5VEtHTUZ0RkUzanFNRkhISzRkam92d3IzT2VDek93cFBaVzdBWXBPLXhEY2lYSWtkTW9CbGswaDdaVU1jenRoQWViRA%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "ae0228e412a4f6eb",
+      "title": "Saint-Aubin-le-Cloud. Christian Bedin, garde-pêche attentif - Ouest-France",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNSDJ3NFh0ZjdCS2htZ1AzZ3EtSWotaTkwNEF0WDFyN01WUk9XaGdwU0laNWxGeTRvVTlTaGQxcU5KLWk5MzRybnAzYVVBTk5mWnRQYVVIbUU4QWxneGRpM3B6SmFVX1E3Z0plUFVlWUtjZlYyWVMycG9SQ1FEOG45N2RaQW41aTVlY1BkNE5jQWxyTkljdHIyR1ZTd01BaWd4d084U3hlUFc4OVJrQ25vSFpkVi10Ykw1WFJWWlZYUUtmZGR0UXZRMHg4TlBlXzZjSjZLTjIyMF9EbFhJbVZUYg?oc=5",
+      "source": "Ouest-France",
+      "published": "2026-02-28T08:00:00+00:00",
+      "published_display": "2026-02-28",
+      "published_date_short": "2026-02-28",
+      "category": "policy_regulation",
+      "category_label": "政策监管",
+      "provider": null,
+      "summary": "Saint-Aubin-le-Cloud. Christian Bedin, garde-pêche attentif &nbsp;&nbsp; Ouest-France",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 16,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:45:13.279896+00:00",
+      "title_original": "Saint-Aubin-le-Cloud. Christian Bedin, garde-pêche attentif - Ouest-France",
+      "title_zh": "",
+      "summary_original": "Saint-Aubin-le-Cloud. Christian Bedin, garde-pêche attentif &nbsp;&nbsp; Ouest-France",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi4AFBVV95cUxNSDJ3NFh0ZjdCS2htZ1AzZ3EtSWotaTkwNEF0WDFyN01WUk9XaGdwU0laNWxGeTRvVTlTaGQxcU5KLWk5MzRybnAzYVVBTk5mWnRQYVVIbUU4QWxneGRpM3B6SmFVX1E3Z0plUFVlWUtjZlYyWVMycG9SQ1FEOG45N2RaQW41aTVlY1BkNE5jQWxyTkljdHIyR1ZTd01BaWd4d084U3hlUFc4OVJrQ25vSFpkVi10Ykw1WFJWWlZYUUtmZGR0UXZRMHg4TlBlXzZjSjZLTjIyMF9EbFhJbVZUYg%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "391894d2e2a3d1b1",
+      "title": "Bleus : L'équipe de France jouera avec son nouveau maillot vert face au Brésil : Sports - Orange - Sports - Orange",
+      "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQRFRoeUtmVWFiMXl5a2JlV1VheWlkYmpvOFc3UFI2Y2NkRUVvTm5pZ3haY1RyWjVTYXdKejZfbjRsZ1M2VHFNRmoyc29qaUc3S2dqY1pHNTdWS1lrZ3hMUDFpSTZ0eDJia2gwVFpCZWpTd1ZPTHdUU3psMXNYSGh5NW9RWmZselIzS2ZOUEVZcjRwa1BUTGRiZ0Rkd3ZuWjMzdUd3N2FrZ2tvMndNWHQ3dFJvcHhXWlpnZ0VtRDl6UHFOdVROTEZ2US1uWmJGTlFNd1hMUVcwU2g0RnFBUy1tZUJHT0NDVld5ZVNoN0NqYWR3Z1RLZk1TTzA1b9IB-gFBVV95cUxOSV9DQWFwWmRrdWh6ZE05RGxpcjlCeHdQM2NTWGZMVVZTZnBjUFJ2UW02cVUzWEtRUUF3YjRobjRoZ1NDVDc4ZHlDZ2p5b1dlZDVwYXZ0MFg3X1FfT2x2Y0pKREVTVWZ4M2pyT0RyNE5ELTItNXo2OTVNTWtoTHF0Z1g0Vk85cHRhd0t5YjFkUVBzeTljNTNIVXBwRVdZZ25yY1RXTWF1Y3g2bDA0S1R5SjNwQjZYZnNwVFZ0SnJGQzRhbkpOUU5DenlvczY5RzctQnJDTDIxWDlsWkd6d3NrTVJ2OUlyR1NJZGI3RTdERXJfaDdhZlNuR2Nn?oc=5",
+      "source": "Sports - Orange",
+      "published": "2026-03-24T07:00:00+00:00",
+      "published_display": "2026-03-24",
+      "published_date_short": "2026-03-24",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": "Bleu",
+      "summary": "Bleus : L'équipe de France jouera avec son nouveau maillot vert face au Brésil : Sports - Orange &nbsp;&nbsp; Sports - Orange",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 16,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:43:54.965438+00:00",
+      "title_original": "Bleus : L'équipe de France jouera avec son nouveau maillot vert face au Brésil : Sports - Orange - Sports - Orange",
+      "title_zh": "",
+      "summary_original": "Bleus : L'équipe de France jouera avec son nouveau maillot vert face au Brésil : Sports - Orange &nbsp;&nbsp; Sports - Orange",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi-wFBVV95cUxQRFRoeUtmVWFiMXl5a2JlV1VheWlkYmpvOFc3UFI2Y2NkRUVvTm5pZ3haY1RyWjVTYXdKejZfbjRsZ1M2VHFNRmoyc29qaUc3S2dqY1pHNTdWS1lrZ3hMUDFpSTZ0eDJia2gwVFpCZWpTd1ZPTHdUU3psMXNYSGh5NW9RWmZselIzS2ZOUEVZcjRwa1BUTGRiZ0Rkd3ZuWjMzdUd3N2FrZ2tvMndNWHQ3dFJvcHhXWlpnZ0VtRDl6UHFOdVROTEZ2US1uWmJGTlFNd1hMUVcwU2g0RnFBUy1tZUJHT0NDVld5ZVNoN0NqYWR3Z1RLZk1TTzA1b9IB-gFBVV95cUxOSV9DQWFwWmRrdWh6ZE05RGxpcjlCeHdQM2NTWGZMVVZTZnBjUFJ2UW02cVUzWEtRUUF3YjRobjRoZ1NDVDc4ZHlDZ2p5b1dlZDVwYXZ0MFg3X1FfT2x2Y0pKREVTVWZ4M2pyT0RyNE5ELTItNXo2OTVNTWtoTHF0Z1g0Vk85cHRhd0t5YjFkUVBzeTljNTNIVXBwRVdZZ25yY1RXTWF1Y3g2bDA0S1R5SjNwQjZYZnNwVFZ0SnJGQzRhbkpOUU5DenlvczY5RzctQnJDTDIxWDlsWkd6d3NrTVJ2OUlyR1NJZGI3RTdERXJfaDdhZlNuR2Nn%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "cce06216234fd407",
+      "title": "Linux, Tchap, Visio : la France accélère sa migration hors des outils extra-européens dans un contexte géopolitique tendu - incyber news",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNTGhSUFlUWVRfTF9PTXRvNWpYVUZDcEN6eFBNTWRvMHZZVXFoQ2V4VGxTbEp5ZjRKMkZkd2dha2x4ejFfSUFMY2IwMUF4OEs1TndvMldGRWpRVzQybDRWVnUzVGpOM0U2SlJrNmp2V0FCYmFkQVZWdGJ2TDV3MDZud2tBelphLU1Vbmp5enBkSEx3Z2VxcEdSRW92M08ybGZ2dzNIV2dIODZ1c3lDRnFveThWT3phSS1HMWxfY0RGTzkwTVRfVURpRF9scEk2OVJfQ1lB?oc=5",
+      "source": "incyber news",
+      "published": "2026-04-30T11:23:21+00:00",
+      "published_display": "2026-04-30",
+      "published_date_short": "2026-04-30",
+      "category": "policy_regulation",
+      "category_label": "政策监管",
+      "provider": null,
+      "summary": "Linux, Tchap, Visio : la France accélère sa migration hors des outils extra-européens dans un contexte géopolitique tendu &nbsp;&nbsp; incyber news",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 16,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:45:15.421088+00:00",
+      "title_original": "Linux, Tchap, Visio : la France accélère sa migration hors des outils extra-européens dans un contexte géopolitique tendu - incyber news",
+      "title_zh": "",
+      "summary_original": "Linux, Tchap, Visio : la France accélère sa migration hors des outils extra-européens dans un contexte géopolitique tendu &nbsp;&nbsp; incyber news",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi0wFBVV95cUxNTGhSUFlUWVRfTF9PTXRvNWpYVUZDcEN6eFBNTWRvMHZZVXFoQ2V4VGxTbEp5ZjRKMkZkd2dha2x4ejFfSUFMY2IwMUF4OEs1TndvMldGRWpRVzQybDRWVnUzVGpOM0U2SlJrNmp2V0FCYmFkQVZWdGJ2TDV3MDZud2tBelphLU1Vbmp5enBkSEx3Z2VxcEdSRW92M08ybGZ2dzNIV2dIODZ1c3lDRnFveThWT3phSS1HMWxfY0RGTzkwTVRfVURpRF9scEk2OVJfQ1lB%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "f06593c8e4acdd44",
+      "title": "Interdiction des réseaux sociaux aux moins de 15 ans : le Sénat adopte sa propre version quitte à perturber « l’agenda » de l’exécutif - Public Sénat",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxONkZUYU1qd0Y2Z1RjcHVJRTViZksyVXdhUTlFclJORk1ZT2xud2lZNkpBZzlqRGpmQ3RsUF9qS1cwaDVNVlNhWVhCOVV1ZFlXVWV5MGNKQVlfRnVOUldxWTlDcFJVcnIzZ2FkYlZuOFNReGd2bkRfWTB6UHEwWWpmc0k1V1BBaDFLSUZod19WNWlRVXhtNWJXTEowazdGVFlsaTNmaHF1Zzl3N1NPV2NnTFd0X0xCVFpZYkR6VFR4c1BwbnprTlpJZlIwdVNheEF5SElXb1ZNeHV4NXZ4MEdzUW5tNTdsaGNIVldWbFlQbVBvTll6TjhtdEhFQ2M0YnBxdHRKbA?oc=5",
+      "source": "Public Sénat",
+      "published": "2026-03-31T07:00:00+00:00",
+      "published_display": "2026-03-31",
+      "published_date_short": "2026-03-31",
+      "category": "policy_regulation",
+      "category_label": "政策监管",
+      "provider": null,
+      "summary": "Interdiction des réseaux sociaux aux moins de 15 ans : le Sénat adopte sa propre version quitte à perturber « l’agenda » de l’exécutif &nbsp;&nbsp; Public Sénat",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 13,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:45:27.535826+00:00",
+      "title_original": "Interdiction des réseaux sociaux aux moins de 15 ans : le Sénat adopte sa propre version quitte à perturber « l’agenda » de l’exécutif - Public Sénat",
+      "title_zh": "",
+      "summary_original": "Interdiction des réseaux sociaux aux moins de 15 ans : le Sénat adopte sa propre version quitte à perturber « l’agenda » de l’exécutif &nbsp;&nbsp; Public Sénat",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMihAJBVV95cUxONkZUYU1qd0Y2Z1RjcHVJRTViZksyVXdhUTlFclJORk1ZT2xud2lZNkpBZzlqRGpmQ3RsUF9qS1cwaDVNVlNhWVhCOVV1ZFlXVWV5MGNKQVlfRnVOUldxWTlDcFJVcnIzZ2FkYlZuOFNReGd2bkRfWTB6UHEwWWpmc0k1V1BBaDFLSUZod19WNWlRVXhtNWJXTEowazdGVFlsaTNmaHF1Zzl3N1NPV2NnTFd0X0xCVFpZYkR6VFR4c1BwbnprTlpJZlIwdVNheEF5SElXb1ZNeHV4NXZ4MEdzUW5tNTdsaGNIVldWbFlQbVBvTll6TjhtdEhFQ2M0YnBxdHRKbA%3Foc%3D5",
       "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     }

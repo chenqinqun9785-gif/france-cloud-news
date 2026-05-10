@@ -778,6 +778,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
     Donnees fournies par Google News · Filtees sur la France · Mise a jour quotidienne · v3
 </footer>
 
+<script id="articles-data" type="application/json">{articles_json}</script>
 <script>
 let ALL_ARTICLES = [];
 const CATEGORIES = {categories_json};
@@ -1012,12 +1013,20 @@ function renderFeed() {{
 }}
 
 // ── Boot ──
-fetch('data.json').then(r => r.json()).then(data => {{
-    ALL_ARTICLES = data;
-    init();
-}}).catch(e => {{
-    document.getElementById('newsFeed').innerHTML = '<div class=\"empty-state\"><div class=\"empty-icon\">⚠️</div><p>Chargement echoue. Veuillez rafraichir.</p></div>';
-}});
+(function loadData() {{
+    var dataEl = document.getElementById('articles-data');
+    if (dataEl && dataEl.textContent && dataEl.textContent.trim()) {{
+        ALL_ARTICLES = JSON.parse(dataEl.textContent);
+        init();
+    }} else {{
+        fetch('data.json').then(r => r.json()).then(data => {{
+            ALL_ARTICLES = data;
+            init();
+        }}).catch(e => {{
+            document.getElementById('newsFeed').innerHTML = '<div class=\"empty-state\"><div class=\"empty-icon\">⚠️</div><p>Chargement echoue.</p></div>';
+        }});
+    }}
+}})();
 
 if ('serviceWorker' in navigator) {{
     navigator.serviceWorker.register('sw.js').then(r => console.log('SW:', r.scope)).catch(e => console.log('SW fail:', e));
