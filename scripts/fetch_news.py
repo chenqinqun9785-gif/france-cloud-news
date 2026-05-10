@@ -705,11 +705,6 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 /* Card: Chinese title */
 .card-title-zh{{font-size:14px;font-weight:600;line-height:1.4;margin-bottom:4px;color:var(--text)}}
 
-/* Card: expandable original */
-.card-original{{margin-top:8px;padding:8px 12px;background:rgba(0,0,0,0.2);border-radius:var(--radius-sm);border-left:2px solid var(--border)}}
-.card-original .orig-title{{font-size:13px;color:var(--text-secondary);font-weight:500;margin-bottom:4px}}
-.card-original .orig-summary{{font-size:11px;color:var(--text-muted);line-height:1.5}}
-
 /* Card: action buttons */
 .card-actions{{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}}
 .btn{{display:inline-block;padding:6px 14px;border-radius:16px;font-size:11px;font-weight:600;text-decoration:none;cursor:pointer;transition:all 0.2s;border:1px solid transparent;white-space:nowrap}}
@@ -718,8 +713,12 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 .btn-translate:active{{background:#1E40AF}}
 .btn-original{{background:var(--bg-card);color:var(--text-secondary);border-color:var(--border)}}
 .btn-original:hover{{background:var(--bg-hover);color:var(--text)}}
-.btn-toggle{{background:transparent;color:var(--text-muted);border-color:var(--border);font-family:inherit}}
-.btn-toggle:hover{{color:var(--text);border-color:var(--text-muted)}}
+.card-details{{margin-top:8px;font-size:11px;color:var(--text-muted)}}
+.card-details summary{{cursor:pointer;padding:4px 0;user-select:none;list-style:none}}
+.card-details summary::-webkit-details-marker{{display:none}}
+.card-details summary:hover{{color:var(--text)}}
+.card-details .orig-title{{font-size:13px;color:var(--text-secondary);font-weight:500;margin:6px 0 4px;padding:8px 12px;background:rgba(0,0,0,0.2);border-radius:var(--radius-sm);border-left:2px solid var(--border)}}
+.card-details .orig-summary{{font-size:11px;color:var(--text-muted);line-height:1.5;margin:4px 0;padding-left:12px}}
 
 .empty-state{{text-align:center;padding:60px 20px;color:var(--text-muted)}}
 .empty-state .empty-icon{{font-size:48px;margin-bottom:12px}}
@@ -946,7 +945,6 @@ function renderFeed() {{
 
         articles.forEach(a => {{
             const cardClass = a.importance === "high" ? "news-card card-high" : a.importance === "medium" ? "news-card card-medium" : "news-card";
-            const cardId = 'card-' + (a.id || Math.random().toString(36).slice(2,8));
             html += '<div class="' + cardClass + '">';
 
             // Badges row
@@ -982,15 +980,15 @@ function renderFeed() {{
                 html += '<div class="card-summary">' + cnSumEsc + '</div>';
             }}
 
-            // Expandable original title/summary
+            // Expandable original via HTML details
             const origTitle = (a.title_original || a.title || "");
             const origSummary = (a.summary_original || a.summary || "");
             const origTitleEsc = origTitle.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
             const origSumEsc = origSummary.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-            html += '<div class="card-original" id="' + cardId + '-orig" style="display:none">';
+            html += '<details class="card-details"><summary>📋 原文标题</summary>';
             html += '<div class="orig-title">' + origTitleEsc + '</div>';
             if (origSummary) html += '<div class="orig-summary">' + origSumEsc + '</div>';
-            html += '</div>';
+            html += '</details>';
 
             // Action buttons
             html += '<div class="card-actions">';
@@ -1000,7 +998,7 @@ function renderFeed() {{
             if (a.url) {{
                 html += '<a href="' + a.url + '" target="_blank" rel="noopener noreferrer" class="btn btn-original">📄 查看原文</a>';
             }}
-            html += '<button class="btn btn-toggle" onclick="var el=document.getElementById(\'' + cardId + '-orig\');el.style.display=el.style.display===\'none\'?\'\':\'none\';this.textContent=el.style.display===\'none\'?\'📋 原文\':\'📋 收起\';" title="显示/隐藏原始标题和摘要">📋 原文</button>';
+            html += '<details class="card-details"><summary>📋 原文标题</summary></details>';
             html += '</div>';
 
             html += '</div>';

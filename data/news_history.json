@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-10T16:45:43.421181+00:00",
-  "total": 370,
+  "generated_at": "2026-05-10T16:59:18.356088+00:00",
+  "total": 380,
   "articles": [
     {
       "id": "98a5d3890e166fb6",
@@ -159,9 +159,9 @@
       "published": "2026-04-27T07:00:00+00:00",
       "published_display": "2026-04-27",
       "published_date_short": "2026-04-27",
-      "category": "sovereign_trusted",
-      "category_label": "主权云/可信云",
-      "provider": "S3NS",
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": null,
       "summary": "SAP rejoint S3NS, le cloud de confiance en France, avec Thales comme premier client stratégique &nbsp;&nbsp; Business Wire",
       "event_type": "client_win",
       "event_type_label": "客户中标",
@@ -615,7 +615,8 @@
       "summary_zh": "SAP et S3ns accélèrent l'adoption du cloud de confiance en France avec Thales comme premier client stratégique &nbsp;&nbsp; Zonebourse",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi8wFBVV95cUxPVnhYQmU3UGkyV2tUejBpODFLaGRnbUVzc0JuUVBQNFFvRXhVRHEyUlcweHVrWjRTT3JfekZESDk2Y2NWckFnWVltTFJXdVpnX0x3QmF0YURfQmlJbmt1MkZhVVlWVVVEakt1NWtxSVp0Y3V4NVFaT3dIZFpiUVhCanJQN1JZUk54NXBqd2tDN2p4MkU4QUhyR0VULUNZZDBJTHZ1OHVibk45MkdoYU5ETWYyZEtqWVdwR3ZFRXhienJoVTdKSGU1ZEg2d3hIOVlVY28zTHdjRzhFRmJVVF9SREZETU8yX0V3bmNiR2tyRmRtckE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "6015c3d29bf14b6d",
@@ -1020,9 +1021,9 @@
       "published": "2026-03-23T07:00:00+00:00",
       "published_display": "2026-03-23",
       "published_date_short": "2026-03-23",
-      "category": "sovereign_trusted",
-      "category_label": "主权云/可信云",
-      "provider": null,
+      "category": "ai_datacenter",
+      "category_label": "AI云与数据中心",
+      "provider": "GCP",
       "summary": "Souveraineté numérique : pourquoi la France forme ses propres experts en intelligence artificielle ? &nbsp;&nbsp; Sciencepost",
       "event_type": "policy_law",
       "event_type_label": "政策法规",
@@ -1416,8 +1417,7 @@
       "summary_zh": "Souveraineté numérique : Mistral AI promet un cloud IA européen... mais ses puces restent américaines &nbsp;&nbsp; Les Numériques",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi-AFBVV95cUxQbkVjRDdickk3aHZGUk05TXZfNktYVnZQY2pya2gyZHZiRFVoMVRDVW1GdkQ2QVpXSzhZaGxhZ1VQVDJYTzVZRU9UYkdQell1NW9xQ2pjamtOUmdhSXRkUU5pekU0amxzYjNZSTJzZGhyd3ItRUpDM2FIcEQ1MmhINS00Y0RrWnJTZmRjd3FINXRRc1FhMkNvZUI5Y182UmV2X3AxSXZoTHkxeVNJYk5STlJoWlJFc1M2bTNyVWdvcktiMC1KWUVvTzcwaS03aUYtZWVuRVVxNE9FUXFjUzNud0JaWE9iUmRHM0xGNVN3MkRBUF9yYzN0Tg%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "6b768e7a719ab2ae",
@@ -4390,7 +4390,8 @@
       "summary_zh": "Scaleway : la filiale cloud d’Iliad intègre un nouvel ordinateur quantique à ses offres et “soutient” la souveraineté Européenne &nbsp;&nbsp; Univers Freebox",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi_gFBVV95cUxPRHluQVJ3Y25Zd0NUU24zam5tSEgza3phcHI3eUlNajBtX1ZKTlh1SlVHSlJxUWc1VkdMSDJpSnh5X1N5UVRhTkdoU0tHQzVpZzFrTGtVcC1MQjRCeXU0LXkxWEViaHEzX0JPdHVaX1c2anZDVmhzZG1McmxTZGl6S0c2ZGpzNUg4eWlRZkZ3U1JtQy0wX2hfTURfMjZ1QkNnVHNQV2RybXYzZ3VuVUQ5UWJZTkVKZGY2RHdraTdoNEpiZ2NmcHBSdkNoZzhqcU95bXZCYzM1LWUyamRlVDlyZjdka0ZvQ05KdmJPRFVjWDdWdzNPTnNDZk5LUlEzZ9IBgwJBVV95cUxPQTkteEE0el9kLWw1V3A5UXllMkN2cTBvRHMwbWlMamswSVB0elY5ZC1BVWR0YzlZYUR1VE45cGZlRGpRc1ZOeEROcTN6V2F1eldBSHA1U1dCNUZhMU1EeHZVbjU1RE4zcTRFOXNJQmcxMXg5T2NLZURUTFktRVVSYjZia2ZPWnEwR3FnODNZcDBBMVR2QjZXQU9zbUJVWlRiS3dwSXBRZWNQVklzUEstVFdUbnlOMl9DWjRHZWR3YXMxVnNtcEprQkF3aG82X0pUTTQ4VmdhVGtrMldPeXpCTmJ3M214ZEtzSWR4cXN3aVZ0SUdtWS00UkNtUHlxYThpRFBv%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "562d7eaa25847911",
@@ -5099,8 +5100,8 @@
       "published": "2026-03-20T07:00:00+00:00",
       "published_display": "2026-03-20",
       "published_date_short": "2026-03-20",
-      "category": "sovereign_trusted",
-      "category_label": "主权云/可信云",
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
       "provider": null,
       "summary": "SAP lance son cloud souverain en France avec Bleu &nbsp;&nbsp; L'Informaticien",
       "event_type": "general",
@@ -5229,7 +5230,8 @@
       "summary_zh": "Cloud de confiance : SAP embarque sur S3NS &nbsp;&nbsp; Silicon.fr",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiiAFBVV95cUxQOHA4dURaQ3l2amZIdVNscTNPSURaQVRoZmVySWN1aGZoeGJKWmlZa3NTRDVra2NWUDA1Wl9lclJsaEQ5VDdwSXRuaXRZc2NUa29MRGlzQUdtLUptLUZXczJha25MNi1GbU91VXBSNlh0bU01eWhNVm9Jck5kb25mVVdQejdOWEt10gGOAUFVX3lxTE5fLTFWOHpqOVFhZG8tZ2NaUl9jbEVjQ3p0d1ZBRExkUXJMcWNoejhXZGRKX01YTy1EYXlzUGpoV1pGOFd1cmdiSG5iYlpQQ2FtUkgxelpaZjJxRjRSSjFWMmU5TWVPSWF6QXNBY2t2REdIRWNSTEEzQThRSXh4ZzZ2amJ0WGQyejhnS1JoSGc%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "c806a628dc1777f5",
@@ -5442,7 +5444,8 @@
       "summary_zh": "Le Health data hub annonce sa migration de Microsoft vers l'hébergeur français Scaleway &nbsp;&nbsp; AEF info",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwgFBVV95cUxOX09KRTZaWlU2RFV1NjZ1SFBDb2xrLVhYUlRMLWFGbF9WeWZmeTFrNFBRcjMxRTM2bkpkUDJiWFJNdGRxdVJTcWxHM05nVEdKZ0lUOUtUUEM1WXI2OWl5Qi1CdUJKamZNUmkyV2JpWVFtU1FtbTFmREJvOUkyc1pRZnFacF9faFlNQVFoNzh1b0Rtczl1S1FIbGc4YWhRaWNvbzFFVE83N2VjcWt3aGhmNFNKVXBmWXY2SmdEZmVuOFV4Zw%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "3c06adefb90c9276",
@@ -5779,8 +5782,7 @@
       "summary_zh": "Oracle Red Bull Racing prolonge son partenariat titre avec Oracle dans le cadre d’un accord pluriannuel pour inaugurer une nouvelle ère de performance pilotée par la donnée &nbsp;&nbsp; Oracle",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitwFBVV95cUxNZWJxaktVVk9XcUNMdUdDd1NBWlVPY0FWVFhoQ21NWFlvcGFiRV9ybzRVSWV2X3U3MnNQM0t6UkpFYm1ZUllfSWxLa01Lek9TYUNPX2lUQm1xbF9QaElQZUFIN0I4UkZUbEhfM3d6WXk4LUx3S215ZUdhcVo5VXlxcTA5d2dxSTVsZVB5eFVCa2FTMldhenI1RmZPQzNDdzRZSjFpdHRvZnlyTXZPZTkySGpkd0tIU1k%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "4e224955cdca32dc",
@@ -5872,7 +5874,7 @@
       "published_date_short": "2026-03-05",
       "category": "sovereign_trusted",
       "category_label": "主权云/可信云",
-      "provider": null,
+      "provider": "Cloud Temple",
       "summary": "Cloud Temple retenu par la CANUT pour son cloud souverain &nbsp;&nbsp; Silicon.fr",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -6167,9 +6169,9 @@
       "published": "2026-04-27T07:00:00+00:00",
       "published_display": "2026-04-27",
       "published_date_short": "2026-04-27",
-      "category": "sovereign_trusted",
-      "category_label": "主权云/可信云",
-      "provider": "S3NS",
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": null,
       "summary": "« La tech est devenue géopolitique » : SAP lance son offre souveraine en France avec S3ns &nbsp;&nbsp; Les Echos",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -7051,7 +7053,8 @@
       "summary_zh": "France buys nuclear supercomputing spinoff Bull from Atos for €404M &nbsp;&nbsp; The Register",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMirwFBVV95cUxNdXpCYnhiSDh0Nk9tMFFvSUluLU5QNmJSbF9oc0I4YXZ3c3BUOTdGRW5obmNzczdxb2wzUGJ6ZjFfWDkza2ZfdUpZVU40dmtuWUx5T2I5N0lYMUJvX0VJVXlOTXNrVW91TDFkYk9aZ0I4ZUFuRHY0cmJ2c2h5WFdjN3VXVmx1LVlTemFYeVpaUmNaLUE2ZlVyUXlVbDhPUUpvNElaR0VTVXNVeGJLaGE0%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "6e5c342ca7d00492",
@@ -7080,7 +7083,8 @@
       "summary_zh": "AVIS D’EXPERT – Cloud souverain : l’art de bien placer le curseur &nbsp;&nbsp; Solutions-Numeriques",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMingFBVV95cUxQWC1xY2puZmxucjkxR0E1MjIyM3pZUXpkeWdaU0U4bUZDcG5YcDlqY2JESjRuQ1RhUWJ5ajBVLUVDNWhkb3BqWUJKLVQyLXBzenluTm0wLVFRS1NXNXBSLXZVMHpNZHRleVNHblJOMmNIQk9sa2s2YXA3YmFaOU9MdzZlVEVUS05DRWZaTEJ1ZHN1VWdkcGxsU1lZQXFCUQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "805d7f47e747f733",
@@ -9550,8 +9554,7 @@
       "summary_zh": "Le paiement 100 % européen Wero cachait un secret américain très embarrassant &nbsp;&nbsp; Frandroid",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwgFBVV95cUxOS1lUaDJkd1RacUlrTnNkWk5zOHhpQVpKZkNockVTNU9sTldfd0tIaXBhc0FyTG81ZU1NcHFFTWx1dXdlanhWSWxuUjJtU0xRSF9IVXNpTVZXdW5nQmlaSnVZRHZVSmU5NlJyVkt2RDEtVUxjUG84NVZkaXpIQjZrVFVWR2l5bDd5aXBVckV0MGM2aWRRU0pLSzhnUnhLQ0lzMGlFcTZSMlhHeXRSSXlaLTNHX1FnM3FpbTA3X1FZTkNjQQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "07b78e54418e202f",
@@ -9749,8 +9752,7 @@
       "summary_zh": "Une pluie d'or, d'argent, de bronze et beaucoup d'émotions : les 23 médailles françaises du record &nbsp;&nbsp; Eurosport",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMilAJBVV95cUxOUmxQc19mOW9mZGszZGlyU0NvVGc5TTNoLTVUNFBGWGpGRVB1N1FjR25Jb1hVZUUwb2pzQTVsNEN6SnpGRTlmeFBkX0VFOHZfLW94SUhFaTJnbFJJYzJLcm1JVTZ0TEF5aW5qZ3lLX0JEUEhyUUI0eEpsMlNqV0xHZDlrdjJEQmlhc3hfUG1kR3RHY2tGZ1dFenVxWU5TeGJVM296clhLVXFDcC1NMDFLZkRBS1o3cGhBSENNZXNNLXRFMDQtQ3I5Tzl6QVowMjJyY1VFaHdCRm9zYXlGanl6N3RnX1kzbTZMYklUQ1VHeWFpUl9ic3lkM1R1Tmg4MENhbGlLSWVrajVfV0JZc181SDd2QlQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "238d3d76de96a7b8",
@@ -10646,8 +10648,7 @@
       "summary_zh": "Jurgen Hofkens prend la direction technique de NetApp EMEA et LATAM &nbsp;&nbsp; Distributique",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwgFBVV95cUxQLVQzNDB1V0NDXzdlZ3Qwd2x0bGxhUzVDTTdXSnRLZm5WZlp4bzVVbXpjeURtb0RzSGQ4ck9xSkdHazV1ZWFrTFB1dzlEUDlTR2xNeHR5QkpDRGNoR0RaTWtkTzAxRTZEYS1qQVprclNfb1dSUlBPNDBqTExSTTV0aG9BRUt5SzJfTEtZckN5enJjaGtKTmxpenQ0YzhfZEF5dXc1Y3RSeHNkQUJfdTRDM1FvSU1FZ0lZVjZ2R241MklHdw%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "8d9ede5c90728fd6",
@@ -10792,8 +10793,7 @@
       "summary_zh": "Analysis: Will Big Tech's colossal AI spending crush Europe's data sovereignty? &nbsp;&nbsp; Euronews.com",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqAFBVV95cUxOd2lrUHNCSl9BM2FpbzBUSVdNUlhFemFUcWtpTU5QMWs1UmpCX21DRHA0cDAxZkM5UzAzMjIwd05jUFBNZkVDdWdhdk9yQlJZNGFQMGtnUjJUek0wVmNtWHh5YVV6R3MwdXdGNWlZYk56ck1zT0ZLVzd0Z1MxS3RrM3BtUlBEQXR3ekxnMzQzM2d6azRXZHZ0aVpWR0hzaDdobERQOVZGaEQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "22eb9c567973acfe",
@@ -10909,8 +10909,7 @@
       "summary_zh": "Apple pourrait héberger son futur Siri sur les serveurs de Google &nbsp;&nbsp; Mac4Ever",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiogFBVV95cUxPQ3N2by1Dc2d2aEI0OEpIN1JTRXItUS1PUzBXLVdqSHp1d3h5M2x4dFgwdUxkbm1qTWxLUkpFa1l5c1ZuMVZMbjQtVnRmcEhvVlNvWnB1b2FhQW5JMWtoMU5HLVZFRnpjR2hVUzBDNzUtdlUteE5IYXQ2Y3JEOEthZUZLM2JYSExPUnNwNzZPWWliOXlhTzRHVVlzb0IwR0VYbUE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "a835e4e8bdb0da48",
@@ -11590,7 +11589,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMipwJBVV95cUxNdkhPN2NzUE16U0JXaE8xTHBHNnB3N0VfRmxSWXdWMWRHMzRDSWNXdzJXdkVTcXJJc1pHMVJfM2VYa3VSbGhnWTdrVnc2T1E5a3NPQVlxWFR0V1lnd0V0QXdwYjRZQ1ZFYV9scGFvZ2Q5dHdMX0dBUS0xMXl4aHYzWGlaejZJZkZPVnN1cVZsRjhjVkxqbV82MlpKZlZfTURoRWVReGswbnBCUHE1bmFCTkZxOFFwYXp2cEd4Z3E0bHZXUUJuc3Z4YS1jbE1EelhpblpOX3FjbmExdHdPQVU0cjZORElTMi1VODFpTVp3LUJNblpSaTdWMllFZUFxRFpESmtpVEFwOUlJMVJRVEhYNk5HNUM5QjRLeVdTOHZHMGxnNGpwMVhz%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "6c9bd25a3f380469",
@@ -11625,7 +11625,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiygFBVV95cUxOLUgzRi0zTWs1ZHlYaHZWcDloVGVITjVKMEtjWWlDSXQwRmpVZ05aLVV3ckdGc3FvdFNGUldGTWRQWTlmNWg3U3lFTU1ja3c5aE5jN0RRMlB6X1hleGlTZDhGd0tySjBIbU5WQ0xsUzJfTDhDVlJ6M2J4V1FreW5qV1AzZ1hWWG9rOFVPWkNGbzFNdHItbkRBdFgyZURKeHR0Q19HNXU1ZlJJemduMkJTUW1lajBrM2p0ZVNyRm55Njhmdll2UlcxTy1R%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "1e1bf1dfff1519d2",
@@ -11654,7 +11655,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqgFBVV95cUxQcmFNZjFoM1RJcXR4MmhfZ1ZnUHFUQWtENXkxVGdIWjFzZzhFa1NBaWRkSVBoZ0FZczRJRDFzai1OamRXTElsWUpUZWhPUTZvc2NTY0tubi1BczF0MU15R3g4V3diUzQ2T05ISVhhT292YzEzNjhwTnZkLXl2OG9kYjNxb0V5R1l4Y3BBczFsdnhPWVpNRHNOYUowdExZOFVMQmVJTEhOLWxZUQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "5be53ad3fb1b033d",
@@ -11806,7 +11808,7 @@
       "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQYXhnWkwybVpBNmtKT2o1Qno1NFYzYlB4bURKRldXRXl4eFFoY1k5ZlpyVUZ5a1FjT3pMcjVLZmNkYnB3Yi1MTkZyLVB0bnpINUtVR3YzcTdLYzhXR1lfOU91bDFpVEhuVkJkdnFMR3R3WkE0cXNsLWg4RVMyU3JMUmN0SmxGcHJxRmUtZEFmZGtQTm9tbFFTNDUwaVlMTmNyOFloSVV2bVZzazB6bnNxM25IUEltUkctZWs0SGNFLW8yZTA?oc=5",
       "source": "webdo",
       "published": "2026-05-05T16:55:00+00:00",
-      "published_display": "Il y a 4j",
+      "published_display": "Il y a 5j",
       "published_date_short": "2026-05-05",
       "category": "industry_cloud",
       "category_label": "行业云/客户案例",
@@ -11943,7 +11945,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi0wFBVV95cUxNTGhSUFlUWVRfTF9PTXRvNWpYVUZDcEN6eFBNTWRvMHZZVXFoQ2V4VGxTbEp5ZjRKMkZkd2dha2x4ejFfSUFMY2IwMUF4OEs1TndvMldGRWpRVzQybDRWVnUzVGpOM0U2SlJrNmp2V0FCYmFkQVZWdGJ2TDV3MDZud2tBelphLU1Vbmp5enBkSEx3Z2VxcEdSRW92M08ybGZ2dzNIV2dIODZ1c3lDRnFveThWT3phSS1HMWxfY0RGTzkwTVRfVURpRF9scEk2OVJfQ1lB%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "f06593c8e4acdd44",
@@ -11971,6 +11974,329 @@
       "summary_original": "Interdiction des réseaux sociaux aux moins de 15 ans : le Sénat adopte sa propre version quitte à perturber « l’agenda » de l’exécutif &nbsp;&nbsp; Public Sénat",
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMihAJBVV95cUxONkZUYU1qd0Y2Z1RjcHVJRTViZksyVXdhUTlFclJORk1ZT2xud2lZNkpBZzlqRGpmQ3RsUF9qS1cwaDVNVlNhWVhCOVV1ZFlXVWV5MGNKQVlfRnVOUldxWTlDcFJVcnIzZ2FkYlZuOFNReGd2bkRfWTB6UHEwWWpmc0k1V1BBaDFLSUZod19WNWlRVXhtNWJXTEowazdGVFlsaTNmaHF1Zzl3N1NPV2NnTFd0X0xCVFpZYkR6VFR4c1BwbnprTlpJZlIwdVNheEF5SElXb1ZNeHV4NXZ4MEdzUW5tNTdsaGNIVldWbFlQbVBvTll6TjhtdEhFQ2M0YnBxdHRKbA%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "1cd339d7c123b6b9",
+      "title": "Le cloud souverain français s'exporte : Scaleway défie les géants américains en Italie - TELE Satellite.com",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOT0ZGZk1URURNYW1xZzVaS3hzWU5iZlBsWWtrc2Fnd3d5VlBBbi13VlBPWGNtQkJjWkRMOWVteTBZNU1Qak9tMmZKR0ZBQ2NYSTRmaFBOblRHR2ZEcEFER2liaDN5X05JcVFpcFE1U1dkQTRvUUpka25Hblk4V285al9QV01ONFQ2Skhsb0FyYmtZQkJwWmNNbTl0LXQ5ejNrWERTVzBEQTZ0THg0OHFoRnB6eWpob2FQam1rbExB?oc=5",
+      "source": "TELE Satellite.com",
+      "published": "2026-03-20T07:00:00+00:00",
+      "published_display": "2026-03-20",
+      "published_date_short": "2026-03-20",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
+      "summary": "Le cloud souverain français s'exporte : Scaleway défie les géants américains en Italie &nbsp;&nbsp; TELE Satellite.com",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "Scaleway",
+          "color": "#E6007A",
+          "group": "sovereign_cloud"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 35,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:54:35.913375+00:00",
+      "title_original": "Le cloud souverain français s'exporte : Scaleway défie les géants américains en Italie - TELE Satellite.com",
+      "title_zh": "",
+      "summary_original": "Le cloud souverain français s'exporte : Scaleway défie les géants américains en Italie &nbsp;&nbsp; TELE Satellite.com",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMivgFBVV95cUxOT0ZGZk1URURNYW1xZzVaS3hzWU5iZlBsWWtrc2Fnd3d5VlBBbi13VlBPWGNtQkJjWkRMOWVteTBZNU1Qak9tMmZKR0ZBQ2NYSTRmaFBOblRHR2ZEcEFER2liaDN5X05JcVFpcFE1U1dkQTRvUUpka25Hblk4V285al9QV01ONFQ2Skhsb0FyYmtZQkJwWmNNbTl0LXQ5ejNrWERTVzBEQTZ0THg0OHFoRnB6eWpob2FQam1rbExB%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link",
+      "_from_history": true
+    },
+    {
+      "id": "da0b7d5f2f8fe660",
+      "title": "Roubaix : OVHcloud annonce étendre ses solutions dans le secteur de la Défense - La Gazette France",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNMHNZcXlPbDU4dEZiRTVzSDBMYWxWWnNHay1nVjF0NnF1S1luNFVQajdtUGI0RnhTNUdpd0dnQjctUmhqQjc2ckhRM29VZ0hldkZxRE1ZaE9XMU9EU1BzNFloLWJfZHJRVkF0Y0pJTWFSbmlFT3RRTDhLQVNnUS1QVG9nZzg0aEtMSjZQZ3plWDI2a1lxcFZ6OVIzSkNtRlpjSlJXeWljV0JBMnM0UjlXdS1xNV9Rdw?oc=5",
+      "source": "La Gazette France",
+      "published": "2026-03-31T07:00:00+00:00",
+      "published_display": "2026-03-31",
+      "published_date_short": "2026-03-31",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
+      "summary": "Roubaix : OVHcloud annonce étendre ses solutions dans le secteur de la Défense &nbsp;&nbsp; La Gazette France",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "OVHcloud",
+          "color": "#002395",
+          "group": "sovereign_cloud"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 32,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:54:35.897860+00:00",
+      "title_original": "Roubaix : OVHcloud annonce étendre ses solutions dans le secteur de la Défense - La Gazette France",
+      "title_zh": "",
+      "summary_original": "Roubaix : OVHcloud annonce étendre ses solutions dans le secteur de la Défense &nbsp;&nbsp; La Gazette France",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitgFBVV95cUxNMHNZcXlPbDU4dEZiRTVzSDBMYWxWWnNHay1nVjF0NnF1S1luNFVQajdtUGI0RnhTNUdpd0dnQjctUmhqQjc2ckhRM29VZ0hldkZxRE1ZaE9XMU9EU1BzNFloLWJfZHJRVkF0Y0pJTWFSbmlFT3RRTDhLQVNnUS1QVG9nZzg0aEtMSjZQZ3plWDI2a1lxcFZ6OVIzSkNtRlpjSlJXeWljV0JBMnM0UjlXdS1xNV9Rdw%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link",
+      "_from_history": true
+    },
+    {
+      "id": "aa30f9c186d47627",
+      "title": "Iliad fait de l’IA et du cloud ses nouveaux relais de croissance ... - ZDNET",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQSTgzbk9oNmZzdUJCNjFhdndrT0Fza1VXWjkwMjZydFNsZUZMWnItZTgzb3VJRlhEYlY1cDdSUWZBSTFELVRGS3U5VWRJaTk2MXhRNmhUZ0d4cGtoc3hvRzlzWVpTc2hpU3I0TzNUTE5ZWjkySjVOMHJPOGdJQXZBQk14TnNNN20xUXBnMk1FUWFZRXdjdTFSZm5ZQmxXWlNIY2dVOUhsZkVodw?oc=5",
+      "source": "ZDNET",
+      "published": "2026-03-25T07:00:00+00:00",
+      "published_display": "2026-03-25",
+      "published_date_short": "2026-03-25",
+      "category": "industry_cloud",
+      "category_label": "行业云/客户案例",
+      "provider": null,
+      "summary": "Iliad fait de l’IA et du cloud ses nouveaux relais de croissance ... &nbsp;&nbsp; ZDNET",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 18,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:54:11.618406+00:00",
+      "title_original": "Iliad fait de l’IA et du cloud ses nouveaux relais de croissance ... - ZDNET",
+      "title_zh": "",
+      "summary_original": "Iliad fait de l’IA et du cloud ses nouveaux relais de croissance ... &nbsp;&nbsp; ZDNET",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqgFBVV95cUxQSTgzbk9oNmZzdUJCNjFhdndrT0Fza1VXWjkwMjZydFNsZUZMWnItZTgzb3VJRlhEYlY1cDdSUWZBSTFELVRGS3U5VWRJaTk2MXhRNmhUZ0d4cGtoc3hvRzlzWVpTc2hpU3I0TzNUTE5ZWjkySjVOMHJPOGdJQXZBQk14TnNNN20xUXBnMk1FUWFZRXdjdTFSZm5ZQmxXWlNIY2dVOUhsZkVodw%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link",
+      "_from_history": true
+    },
+    {
+      "id": "2aed7487991b1e2b",
+      "title": "La start-up Gojob mise sur le cloud de S3NS pour concilier recrutement par IA et souveraineté des données - L'Usine Digitale",
+      "url": "https://news.google.com/rss/articles/CBMilAJBVV95cUxQZ3hLNXJMY3k0RDlyX3piYm1FWUM0cmg2aHhQOVpKLWl2MmRWWWNuUU1ka0UtTzZBaUQ5S0pQZTVTZnBrbm5rVFpvSWxfel9SODhONERyQlctLVFlQVd0UHctTzRERFdfeHpkNzFuTy1IUHJEZjJmR3hnTHJfLU5jRU80SS1yR28ySzZfNkE5S2VoMzJlemp1ajF0RkFsQnI5RW1vLXBhRVZWYl84NFUwXzhTSmRaV1Zya1FuYWZ2UVUwX0FrcVBRR203OFd5V2VMSm9mSTJTRVR1MHZZLVZCc3h1OHdXLWZCM1B2cm5TRVQ0NVJfaGJPMEZvZ3hpVFZrOWNSMU1laGRiaFBSUUdnNDBBZlA?oc=5",
+      "source": "L'Usine Digitale",
+      "published": "2026-03-17T07:00:00+00:00",
+      "published_display": "2026-03-17",
+      "published_date_short": "2026-03-17",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": "S3NS",
+      "summary": "La start-up Gojob mise sur le cloud de S3NS pour concilier recrutement par IA et souveraineté des données &nbsp;&nbsp; L'Usine Digitale",
+      "event_type": "policy_law",
+      "event_type_label": "政策法规",
+      "event_type_icon": "📜",
+      "entities": [
+        {
+          "display": "S3NS",
+          "color": "#FF6600",
+          "group": "sovereign_cloud"
+        }
+      ],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 68,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T16:57:29.053017+00:00",
+      "title_original": "La start-up Gojob mise sur le cloud de S3NS pour concilier recrutement par IA et souveraineté des données - L'Usine Digitale",
+      "title_zh": "",
+      "summary_original": "La start-up Gojob mise sur le cloud de S3NS pour concilier recrutement par IA et souveraineté des données &nbsp;&nbsp; L'Usine Digitale",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMilAJBVV95cUxQZ3hLNXJMY3k0RDlyX3piYm1FWUM0cmg2aHhQOVpKLWl2MmRWWWNuUU1ka0UtTzZBaUQ5S0pQZTVTZnBrbm5rVFpvSWxfel9SODhONERyQlctLVFlQVd0UHctTzRERFdfeHpkNzFuTy1IUHJEZjJmR3hnTHJfLU5jRU80SS1yR28ySzZfNkE5S2VoMzJlemp1ajF0RkFsQnI5RW1vLXBhRVZWYl84NFUwXzhTSmRaV1Zya1FuYWZ2UVUwX0FrcVBRR203OFd5V2VMSm9mSTJTRVR1MHZZLVZCc3h1OHdXLWZCM1B2cm5TRVQ0NVJfaGJPMEZvZ3hpVFZrOWNSMU1laGRiaFBSUUdnNDBBZlA%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "d25dac05c2b31cfa",
+      "title": "PARIS : Souveraineté numérique - L'Assemblée nationale enquête sur les dépendances de la France - presseagence.fr",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNb1RiT2wtZjZWYnBWR2I4RWtTNE9fNmF2V09uM2ZYdzdlZjBndUFENkprZ1FrWU9YR2hhbE5ubjFZV2VHdGp0RUxRNEpsSWlOc2lsYnFkUFZROU9nZDhXYlNUSVVxdXNXSUIzbjN0czJzM0VpRVVpMXZQaDBJSmJSLWFjWXY5Z3RDc0dGRG85ZVVWeVBxZjJLaFN1OGN2VDJDS3BCaU85dlBzMGUzSDFJNm1mZW5oUQ?oc=5",
+      "source": "presseagence.fr",
+      "published": "2026-04-29T00:00:00+00:00",
+      "published_display": "2026-04-29",
+      "published_date_short": "2026-04-29",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
+      "summary": "PARIS : Souveraineté numérique - L'Assemblée nationale enquête sur les dépendances de la France &nbsp;&nbsp; presseagence.fr",
+      "event_type": "policy_law",
+      "event_type_label": "政策法规",
+      "event_type_icon": "📜",
+      "entities": [],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 63,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T16:58:48.937267+00:00",
+      "title_original": "PARIS : Souveraineté numérique - L'Assemblée nationale enquête sur les dépendances de la France - presseagence.fr",
+      "title_zh": "",
+      "summary_original": "PARIS : Souveraineté numérique - L'Assemblée nationale enquête sur les dépendances de la France &nbsp;&nbsp; presseagence.fr",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitgFBVV95cUxNb1RiT2wtZjZWYnBWR2I4RWtTNE9fNmF2V09uM2ZYdzdlZjBndUFENkprZ1FrWU9YR2hhbE5ubjFZV2VHdGp0RUxRNEpsSWlOc2lsYnFkUFZROU9nZDhXYlNUSVVxdXNXSUIzbjN0czJzM0VpRVVpMXZQaDBJSmJSLWFjWXY5Z3RDc0dGRG85ZVVWeVBxZjJLaFN1OGN2VDJDS3BCaU85dlBzMGUzSDFJNm1mZW5oUQ%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "767d51662455b725",
+      "title": "La France va lancer son propre système d’exploitation pour sa souveraineté numérique - buzzwebzine.fr",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQd1FSNEI5cWJVbkZCTzVEY2owUzBEckpIQVpFNi1VSTF4WXRRcTNDZ0lUNTdXZ3hsQmlnRkxKb3Jhd1h4cjVSLU8tTzh2SE9GMEotQ1hfVlZxaTdOVXBESWpac2Z1MUpQUmllUVNYM3RRcXRaTEdiVXdoVXF6eEREZVM1clZxd0xmaWVoZm1TMFBxMkpkS2draHhwb1hVcG5DYldEbXlleGRUUkp1TExVUQ?oc=5",
+      "source": "buzzwebzine.fr",
+      "published": "2026-04-25T07:00:00+00:00",
+      "published_display": "2026-04-25",
+      "published_date_short": "2026-04-25",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
+      "summary": "La France va lancer son propre système d’exploitation pour sa souveraineté numérique &nbsp;&nbsp; buzzwebzine.fr",
+      "event_type": "policy_law",
+      "event_type_label": "政策法规",
+      "event_type_icon": "📜",
+      "entities": [],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 60,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T16:58:48.947782+00:00",
+      "title_original": "La France va lancer son propre système d’exploitation pour sa souveraineté numérique - buzzwebzine.fr",
+      "title_zh": "",
+      "summary_original": "La France va lancer son propre système d’exploitation pour sa souveraineté numérique &nbsp;&nbsp; buzzwebzine.fr",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMisAFBVV95cUxQd1FSNEI5cWJVbkZCTzVEY2owUzBEckpIQVpFNi1VSTF4WXRRcTNDZ0lUNTdXZ3hsQmlnRkxKb3Jhd1h4cjVSLU8tTzh2SE9GMEotQ1hfVlZxaTdOVXBESWpac2Z1MUpQUmllUVNYM3RRcXRaTEdiVXdoVXF6eEREZVM1clZxd0xmaWVoZm1TMFBxMkpkS2draHhwb1hVcG5DYldEbXlleGRUUkp1TExVUQ%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "461fbe7ba7d15347",
+      "title": "Souveraineté numérique : cette extension Chrome vous aide à vous affranchir des services américains à votre rythme - Les Numériques",
+      "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNa2FwTkFtUjZGSkI3d3Blb1pjMmJuVXhacXBlakJaSFFGcEdYYV9CREF3Q0YwbG1lNE5KRm9rMXBhV3pkSGN5dkdWOXFFa1JaSFR4dnhVMmFJRjE5aEhRYnZXSTBSamdiSEtObjRDaWxpNEJlcVlFT2FndnJyNjd1WDZVemJyWUczTy1OWmdxbmMtaGxQTUx5MXNHeWdhb0dmaFl3RUdjR3ZEMWF4QmRzWGV4YWFwQjR1Y241eHFpUlVxazhoc0l3LWphVllJb0dHeHFxYTZ3cU5MenhDUFNNWGxSQVhOMFpaMl9mLXdlNEJrelFyVmdMLVczQnRKYkR0OFVv?oc=5",
+      "source": "Les Numériques",
+      "published": "2026-04-12T07:00:00+00:00",
+      "published_display": "2026-04-12",
+      "published_date_short": "2026-04-12",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": null,
+      "summary": "Souveraineté numérique : cette extension Chrome vous aide à vous affranchir des services américains à votre rythme &nbsp;&nbsp; Les Numériques",
+      "event_type": "policy_law",
+      "event_type_label": "政策法规",
+      "event_type_icon": "📜",
+      "entities": [],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 57,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T16:58:48.959018+00:00",
+      "title_original": "Souveraineté numérique : cette extension Chrome vous aide à vous affranchir des services américains à votre rythme - Les Numériques",
+      "title_zh": "",
+      "summary_original": "Souveraineté numérique : cette extension Chrome vous aide à vous affranchir des services américains à votre rythme &nbsp;&nbsp; Les Numériques",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMigwJBVV95cUxNa2FwTkFtUjZGSkI3d3Blb1pjMmJuVXhacXBlakJaSFFGcEdYYV9CREF3Q0YwbG1lNE5KRm9rMXBhV3pkSGN5dkdWOXFFa1JaSFR4dnhVMmFJRjE5aEhRYnZXSTBSamdiSEtObjRDaWxpNEJlcVlFT2FndnJyNjd1WDZVemJyWUczTy1OWmdxbmMtaGxQTUx5MXNHeWdhb0dmaFl3RUdjR3ZEMWF4QmRzWGV4YWFwQjR1Y241eHFpUlVxazhoc0l3LWphVllJb0dHeHFxYTZ3cU5MenhDUFNNWGxSQVhOMFpaMl9mLXdlNEJrelFyVmdMLVczQnRKYkR0OFVv%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "1da1d0b683e36dd0",
+      "title": "Adoption et impact de l’IA au sein des entreprises - Deloitte",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNei14ZDZfRXQ1clJxaVN5eFVucE4xVHFkMnhqLU0xdWFSczdVWWY4VzdXNXZscmh5eWo4eXdQdDBYaEpKMlEwOFRNX1VvaGhOY1Z6VjV3V29ZU1JJeFlUc3FhbEpXeTFTN19nMW5LN2k5MHBrTEsta1ltSzBBem5ieEtiVFdKZjA0TDU2dWpKVlNxb0pxd1BLWlI3NW5yOFE?oc=5",
+      "source": "Deloitte",
+      "published": "2026-02-12T08:00:00+00:00",
+      "published_display": "2026-02-12",
+      "published_date_short": "2026-02-12",
+      "category": "ecosystem_partners",
+      "category_label": "云生态合作伙伴",
+      "provider": null,
+      "summary": "Adoption et impact de l’IA au sein des entreprises &nbsp;&nbsp; Deloitte",
+      "event_type": "policy_law",
+      "event_type_label": "政策法规",
+      "event_type_icon": "📜",
+      "entities": [
+        {
+          "display": "Deloitte",
+          "color": "#86BC25",
+          "group": "ecosystem_partners"
+        }
+      ],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 48,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T16:58:51.315585+00:00",
+      "title_original": "Adoption et impact de l’IA au sein des entreprises - Deloitte",
+      "title_zh": "",
+      "summary_original": "Adoption et impact de l’IA au sein des entreprises &nbsp;&nbsp; Deloitte",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMinwFBVV95cUxNei14ZDZfRXQ1clJxaVN5eFVucE4xVHFkMnhqLU0xdWFSczdVWWY4VzdXNXZscmh5eWo4eXdQdDBYaEpKMlEwOFRNX1VvaGhOY1Z6VjV3V29ZU1JJeFlUc3FhbEpXeTFTN19nMW5LN2k5MHBrTEsta1ltSzBBem5ieEtiVFdKZjA0TDU2dWpKVlNxb0pxd1BLWlI3NW5yOFE%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "bc234c1edc976712",
+      "title": "AMLA & AMLR : comment anticiper la conformité anti-blanchiment européenne d’ici 2027 ? - EY",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQSHVaVkZ1NHlCWUs0bEk0Tk5qS2daaUNSWktKODl1QWdTcFpTWU12akRQcDZuRUJ4ZnBoVUZZclVUNXRxSkFxVk1Rc2hHUVlDSHNGRGF4dVZMZTNZMGdCVXBqaGlhN29XazV2T0pXMlBaX1dIMzRSYnZIVVhYVGtPeGZYd003dE9sZzQ5TUtNRXVEZE9qcjhIaWhoTGZ6cWJZeEVibllWY0lwUQ?oc=5",
+      "source": "EY",
+      "published": "2026-04-07T07:00:00+00:00",
+      "published_display": "2026-04-07",
+      "published_date_short": "2026-04-07",
+      "category": "policy_regulation",
+      "category_label": "政策监管",
+      "provider": null,
+      "summary": "AMLA & AMLR : comment anticiper la conformité anti-blanchiment européenne d’ici 2027 ? &nbsp;&nbsp; EY",
+      "event_type": "certification",
+      "event_type_label": "认证资质",
+      "event_type_icon": "✅",
+      "entities": [],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 41,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:58:51.278501+00:00",
+      "title_original": "AMLA & AMLR : comment anticiper la conformité anti-blanchiment européenne d’ici 2027 ? - EY",
+      "title_zh": "",
+      "summary_original": "AMLA & AMLR : comment anticiper la conformité anti-blanchiment européenne d’ici 2027 ? &nbsp;&nbsp; EY",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqgFBVV95cUxQSHVaVkZ1NHlCWUs0bEk0Tk5qS2daaUNSWktKODl1QWdTcFpTWU12akRQcDZuRUJ4ZnBoVUZZclVUNXRxSkFxVk1Rc2hHUVlDSHNGRGF4dVZMZTNZMGdCVXBqaGlhN29XazV2T0pXMlBaX1dIMzRSYnZIVVhYVGtPeGZYd003dE9sZzQ5TUtNRXVEZE9qcjhIaWhoTGZ6cWJZeEVibllWY0lwUQ%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "aa3a34d26ecb9361",
+      "title": "Qui va héberger les données de santé des Français à la place de Microsoft ? - ChannelNews",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOQWViajNfUEdSOU5jbi1yNHM4YUFEUU1rRmp1bHlOSlVmQjRKWElLNU1fSlphaXJnelFOZ01GUFlfZk1BX3hrbXRoZXBHZ2dzWE93dWpiYlpkLUNYeUo3NFJod1R1a0NuRzZid3ZhM3A4REVUcnJkZDZPLWpyNlBlWks4OGMyQnVkWW5OaWFIN0JCZnpFSFBaaHBjQ21zcDc2MFkzc0F0azZVaXc?oc=5",
+      "source": "ChannelNews",
+      "published": "2026-02-25T08:00:00+00:00",
+      "published_display": "2026-02-25",
+      "published_date_short": "2026-02-25",
+      "category": "private_hybrid",
+      "category_label": "私有云/混合云",
+      "provider": "NetApp",
+      "summary": "Qui va héberger les données de santé des Français à la place de Microsoft ? &nbsp;&nbsp; ChannelNews",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "Azure",
+          "color": "#0078D4",
+          "group": "cloud_providers"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 39,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-10T16:57:16.708051+00:00",
+      "title_original": "Qui va héberger les données de santé des Français à la place de Microsoft ? - ChannelNews",
+      "title_zh": "",
+      "summary_original": "Qui va héberger les données de santé des Français à la place de Microsoft ? &nbsp;&nbsp; ChannelNews",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqwFBVV95cUxOQWViajNfUEdSOU5jbi1yNHM4YUFEUU1rRmp1bHlOSlVmQjRKWElLNU1fSlphaXJnelFOZ01GUFlfZk1BX3hrbXRoZXBHZ2dzWE93dWpiYlpkLUNYeUo3NFJod1R1a0NuRzZid3ZhM3A4REVUcnJkZDZPLWpyNlBlWks4OGMyQnVkWW5OaWFIN0JCZnpFSFBaaHBjQ21zcDc2MFkzc0F0azZVaXc%3Foc%3D5",
       "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     }
