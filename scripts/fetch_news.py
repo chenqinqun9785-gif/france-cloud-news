@@ -395,14 +395,14 @@ def send_telegram_digest(articles, bot_token, chat_id):
         print("[INFO] Telegram credentials not set, skipping notification")
         return
 
-    # Filter: score >= 75, last 24h (with 48h fallback if too few)
+    # Filter: score >= 60, last 24h (with 48h fallback if too few)
     cutoff_24 = datetime.now(timezone.utc) - timedelta(hours=24)
     cutoff_48 = datetime.now(timezone.utc) - timedelta(hours=48)
 
     in_24h = []
     in_48h = []
     for a in articles:
-        if a.get("importance_score", 0) < 75:
+        if a.get("importance_score", 0) < 60:
             continue
         pub_str = a.get("published", "")
         if not pub_str:
