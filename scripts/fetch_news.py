@@ -778,9 +778,8 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
     Donnees fournies par Google News · Filtees sur la France · Mise a jour quotidienne · v3
 </footer>
 
-<script id="articles-data" type="application/json">{articles_json}</script>
 <script>
-const ALL_ARTICLES = JSON.parse(document.getElementById('articles-data').textContent);
+let ALL_ARTICLES = [];
 const CATEGORIES = {categories_json};
 const EVENT_TYPES = {event_types_json};
 const PROVIDER_COLORS = {provider_colors_json};
@@ -1013,7 +1012,12 @@ function renderFeed() {{
 }}
 
 // ── Boot ──
-init();
+fetch('data.json').then(r => r.json()).then(data => {{
+    ALL_ARTICLES = data;
+    init();
+}}).catch(e => {{
+    document.getElementById('newsFeed').innerHTML = '<div class=\"empty-state\"><div class=\"empty-icon\">⚠️</div><p>Chargement echoue. Veuillez rafraichir.</p></div>';
+}});
 
 if ('serviceWorker' in navigator) {{
     navigator.serviceWorker.register('sw.js').then(r => console.log('SW:', r.scope)).catch(e => console.log('SW fail:', e));
@@ -1028,11 +1032,18 @@ if ('serviceWorker' in navigator) {{
 # ═══════════════════════════════════════════════════════════
 
 def write_output(articles, output_path):
+    data_dir = os.path.dirname(output_path)
+    # Write data.json for fetch-based loading
+    data_json_path = os.path.join(data_dir, "data.json")
+    os.makedirs(data_dir, exist_ok=True)
+    with open(data_json_path, "w", encoding="utf-8") as f:
+        json.dump(articles, f, ensure_ascii=False)
+
     html_content = generate_html(articles)
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html_content)
     print(f"\n[OK] HTML written to: {output_path}")
+    print(f"[OK] Data JSON: {data_json_path}")
     print(f"  Total: {len(articles)}")
 
     cats = {}

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-10T15:34:25.168379+00:00",
-  "total": 355,
+  "generated_at": "2026-05-10T15:50:48.964561+00:00",
+  "total": 357,
   "articles": [
     {
       "id": "98a5d3890e166fb6",
@@ -1731,8 +1731,7 @@
       "summary_zh": "IA et santé : développer et évaluer des systèmes d’IA en conformité avec la réglementation &nbsp;&nbsp; CNIL",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiigFBVV95cUxQVmliYnkxWVg1NnVBR2pWZDJFYTRTVVNKZE9Wb0tmeVRLMzVkQ3ktOHVXTjNoRnR3aUdyVzFLR3dvV18tb2pMS294bzRJZ05wWmhua01UUGd5bW16VlF2Z3kwbVRnZjlpQVZUYkdVRVM2Wm16OG5Kc3NPMWNfcENtYUtsaV9IV0JXWmc%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "e8860f64d4c09514",
@@ -4297,7 +4296,8 @@
       "summary_zh": "La direction du numérique de l'État quitte Windows pour Linux et demande aux ministères de préparer leur plan &nbsp;&nbsp; Les Numériques",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMi_wFBVV95cUxOOXBmWUNuV0hFYzMydHo1cGNWM0RGTVlpVm1tQWxMRExYOVJWMVNlSVpMcTR4RnFROUtaeVRwaW5VWVR1d2NTM3VaSkFUekdPZFZoa2RHd1ZPcl82ZlROamtoTm5YbURYZEczdWI0dGlEN3d4bHE2RURlRkVJUGdndFhjckZ6d2FyTEhBRlpDempqa1g3UUJxeURPdnJUVkJpWXhjRzF5T3pPRU04Y2NTZWJJUE9vLXU1NF91U2NfQkw1OGJ0VTVLMmpRbUxtcmdBaVEwZ0xLejFCcnliblNJSkRfRG1PT3N4NWJHN2duazF2elN2OUVjWXBSZ2NFMEk%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "8f32cdfbda99d704",
@@ -4581,7 +4581,8 @@
       "summary_zh": "Cloud souverain santé : Scaleway remplace Microsoft &nbsp;&nbsp; parlons-politique.fr",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiggJBVV95cUxObkVrQW5hTkxvSFZXYjdkbFRmYktDRWpUNUY4VWh4dVlxVGhfV3dSWWVDRXFER1VuZWpLanZ6SVZocG1NMERzTFI1UENRTkUtdlVmZTk3eDBkb3JvOFdQdGNxVEc3V2JYdGJSWVFKb2pxV3BZRE91UE1MVFM4TXg2d1VQQjc4QmdFUkFaaWEtOE14U2pFTmxGcWRMVVNyWEIwWTFkc3U4Z3VtSHpGX28zX3JFSzlHQ0wtZ1d3NG50RXlfRkQ4WkZlSGNwNmdhZjNHazBlM2hHUXA2R2g0THNhTDRJRGZSc1c5ZC1KajAyenNaQndEWVdOdEM2NmRtS1g1YkE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "33603376870858a4",
@@ -4698,7 +4699,7 @@
       "published_date_short": "2026-04-22",
       "category": "ai_datacenter",
       "category_label": "AI云与数据中心",
-      "provider": "GCP",
+      "provider": null,
       "summary": "Intelligence artificielle : Google va à contre-courant de Nvidia et d’Amazon en lançant deux nouveaux TPU aux architectures différentes, l’un pour l’entraînement et l’autre pour l’inférence &nbsp;&nbsp; L'Usine Digitale",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -8681,8 +8682,7 @@
       "summary_zh": "PFAS : contrôle de l’eau potable &nbsp;&nbsp; Agence régionale de santé Hauts-de-France",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiekFVX3lxTE9FR3NrSmFqT1NqVHVVOFlTZ0VacC1KU2JGWm9wVEs3SGttMjE4UG9KdzE1OWVQV3RVYnVOZ3JrbkRSZDVOZzQ2SDlQNUdKYzVxMFJwY2VlMkkwbjRqUzdub2ctOWYyOTd2UlpfSExWcW5CQjctZHBVcUp3%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "4768e5c33e1ffc91",
@@ -9073,7 +9073,8 @@
       "summary_zh": "Numérique. Philippe Plantive (Proginov) : « Trump est un formidable exhausteur de goût de la tech française » &nbsp;&nbsp; Ouest-France",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMirwJBVV95cUxQaS1rZk5PUGxLaGowUUR2T25yd2tXbnE0VG5EMWRDNnRTRFRGNTk2SVRyNTFpOWk2WFNERUluU2lKb044T2owNkc2VW9STjBsSmtNMDNHbXFiUzFLQ2dwS01qbHJ1SGVkQlNkRzlfVU5sRG1rSGdHcXUtVkZqcy1sX0FjUnBzNEpyX0VUUzlsRnVyZmwyRkdFYjNGc2xmZ3JGWVpqd0QybDA5OTJiU1NETl9Pa3hCUm00RjdHdUZyTjFWSDRUTjVma1NZTGs1MUdCQUJfVTRvU1lidjRmWmxpTHJUZTN1UVRpaHlNclVTZnU5cW8wejJUWW5vcGlHeTM4LUx0MWY1dXRXbFM5MmNDVVUwNHhndW9UTHZqWm95WWpjTDRKbjJKS2I1R1hEUkE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "07b1d921f6009a4f",
@@ -9102,8 +9103,7 @@
       "summary_zh": "NVIDIA GTC : la conférence où l’industrie de l’IA se donne rendez-vous &nbsp;&nbsp; frenchweb.fr",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMinwFBVV95cUxOWmw2M2hqY09USHNFWkJ2VHdvcExIUkZfZFpWQXk2MWlOV3NZSVlac3U0TkFoc3NCbzRBbERFVlk4NWNyMzNlMVpxVlBOWWdiNlBrT0ctVUF0dXY2aGI5MjJpTjVWUWlTOC1WVFhESkZ3ODVEUm93eTBNSThRN3h3eXNQdmVQLXRMTHIxX2JGSlY0RTJfbEhuZ1Vrc1FLRjg%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "f9da4a5e2efd83ee",
@@ -9550,7 +9550,8 @@
       "summary_zh": "Le paiement 100 % européen Wero cachait un secret américain très embarrassant &nbsp;&nbsp; Frandroid",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiwgFBVV95cUxOS1lUaDJkd1RacUlrTnNkWk5zOHhpQVpKZkNockVTNU9sTldfd0tIaXBhc0FyTG81ZU1NcHFFTWx1dXdlanhWSWxuUjJtU0xRSF9IVXNpTVZXdW5nQmlaSnVZRHZVSmU5NlJyVkt2RDEtVUxjUG84NVZkaXpIQjZrVFVWR2l5bDd5aXBVckV0MGM2aWRRU0pLSzhnUnhLQ0lzMGlFcTZSMlhHeXRSSXlaLTNHX1FnM3FpbTA3X1FZTkNjQQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "07b78e54418e202f",
@@ -10459,8 +10460,7 @@
       "summary_zh": "Le Label France Cybersecurity distingue 91 solutions pour orienter la commande publique &nbsp;&nbsp; it social",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMijgJBVV95cUxQWjVRbnpZQUt4MEtTWTdFajdIelA1eFhheVFsQkQyUFhzSnlic1ZCS3FkVThlUDNtZVFXcHpvTGNZZHBLMXoyQTJfOXN6SlZPdHJRaUVicjVyNUlqUzdxMjJfd2g3dnZYNVhjWkZOTGJkZlVDVW5meUZkNjBoUXJkdlZXSl94U0tTdXB4WENZLWY3VjZYeE1LRG9HeTdTZDUxYS1JNTlHMGpIMXBVdnExaW9SZEp2cm9qbTBnLVhocGNQd1ByVjJFUXhXMXdSMlhURVdKMlpfeXFJNWNwQ1M1UWZGS01WSll3NXYxZU9EVmFxRFFnSW00YkFkQ0hQdUh5UjJId2lIYml3ZEVVSkE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "750f32d9e9f59f69",
@@ -11487,6 +11487,65 @@
       "summary_original": "Avec VCF 9.1, Broadcom arme son cloud privé pour l'IA &nbsp;&nbsp; Le Monde Informatique",
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitAFBVV95cUxPZ0UtaGdsNXVaeTlubVZZMF9YM3loLU9yT05Yc18wMUVlUnNvcVBXaHYtMXNyOC04Rm1yWlV6TkxzMnlQYnBBdFVVSHRNelhmNU1rZXg3Qk11cUZja0FKVXd4MG43YjZVNTFZWVBKZEtQOS1OWGNYdko5VnBLdXF3M2JRTkw1STkxNlY2b3BpdDd2TkltT3lTU3pRTzg5LUFmeC1fYmYxNndVY3liSjZYZmU4cXrSAbgBQVVfeXFMTkt1YXR4V3VscXl2SVhxN01aWG82UzJ2anprV1NFb1JUUWI4bEFVaWFMWjZUdERka005ZEktS2lvQk9LOTlpUGQ1THo2MlBjU0doWlc5eHg2ZWhGSldiV19kcm54SXJsblVVS3VBV2NjX1h5SjJ5c0dtQ2tTTmU5WUxlNFFnNmJUUk5JbDZ6TDExLWFycFBON1RPSF9sQk02djhXR2gyREMxTzdrQXNVX2d1NUpCdlAxbA%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link",
+      "_from_history": true
+    },
+    {
+      "id": "242d57c95e90186e",
+      "title": "Souveraineté numérique : pourquoi l’Europe accélère sa rupture avec les géants technologiques américains - Fredzone",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQZ0ZZQjd3Y1p0LVVqZHFCZUdFdHdyTkhjOHdWYk9teFhIRUlTa2lXZVNOUmtyNmlCT1VxcEUwcmpNNkY0N1luNDdRbEdrU1FvcUtzeDhMNjl0WjdBNmtnQVB1SzVrTl96RE9JaDhFMkRsZU9jaXlxNS1iY3NiV1FseHNsV2JJSS11YzlIeFBVTkVsUy1YbGVtMWdERGdIay1Ucl9FUHZiWXhmZ3dVQlMzdThHRjRwYWs4Zm9BWEZVS0wtMEVFVFE?oc=5",
+      "source": "Fredzone",
+      "published": "2026-04-28T13:00:55+00:00",
+      "published_display": "2026-04-28",
+      "published_date_short": "2026-04-28",
+      "category": "sovereign_trusted",
+      "category_label": "主权云/可信云",
+      "provider": "Scaleway",
+      "summary": "Souveraineté numérique : pourquoi l’Europe accélère sa rupture avec les géants technologiques américains &nbsp;&nbsp; Fredzone",
+      "event_type": "policy_law",
+      "event_type_label": "政策法规",
+      "event_type_icon": "📜",
+      "entities": [],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 57,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T15:49:04.538180+00:00",
+      "title_original": "Souveraineté numérique : pourquoi l’Europe accélère sa rupture avec les géants technologiques américains - Fredzone",
+      "title_zh": "",
+      "summary_original": "Souveraineté numérique : pourquoi l’Europe accélère sa rupture avec les géants technologiques américains &nbsp;&nbsp; Fredzone",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMixgFBVV95cUxQZ0ZZQjd3Y1p0LVVqZHFCZUdFdHdyTkhjOHdWYk9teFhIRUlTa2lXZVNOUmtyNmlCT1VxcEUwcmpNNkY0N1luNDdRbEdrU1FvcUtzeDhMNjl0WjdBNmtnQVB1SzVrTl96RE9JaDhFMkRsZU9jaXlxNS1iY3NiV1FseHNsV2JJSS11YzlIeFBVTkVsUy1YbGVtMWdERGdIay1Ucl9FUHZiWXhmZ3dVQlMzdThHRjRwYWs4Zm9BWEZVS0wtMEVFVFE%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "ae49abda36531f9a",
+      "title": "Snowflake s'attaque à la souveraineté des données - Le Monde Informatique",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQVXJCdldJR0tSRU1DeEFjR0lXbjhHXzdBN1BQcVVjTVZ0TEZnTlpOXy12WGhjeUk4MkRCWWpSTWVyRkQtelRMS2pzRDJUSW03RkdZSS04V2ZFamRsem9NOXkwVnNYNzFnOHI5MFNzc3ktazZjLTJIY1JlYmxWbFo0MWJUYVYwcmZkeDRZc3ZHUzdEd0lJYS1nTHhuMjh2Sy1UU2drOVZETVhMWldXdmlWNG5B0gG2AUFVX3lxTFBiU2JDLTNiTllZZjJMWXYtRDZPSzNiWFVabHB5d3pYQmJnS25KMVNhUlZOOXVXMXJpaFJuaTVuSmM1ZmgwMXdEUlhGVmdHckdkcks0dlJpcWtWcUVXSUlxSG8wWXVKZ3NIbzZrcEJDUHExeFgxeTNoa0VLLXNCcGxndFdmNDNmdEd1dDRrYS03QjZuVDRqRVBkU1o0OGFjVlpOZEhZWU0zUXFYSHQyb0VoVmdJRElB?oc=5",
+      "source": "Le Monde Informatique",
+      "published": "2026-04-27T14:54:31+00:00",
+      "published_display": "2026-04-27",
+      "published_date_short": "2026-04-27",
+      "category": "industry_cloud",
+      "category_label": "行业云/客户案例",
+      "provider": null,
+      "summary": "Snowflake s'attaque à la souveraineté des données &nbsp;&nbsp; Le Monde Informatique",
+      "event_type": "policy_law",
+      "event_type_label": "政策法规",
+      "event_type_icon": "📜",
+      "entities": [],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 50,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-10T15:49:55.878384+00:00",
+      "title_original": "Snowflake s'attaque à la souveraineté des données - Le Monde Informatique",
+      "title_zh": "",
+      "summary_original": "Snowflake s'attaque à la souveraineté des données &nbsp;&nbsp; Le Monde Informatique",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMisgFBVV95cUxQVXJCdldJR0tSRU1DeEFjR0lXbjhHXzdBN1BQcVVjTVZ0TEZnTlpOXy12WGhjeUk4MkRCWWpSTWVyRkQtelRMS2pzRDJUSW03RkdZSS04V2ZFamRsem9NOXkwVnNYNzFnOHI5MFNzc3ktazZjLTJIY1JlYmxWbFo0MWJUYVYwcmZkeDRZc3ZHUzdEd0lJYS1nTHhuMjh2Sy1UU2drOVZETVhMWldXdmlWNG5B0gG2AUFVX3lxTFBiU2JDLTNiTllZZjJMWXYtRDZPSzNiWFVabHB5d3pYQmJnS25KMVNhUlZOOXVXMXJpaFJuaTVuSmM1ZmgwMXdEUlhGVmdHckdkcks0dlJpcWtWcUVXSUlxSG8wWXVKZ3NIbzZrcEJDUHExeFgxeTNoa0VLLXNCcGxndFdmNDNmdEd1dDRrYS03QjZuVDRqRVBkU1o0OGFjVlpOZEhZWU0zUXFYSHQyb0VoVmdJRElB%3Foc%3D5",
       "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     }
