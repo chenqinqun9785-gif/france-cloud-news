@@ -721,6 +721,15 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 .btn-translate:active{{background:#1E40AF}}
 .btn-original{{background:var(--bg-card);color:var(--text-secondary);border-color:var(--border)}}
 .btn-original:hover{{background:var(--bg-hover);color:var(--text)}}
+.btn:disabled{{opacity:0.4;cursor:default}}
+
+/* Pagination */
+.pagination{{display:flex;align-items:center;justify-content:center;gap:6px;padding:20px 0;flex-wrap:wrap}}
+.page-info{{text-align:center;color:var(--text);font-size:13px;font-weight:600;padding:8px 0;background:var(--bg-card);border-radius:var(--radius-sm);margin-bottom:12px}}
+.card-details-inline{{margin-top:6px;font-size:11px;color:var(--text-muted)}}
+.card-details-inline summary{{cursor:pointer;padding:2px 0;user-select:none;list-style:none}}
+.card-details-inline summary::-webkit-details-marker{{display:none}}
+.card-details-inline summary:hover{{color:var(--text)}}
 .card-details{{margin-top:8px;font-size:11px;color:var(--text-muted)}}
 .card-details summary{{cursor:pointer;padding:4px 0;user-select:none;list-style:none}}
 .card-details summary::-webkit-details-marker{{display:none}}
@@ -765,10 +774,10 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 
     <!-- Date + Search -->
     <div class="filter-row">
-        <span class="filter-chip active" data-range="all" onclick="selectDateRange('all')">全部</span>
+        <span class="filter-chip" data-range="all" onclick="selectDateRange('all')">全部</span>
         <span class="filter-chip" data-range="today" onclick="selectDateRange('today')">今天</span>
         <span class="filter-chip" data-range="7d" onclick="selectDateRange('7d')">7天</span>
-        <span class="filter-chip" data-range="30d" onclick="selectDateRange('30d')">30天</span>
+        <span class="filter-chip active" data-range="30d" onclick="selectDateRange('30d')">30天</span>
         <span class="filter-chip" data-range="2026" onclick="selectDateRange('2026')">2026年</span>
         <input type="text" class="search-input" id="searchInput" placeholder="🔍 搜索..." oninput="onSearch()">
     </div>
@@ -797,8 +806,12 @@ const GENERATED_AT = "{generated_at}";
 let activeCategories = new Set(Object.keys(CATEGORIES));
 let activeEventType = null;
 let activeImportance = null;
-let activeDateRange = "all";
+let activeDateRange = "30d";
 let searchText = "";
+let filteredArticles = [];
+let currentPage = 1;
+let pageSize = 30;
+let searchTimer = null;
 
 function init() {{
     const dt = new Date(GENERATED_AT);
@@ -806,7 +819,7 @@ function init() {{
     renderCatFilters();
     renderEventTypeFilters();
     renderImpFilters();
-    renderFeed();
+    applyFilters();
 }}
 
 // ── Category Filters ──
@@ -824,22 +837,6 @@ function renderCatFilters() {{
         chip.onclick = () => toggleCategory(key);
         container.appendChild(chip);
     }});
-}}
-
-function toggleCategory(cat) {{
-    if (activeCategories.has(cat)) activeCategories.delete(cat); else activeCategories.add(cat);
-    document.querySelectorAll("#catFilters .filter-chip").forEach(c => {{
-        c.classList.toggle("active", activeCategories.has(c.dataset.cat));
-        c.classList.toggle("inactive", !activeCategories.has(c.dataset.cat));
-    }});
-    renderFeed();
-}}
-
-// ── Date Range ──
-function selectDateRange(range) {{
-    activeDateRange = range;
-    document.querySelectorAll("[data-range]").forEach(c => c.classList.toggle("active", c.dataset.range === range));
-    renderFeed();
 }}
 
 function passesDateFilter(a) {{
@@ -873,16 +870,6 @@ function renderEventTypeFilters() {{
     }});
 }}
 
-function selectEventType(etype) {{
-    activeEventType = etype;
-    document.querySelectorAll("#eventTypeFilters .filter-chip").forEach(c => {{
-        if (etype === null) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
-        else if (c.dataset.etype === etype) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
-        else {{ c.classList.remove("active"); c.classList.add("inactive"); }}
-    }});
-    renderFeed();
-}}
-
 // ── Importance ──
 function renderImpFilters() {{
     const container = document.getElementById("importanceFilters");
@@ -902,6 +889,38 @@ function renderImpFilters() {{
     }});
 }}
 
+// ── Search (debounced) ──
+function onSearch() {{
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {{
+        searchText = document.getElementById("searchInput").value.toLowerCase().trim();
+        applyFilters();
+    }}, 300);
+}}
+
+// ── Filters trigger applyFilters ──
+function selectDateRange(range) {{
+    activeDateRange = range;
+    document.querySelectorAll("[data-range]").forEach(c => c.classList.toggle("active", c.dataset.range === range));
+    applyFilters();
+}}
+function toggleCategory(cat) {{
+    if (activeCategories.has(cat)) activeCategories.delete(cat); else activeCategories.add(cat);
+    document.querySelectorAll("#catFilters .filter-chip").forEach(c => {{
+        c.classList.toggle("active", activeCategories.has(c.dataset.cat));
+        c.classList.toggle("inactive", !activeCategories.has(c.dataset.cat));
+    }});
+    applyFilters();
+}}
+function selectEventType(etype) {{
+    activeEventType = etype;
+    document.querySelectorAll("#eventTypeFilters .filter-chip").forEach(c => {{
+        if (etype === null) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
+        else if (c.dataset.etype === etype) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
+        else {{ c.classList.remove("active"); c.classList.add("inactive"); }}
+    }});
+    applyFilters();
+}}
 function selectImportance(imp) {{
     activeImportance = imp;
     document.querySelectorAll("#importanceFilters .filter-chip").forEach(c => {{
@@ -909,114 +928,124 @@ function selectImportance(imp) {{
         else if (c.dataset.imp === imp) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
         else {{ c.classList.remove("active"); c.classList.add("inactive"); }}
     }});
-    renderFeed();
+    applyFilters();
 }}
 
-// ── Search ──
-function onSearch() {{
-    searchText = document.getElementById("searchInput").value.toLowerCase().trim();
-    renderFeed();
-}}
-
-// ── Render ──
-function renderFeed() {{
-    let filtered = ALL_ARTICLES.filter(a => {{
+// ── Apply Filters + Paginate ──
+function applyFilters() {{
+    filteredArticles = ALL_ARTICLES.filter(a => {{
         if (!activeCategories.has(a.category)) return false;
         if (activeEventType !== null && a.event_type !== activeEventType) return false;
         if (activeImportance !== null && a.importance !== activeImportance) return false;
         if (!passesDateFilter(a)) return false;
         if (searchText) {{
-            const haystack = (a.title + " " + a.summary + " " + a.source + " " + (a.entities||[]).map(e=>e.display).join(" ")).toLowerCase();
-            if (!haystack.includes(searchText)) return false;
+            var h = (a.title + " " + (a.summary||"") + " " + (a.source||"") + " " + ((a.entities||[]).map(function(e){{return e.display}}).join(" "))).toLowerCase();
+            if (h.indexOf(searchText) === -1) return false;
         }}
         return true;
     }});
+    currentPage = 1;
+    renderPage();
+}}
 
-    const feed = document.getElementById("newsFeed");
-    if (filtered.length === 0) {{
+function esc(s) {{ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }}
+
+function renderPage() {{
+    var total = filteredArticles.length;
+    var totalPages = Math.ceil(total / pageSize) || 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+    var start = (currentPage - 1) * pageSize;
+    var end = Math.min(start + pageSize, total);
+    var pageArticles = filteredArticles.slice(start, end);
+
+    var feed = document.getElementById("newsFeed");
+    if (total === 0) {{
         feed.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>Aucun article trouve</p></div>';
         return;
     }}
 
-    // Group by category
-    const groups = {{}};
-    Object.keys(CATEGORIES).forEach(k => groups[k] = []);
-    filtered.forEach(a => {{ if (groups[a.category]) groups[a.category].push(a); }});
+    var groups = {{}};
+    Object.keys(CATEGORIES).forEach(function(k){{ groups[k] = []; }});
+    pageArticles.forEach(function(a){{ if (groups[a.category]) groups[a.category].push(a); }});
 
-    let html = "";
-    Object.entries(CATEGORIES).forEach(([cat, catInfo]) => {{
-        const articles = groups[cat];
-        if (!articles || articles.length === 0) return;
+    var html = '<div class="page-info">共 ' + total + ' 条，第 ' + currentPage + '/' + totalPages + ' 页</div>';
+
+    Object.entries(CATEGORIES).forEach(function(entry) {{
+        var cat = entry[0], catInfo = entry[1];
+        var arts = groups[cat];
+        if (!arts || arts.length === 0) return;
 
         html += '<div class="category-section">';
-        html += '<div class="category-header"><h2>' + catInfo.icon + ' ' + catInfo.label + '</h2><span class="category-count">' + articles.length + '</span></div>';
+        html += '<div class="category-header"><h2>' + catInfo.icon + ' ' + catInfo.label + '</h2></div>';
 
-        articles.forEach(a => {{
-            const cardClass = a.importance === "high" ? "news-card card-high" : a.importance === "medium" ? "news-card card-medium" : "news-card";
+        arts.forEach(function(a) {{
+            var cardClass = a.importance === "high" ? "news-card card-high" : a.importance === "medium" ? "news-card card-medium" : "news-card";
+            var cnTitle = a.title_zh || a.title_original || a.title || "";
+            var cnSummary = a.summary_zh || a.summary_original || a.summary || "";
+            var origTitle = a.title_original || a.title || "";
+            var origSummary = a.summary_original || a.summary || "";
+            var tUrl = a.translated_url || "";
+            var etInfo = EVENT_TYPES[a.event_type] || EVENT_TYPES.general;
+
             html += '<div class="' + cardClass + '">';
-
-            // Badges row
+            // Badges
             html += '<div class="card-badges">';
-            html += '<span class="importance-stars" style="color:' + (IMPORTANCE_COLORS[a.importance]||"#6B7280") + '" title="Score:' + (a.importance_score||0) + '">' + (a.importance_stars||"★") + '</span>';
-            const etInfo = EVENT_TYPES[a.event_type] || EVENT_TYPES.general;
+            html += '<span class="importance-stars" style="color:' + (IMPORTANCE_COLORS[a.importance]||"#6B7280") + '">' + (a.importance_stars||"★") + '</span>';
             html += '<span class="event-type-badge" style="background:' + etInfo.color + '">' + etInfo.icon + ' ' + etInfo.label + '</span>';
-            if (a.provider) {{
-                html += '<span class="provider-badge" style="background:' + (PROVIDER_COLORS[a.provider]||"#6B7280") + '">' + a.provider + '</span>';
-            }}
-            if (a.entities) {{
-                a.entities.slice(0, 3).forEach(e => {{
-                    html += '<span class="entity-tag" style="background:' + e.color + '">' + e.display + '</span>';
-                }});
-            }}
+            if (a.provider) html += '<span class="provider-badge" style="background:' + (PROVIDER_COLORS[a.provider]||"#6B7280") + '">' + a.provider + '</span>';
+            if (a.entities) a.entities.slice(0,2).forEach(function(e){{ html += '<span class="entity-tag" style="background:' + e.color + '">' + e.display + '</span>'; }});
             html += '<span class="score-badge">[' + (a.importance_score||0) + ']</span>';
             html += '</div>';
 
-            // Chinese title (primary display)
-            const cnTitle = (a.title_zh || a.title_original || a.title || "");
-            const cnTitleEsc = cnTitle.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-            const tUrl = a.translated_url || "";
-            html += '<div class="card-title-zh">' + cnTitleEsc + '</div>';
-
+            // CN title
+            html += '<div class="card-title-zh">' + esc(cnTitle) + '</div>';
             // Meta
-            const sourceEsc = (a.source||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-            html += '<div class="card-meta"><span>' + sourceEsc + '</span><span>' + (a.published_date_short||"") + '</span><span>' + (a.published_display||"") + '</span></div>';
+            html += '<div class="card-meta"><span>' + esc(a.source||"") + '</span><span>' + (a.published_date_short||"") + '</span></div>';
+            // CN summary
+            if (cnSummary) html += '<div class="card-summary">' + esc(cnSummary) + '</div>';
 
-            // Chinese summary (primary display)
-            const cnSummary = (a.summary_zh || a.summary_original || a.summary || "");
-            if (cnSummary) {{
-                const cnSumEsc = cnSummary.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-                html += '<div class="card-summary">' + cnSumEsc + '</div>';
-            }}
-
-            // Expandable original via HTML details
-            const origTitle = (a.title_original || a.title || "");
-            const origSummary = (a.summary_original || a.summary || "");
-            const origTitleEsc = origTitle.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-            const origSumEsc = origSummary.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-            html += '<details class="card-details"><summary>📋 原文标题</summary>';
-            html += '<div class="orig-title">' + origTitleEsc + '</div>';
-            if (origSummary) html += '<div class="orig-summary">' + origSumEsc + '</div>';
-            html += '</details>';
-
-            // Action buttons
+            // 3 buttons
             html += '<div class="card-actions">';
-            if (tUrl) {{
-                html += '<a href="' + tUrl + '" target="_blank" rel="noopener noreferrer" class="btn btn-translate">🌐 中文机翻全文</a>';
-            }}
-            if (a.url) {{
-                html += '<a href="' + a.url + '" target="_blank" rel="noopener noreferrer" class="btn btn-original">📄 查看原文</a>';
-            }}
-            html += '<details class="card-details"><summary>📋 原文标题</summary></details>';
+            // 1. 中文速览 - inline expand
+            html += '<details class="card-details-inline"><summary>📋 中文速览</summary>';
+            html += '<div class="orig-title">' + esc(cnTitle) + '</div>';
+            if (cnSummary) html += '<div class="orig-summary">' + esc(cnSummary) + '</div>';
+            html += '</details>';
+            // 2. 机翻原文
+            if (tUrl) html += '<a href="' + tUrl + '" target="_blank" rel="noopener noreferrer" class="btn btn-translate">🌐 机翻原文</a>';
+            // 3. 查看原文
+            if (a.url) html += '<a href="' + a.url + '" target="_blank" rel="noopener noreferrer" class="btn btn-original">📄 查看原文</a>';
             html += '</div>';
+
+            // Original title/summary expandable
+            html += '<details class="card-details"><summary>📋 原文标题/摘要</summary>';
+            html += '<div class="orig-title">' + esc(origTitle) + '</div>';
+            if (origSummary) html += '<div class="orig-summary">' + esc(origSummary) + '</div>';
+            html += '</details>';
 
             html += '</div>';
         }});
-
         html += '</div>';
     }});
 
+    // Pagination controls
+    html += '<div class="pagination">';
+    html += '<button class="btn btn-original" onclick="changePage(1)" ' + (currentPage<=1?'disabled':'') + '>首页</button>';
+    html += '<button class="btn btn-original" onclick="changePage(' + (currentPage-1) + ')" ' + (currentPage<=1?'disabled':'') + '>上一页</button>';
+    html += '<span style="color:var(--text-muted);margin:0 8px">第 ' + currentPage + '/' + totalPages + ' 页</span>';
+    html += '<button class="btn btn-original" onclick="changePage(' + (currentPage+1) + ')" ' + (currentPage>=totalPages?'disabled':'') + '>下一页</button>';
+    html += '<button class="btn btn-original" onclick="changePage(' + totalPages + ')" ' + (currentPage>=totalPages?'disabled':'') + '>末页</button>';
+    html += '<select onchange="changePageSize(this.value)" style="margin-left:12px;background:var(--bg-card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:12px">';
+    [20,30,50,100].forEach(function(n){{ html += '<option value="' + n + '"' + (n===pageSize?' selected':'') + '>' + n + '条/页</option>'; }});
+    html += '</select>';
+    html += '</div>';
+
     feed.innerHTML = html;
+    window.scrollTo(0,0);
 }}
+
+function changePage(n) {{ currentPage = n; renderPage(); }}
+function changePageSize(n) {{ pageSize = parseInt(n); currentPage = 1; renderPage(); }}
 
 // ── Boot ──
 (function loadData() {{
