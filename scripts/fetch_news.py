@@ -1022,9 +1022,6 @@ function renderPage() {{
             var cardClass = a.importance === "high" ? "news-card card-high" : a.importance === "medium" ? "news-card card-medium" : "news-card";
             var cnTitle = a.title_zh || a.title_original || a.title || "";
             var cnSummary = a.summary_zh || a.summary_original || a.summary || "";
-            var origTitle = a.title_original || a.title || "";
-            var origSummary = a.summary_original || a.summary || "";
-            var tUrl = a.translated_url || "";
             var etInfo = EVENT_TYPES[a.event_type] || EVENT_TYPES.general;
 
             html += '<div class="' + cardClass + '">';
@@ -1044,25 +1041,7 @@ function renderPage() {{
             // CN summary
             if (cnSummary) html += '<div class="card-summary">' + esc(cnSummary) + '</div>';
 
-            // 3 buttons
-            html += '<div class="card-actions">';
-            // 1. 中文速览 - inline expand
-            html += '<details class="card-details-inline"><summary>📋 中文速览</summary>';
-            html += '<div class="orig-title">' + esc(cnTitle) + '</div>';
-            if (cnSummary) html += '<div class="orig-summary">' + esc(cnSummary) + '</div>';
-            html += '</details>';
-            // 2. 机翻原文
-            if (tUrl) html += '<a href="' + tUrl + '" target="_blank" rel="noopener noreferrer" class="btn btn-translate">🌐 机翻原文</a>';
-            // 3. 查看原文
             if (a.url) html += '<a href="' + a.url + '" target="_blank" rel="noopener noreferrer" class="btn btn-original">📄 查看原文</a>';
-            html += '</div>';
-
-            // Original title/summary expandable
-            html += '<details class="card-details"><summary>📋 原文标题/摘要</summary>';
-            html += '<div class="orig-title">' + esc(origTitle) + '</div>';
-            if (origSummary) html += '<div class="orig-summary">' + esc(origSummary) + '</div>';
-            html += '</details>';
-
             html += '</div>';
         }});
         html += '</div>';
