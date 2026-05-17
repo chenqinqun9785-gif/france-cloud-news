@@ -724,6 +724,11 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 .btn-original:hover{{background:var(--bg-hover);color:var(--text)}}
 .btn:disabled{{opacity:0.4;cursor:default}}
 
+/* Charts */
+.charts-row{{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:8px;justify-content:center}}
+.chart-box{{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px}}
+.chart-box canvas{{display:block;max-width:100%;height:auto}}
+
 /* Pagination */
 .pagination{{display:flex;align-items:center;justify-content:center;gap:6px;padding:20px 0;flex-wrap:wrap}}
 .page-info{{text-align:center;color:var(--text);font-size:13px;font-weight:600;padding:8px 0;background:var(--bg-card);border-radius:var(--radius-sm);margin-bottom:12px}}
@@ -768,6 +773,21 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
         <div class="summary-card"><div class="card-num">{count_sovereign}</div><div class="card-label">主权云</div></div>
         <div class="summary-card"><div class="card-num">{count_partner}</div><div class="card-label">合作伙伴</div></div>
         <div class="summary-card"><div class="card-num">{count_ai_dc}</div><div class="card-label">AI/数据中心</div></div>
+    </div>
+
+    <!-- Charts Toggle -->
+    <div style="text-align:center;margin-bottom:8px">
+        <button class="btn btn-original" onclick="toggleCharts()" id="chartToggle">📊 数据概览</button>
+    </div>
+    <div id="chartsSection" style="display:none">
+        <div class="charts-row">
+            <div class="chart-box"><canvas id="chartCategory" width="440" height="220"></canvas></div>
+            <div class="chart-box"><canvas id="chartProvider" width="440" height="220"></canvas></div>
+        </div>
+        <div class="charts-row">
+            <div class="chart-box"><canvas id="chartWeekly" width="440" height="220"></canvas></div>
+            <div class="chart-box"><canvas id="chartEventType" width="440" height="220"></canvas></div>
+        </div>
     </div>
 
     <!-- Category Filter -->
@@ -1065,6 +1085,133 @@ function renderPage() {{
 
 function changePage(n) {{ currentPage = n; renderPage(); }}
 function changePageSize(n) {{ pageSize = parseInt(n); currentPage = 1; renderPage(); }}
+
+// ── Charts ──
+var chartsDrawn = false;
+function toggleCharts() {{
+    var s = document.getElementById("chartsSection");
+    s.style.display = s.style.display === "none" ? "" : "none";
+    document.getElementById("chartToggle").textContent = s.style.display === "none" ? "📊 数据概览" : "📊 收起图表";
+    if (!chartsDrawn && s.style.display !== "none") {{ drawCharts(); chartsDrawn = true; }}
+}}
+function drawCharts() {{
+    drawCategoryChart();
+    drawProviderChart();
+    drawWeeklyChart();
+    drawEventTypeChart();
+}}
+function drawCategoryChart() {{
+    var c = document.getElementById("chartCategory");
+    var ctx = c.getContext("2d"), w = c.width, h = c.height;
+    ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("7 大分类文章分布", 12, 22);
+
+    var counts = {{}};
+    Object.keys(CATEGORIES).forEach(function(k){{ counts[k] = 0; }});
+    ALL_ARTICLES.forEach(function(a){{ counts[a.category] = (counts[a.category]||0) + 1; }});
+    var entries = Object.entries(CATEGORIES).map(function(e){{ return {{key:e[0],label:e[1].label,color:e[1].color,count:counts[e[0]]}}; }});
+    entries.sort(function(a,b){{ return b.count - a.count; }});
+
+    var barH = 18, gap = 6, top = 38, maxW = w - 120;
+    var maxCount = entries[0].count || 1;
+    entries.forEach(function(e, i) {{
+        var y = top + i * (barH + gap);
+        var bw = Math.max((e.count / maxCount) * maxW, 2);
+        ctx.fillStyle = e.color; ctx.fillRect(10, y, bw, barH);
+        ctx.fillStyle = "#e2e8f0"; ctx.font = "11px sans-serif";
+        ctx.fillText(e.label, bw + 16, y + 13);
+        ctx.fillText(e.count.toString(), 10, y + 13);
+    }});
+}}
+function drawProviderChart() {{
+    var c = document.getElementById("chartProvider");
+    var ctx = c.getContext("2d"), w = c.width, h = c.height;
+    ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("Top 厂商", 12, 22);
+
+    var counts = {{}};
+    ALL_ARTICLES.forEach(function(a){{ if(a.provider) counts[a.provider] = (counts[a.provider]||0) + 1; }});
+    var entries = Object.entries(counts).sort(function(a,b){{ return b[1] - a[1]; }}).slice(0, 10);
+    var maxCount = entries[0] ? entries[0][1] : 1;
+
+    var barH = 14, gap = 4, top = 38, maxW = w - 100;
+    entries.forEach(function(e, i) {{
+        var y = top + i * (barH + gap);
+        var bw = Math.max((e[1] / maxCount) * maxW, 2);
+        var clr = PROVIDER_COLORS[e[0]] || "#6B7280";
+        ctx.fillStyle = clr; ctx.fillRect(10, y, bw, barH);
+        ctx.fillStyle = "#e2e8f0"; ctx.font = "11px sans-serif";
+        ctx.fillText(e[0], 10, y + 11);
+        ctx.fillText(e[1].toString(), bw + 16, y + 11);
+    }});
+}}
+function drawWeeklyChart() {{
+    var c = document.getElementById("chartWeekly");
+    var ctx = c.getContext("2d"), w = c.width, h = c.height;
+    ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("近 8 周趋势", 12, 22);
+
+    var weeks = [];
+    var now = new Date();
+    for (var i = 7; i >= 0; i--) {{
+        var d = new Date(now); d.setDate(d.getDate() - i * 7);
+        var wkStart = new Date(d); wkStart.setDate(d.getDate() - d.getDay() + 1);
+        var wkEnd = new Date(wkStart); wkEnd.setDate(wkEnd.getDate() + 6);
+        var s = wkStart.toISOString().slice(0,10);
+        var count = 0;
+        ALL_ARTICLES.forEach(function(a){{
+            if (a.published_date_short >= s && a.published_date_short <= wkEnd.toISOString().slice(0,10)) count++;
+        }});
+        weeks.push({{label: s.slice(5), count: count}});
+    }}
+    var maxC = Math.max.apply(null, weeks.map(function(w){{ return w.count; }})) || 1;
+
+    var top = 38, chartH = h - top - 30, chartW = w - 50;
+    var stepX = chartW / (weeks.length - 1);
+    ctx.strokeStyle = "#38bdf8"; ctx.lineWidth = 2; ctx.beginPath();
+    weeks.forEach(function(wk, i) {{
+        var x = 20 + i * stepX;
+        var y = top + chartH - (wk.count / maxC) * chartH;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        ctx.fillStyle = "#e2e8f0"; ctx.font = "10px sans-serif"; ctx.textAlign = "center";
+        ctx.fillText(wk.label, x, h - 10);
+        ctx.fillStyle = "#38bdf8"; ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI*2); ctx.fill();
+    }});
+    ctx.stroke();
+    ctx.textAlign = "start";
+}}
+function drawEventTypeChart() {{
+    var c = document.getElementById("chartEventType");
+    var ctx = c.getContext("2d"), w = c.width, h = c.height;
+    ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("事件类型分布", 12, 22);
+
+    var counts = {{}};
+    ALL_ARTICLES.forEach(function(a){{ var et = a.event_type || "general"; counts[et] = (counts[et]||0) + 1; }});
+    var entries = Object.entries(counts).sort(function(a,b){{ return b[1] - a[1]; }});
+    var total = entries.reduce(function(s,e){{ return s + e[1]; }}, 0) || 1;
+
+    var cx = 120, cy = 120, r = 80, startAngle = -Math.PI/2;
+    var colors = ["#3B82F6","#10B981","#F59E0B","#EC4899","#8B5CF6","#F97316","#A855F7","#6366F1","#14B8A6","#94A3B8"];
+    entries.forEach(function(e, i) {{
+        var slice = (e[1] / total) * Math.PI * 2;
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.beginPath(); ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, startAngle, startAngle + slice);
+        ctx.closePath(); ctx.fill();
+        startAngle += slice;
+    }});
+    // Legend
+    var lx = 250, ly = 40;
+    entries.forEach(function(e, i) {{
+        if (i >= 8) return;
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.fillRect(lx, ly + i*20, 12, 12);
+        var etInfo = EVENT_TYPES[e[0]] || EVENT_TYPES.general;
+        ctx.fillStyle = "#e2e8f0"; ctx.font = "11px sans-serif";
+        ctx.fillText(etInfo.icon + " " + etInfo.label + " (" + e[1] + ")", lx + 18, ly + i*20 + 10);
+    }});
+}}
 
 // ── Boot ──
 (function loadData() {{
