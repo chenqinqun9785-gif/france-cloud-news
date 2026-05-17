@@ -802,7 +802,9 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
         <span class="filter-chip" data-range="2026" onclick="selectDateRange('2026')">2026年</span>
         <input type="text" class="search-input" id="searchInput" placeholder="🔍 搜索..." oninput="onSearch()">
     </div>
-    <div class="provider-filters" id="providerFilters"></div>
+    <select id="providerSelect" onchange="selectProvider(this.value)" style="background:var(--bg-card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;margin-bottom:10px;max-width:200px">
+        <option value="">全部厂商</option>
+    </select>
 
     <!-- Event Type + Importance -->
     <div class="filter-row" id="eventTypeFilters"></div>
@@ -955,38 +957,36 @@ function selectImportance(imp) {{
     applyFilters();
 }}
 
-// ── Provider Filters ──
+// ── Provider Filter (dropdown) ──
 function renderProviderFilters() {{
-    var providers = new Set();
-    ALL_ARTICLES.forEach(function(a){{ if(a.provider) providers.add(a.provider); }});
-    var c = document.getElementById("providerFilters");
-    c.innerHTML = "";
-    var all = document.createElement("span");
-    all.className = "filter-chip active";
-    all.textContent = "全部厂商";
-    all.dataset.provider = "__all__";
-    all.onclick = function(){{ selectProvider(null); }};
-    c.appendChild(all);
-    Array.from(providers).sort().forEach(function(p){{
-        var clr = PROVIDER_COLORS[p] || "#6B7280";
-        var chip = document.createElement("span");
-        chip.className = "filter-chip active";
-        chip.textContent = p;
-        chip.style.backgroundColor = clr + "33";
-        chip.style.borderColor = clr;
-        chip.style.color = clr;
-        chip.dataset.provider = p;
-        chip.onclick = function(){{ selectProvider(p); }};
-        c.appendChild(chip);
+    var providerGroups = {{
+        "☁️ 公有云": ["AWS","Azure","GCP","Oracle Cloud","IBM Cloud","Huawei Cloud","Alibaba Cloud"],
+        "🖥️ 私有云": ["VMware","Broadcom","Nutanix","Red Hat","HPE GreenLake","Dell APEX","Cisco","NetApp","Lenovo"],
+        "🛡️ 主权云": ["OVHcloud","3DS Outscale","Scaleway","S3NS","Bleu","NumSpot","Cloud Temple","Cegedim.Cloud","Free Pro"],
+        "🤝 合作伙伴": ["Capgemini","Orange Business","Accenture","Devoteam","Sopra Steria","Atos","Eviden","Inetum","CGI","Wavestone","Talan","Deloitte","PwC","KPMG","TCS","NTT Data","Kyndryl","Computacenter"]
+    }};
+    var usedProviders = new Set();
+    ALL_ARTICLES.forEach(function(a){{ if(a.provider) usedProviders.add(a.provider); }});
+
+    var sel = document.getElementById("providerSelect");
+    sel.innerHTML = '<option value="">全部厂商 (' + usedProviders.size + ')</option>';
+    Object.entries(providerGroups).forEach(function(entry) {{
+        var groupName = entry[0], names = entry[1];
+        var filtered = names.filter(function(n){{ return usedProviders.has(n); }});
+        if (filtered.length === 0) return;
+        var optgroup = document.createElement("optgroup");
+        optgroup.label = groupName;
+        filtered.forEach(function(n) {{
+            var opt = document.createElement("option");
+            opt.value = n;
+            opt.textContent = n;
+            optgroup.appendChild(opt);
+        }});
+        sel.appendChild(optgroup);
     }});
 }}
 function selectProvider(provider) {{
-    activeProvider = provider;
-    document.querySelectorAll("#providerFilters .filter-chip").forEach(function(ch){{
-        if (provider === null) {{ ch.classList.add("active"); ch.classList.remove("inactive"); }}
-        else if (ch.dataset.provider === provider) {{ ch.classList.add("active"); ch.classList.remove("inactive"); }}
-        else {{ ch.classList.remove("active"); ch.classList.add("inactive"); }}
-    }});
+    activeProvider = provider || null;
     applyFilters();
 }}
 
