@@ -1094,17 +1094,17 @@ function toggleCharts() {{
     document.getElementById("chartToggle").textContent = s.style.display === "none" ? "📊 数据概览" : "📊 收起图表";
     if (!chartsDrawn && s.style.display !== "none") {{ drawCharts(); chartsDrawn = true; }}
 }}
-function drawCharts() {{
-    drawCategoryChart();
-    drawProviderChart();
-    drawWeeklyChart();
-    drawEventTypeChart();
+function getChartScope() {{
+    var rangeLabels = {{all:"全部时间",today:"今天",week:"近7天","7d":"近7天","30d":"近30天",month:"近30天","2026":"2026年"}};
+    return rangeLabels[activeDateRange] || "近30天";
 }}
+function drawCharts() {{ drawCategoryChart(); drawProviderChart(); drawWeeklyChart(); drawEventTypeChart(); }}
 function drawCategoryChart() {{
     var c = document.getElementById("chartCategory");
     var ctx = c.getContext("2d"), w = c.width, h = c.height;
     ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("7 大分类文章分布", 12, 22);
+    var scope = getChartScope();
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("7 大分类分布 ｜ " + scope + " ｜ 共 " + ALL_ARTICLES.length + " 条", 12, 22);
 
     var counts = {{}};
     Object.keys(CATEGORIES).forEach(function(k){{ counts[k] = 0; }});
@@ -1127,7 +1127,7 @@ function drawProviderChart() {{
     var c = document.getElementById("chartProvider");
     var ctx = c.getContext("2d"), w = c.width, h = c.height;
     ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("Top 厂商", 12, 22);
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("Top 厂商 ｜ 基于全量 " + ALL_ARTICLES.length + " 条", 12, 22);
 
     var counts = {{}};
     ALL_ARTICLES.forEach(function(a){{ if(a.provider) counts[a.provider] = (counts[a.provider]||0) + 1; }});
@@ -1149,7 +1149,7 @@ function drawWeeklyChart() {{
     var c = document.getElementById("chartWeekly");
     var ctx = c.getContext("2d"), w = c.width, h = c.height;
     ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("近 8 周趋势", 12, 22);
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("近 8 周趋势 ｜ 基于全量 " + ALL_ARTICLES.length + " 条", 12, 22);
 
     var weeks = [];
     var now = new Date();
@@ -1184,7 +1184,7 @@ function drawEventTypeChart() {{
     var c = document.getElementById("chartEventType");
     var ctx = c.getContext("2d"), w = c.width, h = c.height;
     ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("事件类型分布", 12, 22);
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("事件类型分布 ｜ 基于全量 " + ALL_ARTICLES.length + " 条", 12, 22);
 
     var counts = {{}};
     ALL_ARTICLES.forEach(function(a){{ var et = a.event_type || "general"; counts[et] = (counts[et]||0) + 1; }});
