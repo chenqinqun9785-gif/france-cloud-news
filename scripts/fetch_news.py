@@ -671,6 +671,14 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 
 .container{{max-width:1000px;margin:0 auto;padding:16px}}
 
+/* Tab Navigation */
+.tab-nav{{display:flex;gap:0;margin-bottom:18px;background:var(--bg-card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}}
+.tab-btn{{flex:1;padding:12px 20px;font-size:15px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--text-muted);transition:all 0.2s;font-family:inherit}}
+.tab-btn:hover{{color:var(--text);background:rgba(56,189,248,0.08)}}
+.tab-btn.active{{color:var(--accent);background:rgba(56,189,248,0.12);box-shadow:inset 0 -3px 0 var(--accent)}}
+.tab-page{{animation:fadeIn 0.3s}}
+@keyframes fadeIn{{from{{opacity:0;transform:translateY(6px)}}to{{opacity:1;transform:translateY(0)}}}}
+
 /* Summary Cards */
 .summary-cards{{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}}
 .summary-card{{flex:1;min-width:100px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;text-align:center;cursor:default}}
@@ -765,21 +773,25 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 
 <div class="container">
 
-    <!-- Summary Cards -->
-    <div class="summary-cards">
-        <div class="summary-card"><div class="card-num" id="sum-total">{count_all}</div><div class="card-label">总文章</div></div>
-        <div class="summary-card"><div class="card-num" id="sum-today">{count_today}</div><div class="card-label">今日新增</div></div>
-        <div class="summary-card"><div class="card-num" id="sum-high">{count_high}</div><div class="card-label">高重要性</div></div>
-        <div class="summary-card"><div class="card-num">{count_sovereign}</div><div class="card-label">主权云</div></div>
-        <div class="summary-card"><div class="card-num">{count_partner}</div><div class="card-label">合作伙伴</div></div>
-        <div class="summary-card"><div class="card-num">{count_ai_dc}</div><div class="card-label">AI/数据中心</div></div>
-    </div>
+    <!-- Tab Navigation -->
+    <nav class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('overview')" id="tab-overview">📊 数据概览</button>
+        <button class="tab-btn" onclick="switchTab('news')" id="tab-news">📰 新闻动态</button>
+    </nav>
 
-    <!-- Charts Toggle -->
-    <div style="text-align:center;margin-bottom:8px">
-        <button class="btn btn-original" onclick="toggleCharts()" id="chartToggle">📊 数据概览</button>
-    </div>
-    <div id="chartsSection" style="display:none">
+    <!-- ═══ TAB 1: 数据概览 ═══ -->
+    <div id="page-overview" class="tab-page">
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+            <div class="summary-card"><div class="card-num" id="sum-total">{count_all}</div><div class="card-label">总文章</div></div>
+            <div class="summary-card"><div class="card-num" id="sum-today">{count_today}</div><div class="card-label">今日新增</div></div>
+            <div class="summary-card"><div class="card-num" id="sum-high">{count_high}</div><div class="card-label">高重要性</div></div>
+            <div class="summary-card"><div class="card-num">{count_sovereign}</div><div class="card-label">主权云</div></div>
+            <div class="summary-card"><div class="card-num">{count_partner}</div><div class="card-label">合作伙伴</div></div>
+            <div class="summary-card"><div class="card-num">{count_ai_dc}</div><div class="card-label">AI/数据中心</div></div>
+        </div>
+
+        <!-- Charts -->
         <div class="charts-row">
             <div class="chart-box"><canvas id="chartCategory" width="440" height="220"></canvas></div>
             <div class="chart-box"><canvas id="chartProvider" width="440" height="220"></canvas></div>
@@ -790,28 +802,31 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
         </div>
     </div>
 
-    <!-- Category Filter -->
-    <div class="filter-row" id="catFilters"></div>
+    <!-- ═══ TAB 2: 新闻动态 ═══ -->
+    <div id="page-news" class="tab-page" style="display:none">
+        <!-- Category Filter -->
+        <div class="filter-row" id="catFilters"></div>
 
-    <!-- Date + Search -->
-    <div class="filter-row">
-        <span class="filter-chip" data-range="all" onclick="selectDateRange('all')">全部</span>
-        <span class="filter-chip" data-range="today" onclick="selectDateRange('today')">今天</span>
-        <span class="filter-chip" data-range="7d" onclick="selectDateRange('7d')">7天</span>
-        <span class="filter-chip active" data-range="30d" onclick="selectDateRange('30d')">30天</span>
-        <span class="filter-chip" data-range="2026" onclick="selectDateRange('2026')">2026年</span>
-        <input type="text" class="search-input" id="searchInput" placeholder="🔍 搜索..." oninput="onSearch()">
+        <!-- Date + Search + Provider -->
+        <div class="filter-row">
+            <span class="filter-chip" data-range="all" onclick="selectDateRange('all')">全部</span>
+            <span class="filter-chip" data-range="today" onclick="selectDateRange('today')">今天</span>
+            <span class="filter-chip" data-range="7d" onclick="selectDateRange('7d')">7天</span>
+            <span class="filter-chip active" data-range="30d" onclick="selectDateRange('30d')">30天</span>
+            <span class="filter-chip" data-range="2026" onclick="selectDateRange('2026')">2026年</span>
+            <select id="providerSelect" onchange="selectProvider(this.value)" style="background:var(--bg-card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;max-width:180px">
+                <option value="">全部厂商</option>
+            </select>
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 搜索..." oninput="onSearch()" style="max-width:200px">
+        </div>
+
+        <!-- Event Type + Importance -->
+        <div class="filter-row" id="eventTypeFilters"></div>
+        <div class="filter-row" id="importanceFilters"></div>
+
+        <!-- News Feed -->
+        <div id="newsFeed"></div>
     </div>
-    <select id="providerSelect" onchange="selectProvider(this.value)" style="background:var(--bg-card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;margin-bottom:10px;max-width:200px">
-        <option value="">全部厂商</option>
-    </select>
-
-    <!-- Event Type + Importance -->
-    <div class="filter-row" id="eventTypeFilters"></div>
-    <div class="filter-row" id="importanceFilters"></div>
-
-    <!-- News Feed -->
-    <div id="newsFeed"></div>
 </div>
 
 <footer class="footer">
@@ -841,11 +856,8 @@ let searchTimer = null;
 function init() {{
     const dt = new Date(GENERATED_AT);
     document.getElementById("updateTime").textContent = "Derniere mise a jour : " + dt.toLocaleString("fr-FR", {{dateStyle:"full",timeStyle:"short"}});
-    renderCatFilters();
-    renderProviderFilters();
-    renderEventTypeFilters();
-    renderImpFilters();
-    applyFilters();
+    drawCharts();
+    chartsDrawn = true;
 }}
 
 // ── Category Filters ──
@@ -1086,18 +1098,18 @@ function renderPage() {{
 function changePage(n) {{ currentPage = n; renderPage(); }}
 function changePageSize(n) {{ pageSize = parseInt(n); currentPage = 1; renderPage(); }}
 
+// ── Tab Switch ──
+function switchTab(tab) {{
+    document.querySelectorAll(".tab-btn").forEach(function(b){{ b.classList.toggle("active", b.id === "tab-" + tab); }});
+    document.getElementById("page-overview").style.display = tab === "overview" ? "" : "none";
+    document.getElementById("page-news").style.display = tab === "news" ? "" : "none";
+    if (tab === "overview" && !chartsDrawn) {{ drawCharts(); chartsDrawn = true; }}
+    if (tab === "news") {{ renderProviderFilters(); applyFilters(); }}
+}}
+
 // ── Charts ──
 var chartsDrawn = false;
-function toggleCharts() {{
-    var s = document.getElementById("chartsSection");
-    s.style.display = s.style.display === "none" ? "" : "none";
-    document.getElementById("chartToggle").textContent = s.style.display === "none" ? "📊 数据概览" : "📊 收起图表";
-    if (!chartsDrawn && s.style.display !== "none") {{ drawCharts(); chartsDrawn = true; }}
-}}
-function getChartScope() {{
-    var rangeLabels = {{all:"全部时间",today:"今天",week:"近7天","7d":"近7天","30d":"近30天",month:"近30天","2026":"2026年"}};
-    return rangeLabels[activeDateRange] || "近30天";
-}}
+function getChartScope() {{ return "全量数据"; }}
 function drawCharts() {{ drawCategoryChart(); drawProviderChart(); drawWeeklyChart(); drawEventTypeChart(); }}
 function drawCategoryChart() {{
     var c = document.getElementById("chartCategory");
