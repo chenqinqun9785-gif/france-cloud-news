@@ -683,6 +683,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 .filter-chip:hover{{filter:brightness(1.2)}}
 .filter-chip.active{{box-shadow:0 0 10px rgba(56,189,248,0.3)}}
 .filter-chip.inactive{{opacity:0.3}}
+.provider-filters{{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}}
 .search-input{{flex:1;min-width:180px;padding:8px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:13px;outline:none}}
 .search-input:focus{{border-color:var(--accent)}}
 .search-input::placeholder{{color:var(--text-muted)}}
@@ -781,6 +782,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
         <span class="filter-chip" data-range="2026" onclick="selectDateRange('2026')">2026年</span>
         <input type="text" class="search-input" id="searchInput" placeholder="🔍 搜索..." oninput="onSearch()">
     </div>
+    <div class="provider-filters" id="providerFilters"></div>
 
     <!-- Event Type + Importance -->
     <div class="filter-row" id="eventTypeFilters"></div>
@@ -804,6 +806,7 @@ const IMPORTANCE_COLORS = {importance_colors_json};
 const GENERATED_AT = "{generated_at}";
 
 let activeCategories = new Set(Object.keys(CATEGORIES));
+let activeProvider = null;
 let activeEventType = null;
 let activeImportance = null;
 let activeDateRange = "30d";
@@ -817,6 +820,7 @@ function init() {{
     const dt = new Date(GENERATED_AT);
     document.getElementById("updateTime").textContent = "Derniere mise a jour : " + dt.toLocaleString("fr-FR", {{dateStyle:"full",timeStyle:"short"}});
     renderCatFilters();
+    renderProviderFilters();
     renderEventTypeFilters();
     renderImpFilters();
     applyFilters();
@@ -931,10 +935,46 @@ function selectImportance(imp) {{
     applyFilters();
 }}
 
+// ── Provider Filters ──
+function renderProviderFilters() {{
+    var providers = new Set();
+    ALL_ARTICLES.forEach(function(a){{ if(a.provider) providers.add(a.provider); }});
+    var c = document.getElementById("providerFilters");
+    c.innerHTML = "";
+    var all = document.createElement("span");
+    all.className = "filter-chip active";
+    all.textContent = "全部厂商";
+    all.dataset.provider = "__all__";
+    all.onclick = function(){{ selectProvider(null); }};
+    c.appendChild(all);
+    Array.from(providers).sort().forEach(function(p){{
+        var clr = PROVIDER_COLORS[p] || "#6B7280";
+        var chip = document.createElement("span");
+        chip.className = "filter-chip active";
+        chip.textContent = p;
+        chip.style.backgroundColor = clr + "33";
+        chip.style.borderColor = clr;
+        chip.style.color = clr;
+        chip.dataset.provider = p;
+        chip.onclick = function(){{ selectProvider(p); }};
+        c.appendChild(chip);
+    }});
+}}
+function selectProvider(provider) {{
+    activeProvider = provider;
+    document.querySelectorAll("#providerFilters .filter-chip").forEach(function(ch){{
+        if (provider === null) {{ ch.classList.add("active"); ch.classList.remove("inactive"); }}
+        else if (ch.dataset.provider === provider) {{ ch.classList.add("active"); ch.classList.remove("inactive"); }}
+        else {{ ch.classList.remove("active"); ch.classList.add("inactive"); }}
+    }});
+    applyFilters();
+}}
+
 // ── Apply Filters + Paginate ──
 function applyFilters() {{
     filteredArticles = ALL_ARTICLES.filter(a => {{
         if (!activeCategories.has(a.category)) return false;
+        if (activeProvider !== null && a.provider !== activeProvider) return false;
         if (activeEventType !== null && a.event_type !== activeEventType) return false;
         if (activeImportance !== null && a.importance !== activeImportance) return false;
         if (!passesDateFilter(a)) return false;
