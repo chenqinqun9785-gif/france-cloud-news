@@ -872,17 +872,26 @@ function init() {{
 
 // ── Category Filters ──
 function renderCatFilters() {{
-    const container = document.getElementById("catFilters");
+    var container = document.getElementById("catFilters");
     container.innerHTML = "";
-    Object.entries(CATEGORIES).forEach(([key, info]) => {{
-        const chip = document.createElement("span");
+    var allChip = document.createElement("span");
+    allChip.className = "filter-chip active";
+    allChip.textContent = "全部";
+    allChip.style.backgroundColor = "#475569";
+    allChip.style.borderColor = "#64748B";
+    allChip.style.color = "#E2E8F0";
+    allChip.onclick = function(){{ toggleAllCategories(); }};
+    container.appendChild(allChip);
+    Object.entries(CATEGORIES).forEach(function(entry) {{
+        var key = entry[0], info = entry[1];
+        var chip = document.createElement("span");
         chip.className = "filter-chip active";
         chip.textContent = info.icon + " " + info.label;
         chip.style.backgroundColor = info.color + "22";
         chip.style.borderColor = info.color;
         chip.style.color = info.color;
         chip.dataset.cat = key;
-        chip.onclick = () => toggleCategory(key);
+        chip.onclick = function(){{ toggleOneCat(key); }};
         container.appendChild(chip);
     }});
 }}
@@ -952,30 +961,67 @@ function selectDateRange(range) {{
     document.querySelectorAll("[data-range]").forEach(c => c.classList.toggle("active", c.dataset.range === range));
     applyFilters();
 }}
-function toggleCategory(cat) {{
+function toggleAllCategories() {{
+    var allKeys = Object.keys(CATEGORIES);
+    var allSelected = activeCategories.size === allKeys.length;
+    if (allSelected) {{ activeCategories.clear(); }}
+    else {{ allKeys.forEach(function(k){{ activeCategories.add(k); }}); }}
+    document.querySelectorAll("#catFilters .filter-chip").forEach(function(c){{
+        if (c.dataset.cat) {{
+            c.classList.toggle("active", activeCategories.has(c.dataset.cat));
+            c.classList.toggle("inactive", !activeCategories.has(c.dataset.cat));
+        }} else {{
+            c.classList.toggle("active", !allSelected);
+            c.classList.toggle("inactive", allSelected);
+        }}
+    }});
+    applyFilters();
+}}
+function toggleOneCat(cat) {{
     if (activeCategories.has(cat)) activeCategories.delete(cat); else activeCategories.add(cat);
-    document.querySelectorAll("#catFilters .filter-chip").forEach(c => {{
-        c.classList.toggle("active", activeCategories.has(c.dataset.cat));
-        c.classList.toggle("inactive", !activeCategories.has(c.dataset.cat));
+    document.querySelectorAll("#catFilters .filter-chip").forEach(function(c){{
+        if (c.dataset.cat) {{
+            c.classList.toggle("active", activeCategories.has(c.dataset.cat));
+            c.classList.toggle("inactive", !activeCategories.has(c.dataset.cat));
+        }}
     }});
     applyFilters();
 }}
 function selectEventType(etype) {{
-    activeEventType = etype;
-    document.querySelectorAll("#eventTypeFilters .filter-chip").forEach(c => {{
-        if (etype === null) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
-        else if (c.dataset.etype === etype) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
-        else {{ c.classList.remove("active"); c.classList.add("inactive"); }}
-    }});
+    if (etype === null) {{
+        // Toggle all/none: if anything is filtered, clear; if all, deselect all
+        if (activeEventType !== null || !document.querySelector("#eventTypeFilters .filter-chip:not(.inactive)")) {{
+            activeEventType = null;
+            document.querySelectorAll("#eventTypeFilters .filter-chip").forEach(function(c){{ c.classList.add("active"); c.classList.remove("inactive"); }});
+        }} else {{
+            document.querySelectorAll("#eventTypeFilters .filter-chip").forEach(function(c){{ c.classList.remove("active"); c.classList.add("inactive"); }});
+        }}
+    }} else {{
+        activeEventType = (activeEventType === etype) ? null : etype;
+        document.querySelectorAll("#eventTypeFilters .filter-chip").forEach(function(c){{
+            if (activeEventType === null) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
+            else if (c.dataset.etype === activeEventType) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
+            else {{ c.classList.remove("active"); c.classList.add("inactive"); }}
+        }});
+    }}
     applyFilters();
 }}
 function selectImportance(imp) {{
-    activeImportance = imp;
-    document.querySelectorAll("#importanceFilters .filter-chip").forEach(c => {{
-        if (imp === null) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
-        else if (c.dataset.imp === imp) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
-        else {{ c.classList.remove("active"); c.classList.add("inactive"); }}
-    }});
+    if (imp === null) {{
+        if (activeImportance !== null || !document.querySelector("#importanceFilters .filter-chip:not(.inactive)")) {{
+            activeImportance = null;
+            document.querySelectorAll("#importanceFilters .filter-chip").forEach(function(c){{ c.classList.add("active"); c.classList.remove("inactive"); }});
+        }} else {{
+            document.querySelectorAll("#importanceFilters .filter-chip").forEach(function(c){{ c.classList.remove("active"); c.classList.add("inactive"); }});
+        }}
+    }} else {{
+        activeImportance = (activeImportance === imp) ? null : imp;
+        document.querySelectorAll("#importanceFilters .filter-chip").forEach(function(c){{
+            if (activeImportance === null) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
+            else if (c.dataset.imp === activeImportance) {{ c.classList.add("active"); c.classList.remove("inactive"); }}
+            else {{ c.classList.remove("active"); c.classList.add("inactive"); }}
+        }});
+    }}
     applyFilters();
 }}
 
