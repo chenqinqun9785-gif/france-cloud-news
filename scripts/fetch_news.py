@@ -1104,7 +1104,10 @@ function switchTab(tab) {{
     document.getElementById("page-overview").style.display = tab === "overview" ? "" : "none";
     document.getElementById("page-news").style.display = tab === "news" ? "" : "none";
     if (tab === "overview" && !chartsDrawn) {{ drawCharts(); chartsDrawn = true; }}
-    if (tab === "news") {{ renderProviderFilters(); applyFilters(); }}
+    if (tab === "news") {{
+        renderCatFilters(); renderProviderFilters(); renderEventTypeFilters(); renderImpFilters();
+        applyFilters();
+    }}
 }}
 
 // ── Charts ──
