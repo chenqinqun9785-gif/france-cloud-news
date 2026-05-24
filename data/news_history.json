@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-24T17:55:31.387398+00:00",
-  "total": 521,
+  "generated_at": "2026-05-24T18:06:39.391912+00:00",
+  "total": 528,
   "articles": [
     {
       "id": "98a5d3890e166fb6",
@@ -3698,7 +3698,7 @@
       "published_date_short": "2026-04-24",
       "category": "public_cloud",
       "category_label": "公有云厂商",
-      "provider": null,
+      "provider": "GCP",
       "summary": "SAP et Google Cloud étendent leur partenariat pour déployer une IA multi-agents &nbsp;&nbsp; SAP News Center",
       "event_type": "partnership",
       "event_type_label": "商务合作",
@@ -6715,7 +6715,7 @@
       "title": "Virgin Voyages lance Rovey, son assistant IA avec Google Cloud – Travolution France - tom.travel",
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQWUpkeXg1dTl6ZFRFZmFHOUMyVC15ejRvazJubEpsN1IxWGR1T083ZXp4bDJhaTVUVlVoa3RCaHEwYTFsSjAyVUFlRWxzdjZ3TXJETnZQNU9VUGNBbnNsVHluRGdVel9XQUpnam16MU1LZUNnTkg4VDFMdm9RQzltVC1qSFhuNFNnT0d1bGpXbm5sV1Y4RWNsYmdqY0Y?oc=5",
       "source": "tom.travel",
-      "published": "2026-04-27T06:52:45+00:00",
+      "published": "2026-04-27T07:00:00+00:00",
       "published_display": "2026-04-27",
       "published_date_short": "2026-04-27",
       "category": "public_cloud",
@@ -6743,8 +6743,7 @@
       "summary_zh": "Virgin Voyages lance Rovey, son assistant IA avec Google Cloud – Travolution France &nbsp;&nbsp; tom.travel",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMinAFBVV95cUxQWUpkeXg1dTl6ZFRFZmFHOUMyVC15ejRvazJubEpsN1IxWGR1T083ZXp4bDJhaTVUVlVoa3RCaHEwYTFsSjAyVUFlRWxzdjZ3TXJETnZQNU9VUGNBbnNsVHluRGdVel9XQUpnam16MU1LZUNnTkg4VDFMdm9RQzltVC1qSFhuNFNnT0d1bGpXbm5sV1Y4RWNsYmdqY0Y%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "4e5802848ffdf258",
@@ -7229,8 +7228,7 @@
       "summary_zh": "Google Cloud Platform : utilisation gratuite sans mauvaise surprise &nbsp;&nbsp; Android MT",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMivAFBVV95cUxOSUdOOE1sakNQUzdUSE5DR0lDT2h0aXlxOTJrM1hVenl3NERheUpvcG9hS2p4dFRGS056MWlVRTE1cTNMdFVUZlI5Qkx2NEJ0LThPb3hHY2F6dTg0cWc3SEFNUDFDc1JBMnRuZHJvQ3Q0MkFjb05VYW5Mbnc2bmlVUXdyNGdVWGR3dlFTc19vYzd3RTBDQUlfY1o0NlFuN18xbUo3WlhCRThuNG5iVEZPOWd5Y0Yyb2Ywd2NNRA%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "067562c2163dfe5c",
@@ -9937,8 +9935,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiqgFBVV95cUxQSHVaVkZ1NHlCWUs0bEk0Tk5qS2daaUNSWktKODl1QWdTcFpTWU12akRQcDZuRUJ4ZnBoVUZZclVUNXRxSkFxVk1Rc2hHUVlDSHNGRGF4dVZMZTNZMGdCVXBqaGlhN29XazV2T0pXMlBaX1dIMzRSYnZIVVhYVGtPeGZYd003dE9sZzQ5TUtNRXVEZE9qcjhIaWhoTGZ6cWJZeEVibllWY0lwUQ%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "aa3a34d26ecb9361",
@@ -11609,7 +11606,7 @@
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQSjc1VEdjZXVTdXVxbVJMUDdvTFVWSHZROVcwczhaWUFjbm83NDlwcHNqSW1ja2NVbmF1Z0FXVFhRSEFieGxMZlFoMHdLYTk5V3RTWkc1X0ViVVd2ZHM3S29RU0V4OWNPcGZHaGU1VU5QX2EwX2IwY3R2d3ZfbDdZLVZXdXhfNDNKeE9DbUE0TkpINDRBdjQwQXFGc29CbWlE?oc=5",
       "source": "ZDNET",
       "published": "2026-05-12T08:37:12+00:00",
-      "published_display": "Il y a 5j",
+      "published_display": "2026-05-12",
       "published_date_short": "2026-05-12",
       "category": "industry_cloud",
       "category_label": "行业云/客户案例",
@@ -11630,8 +11627,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMioAFBVV95cUxQSjc1VEdjZXVTdXVxbVJMUDdvTFVWSHZROVcwczhaWUFjbm83NDlwcHNqSW1ja2NVbmF1Z0FXVFhRSEFieGxMZlFoMHdLYTk5V3RTWkc1X0ViVVd2ZHM3S29RU0V4OWNPcGZHaGU1VU5QX2EwX2IwY3R2d3ZfbDdZLVZXdXhfNDNKeE9DbUE0TkpINDRBdjQwQXFGc29CbWlE%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "ce9271a6ede3201f",
@@ -13216,9 +13212,9 @@
       "published": "2026-03-16T07:00:00+00:00",
       "published_display": "2026-03-16",
       "published_date_short": "2026-03-16",
-      "category": "industry_cloud",
-      "category_label": "行业云/客户案例",
-      "provider": null,
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": "GCP",
       "summary": "Worldline accélère sa transformation cloud avec Oracle Database@Google Cloud &nbsp;&nbsp; Oracle Blogs",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -13411,17 +13407,16 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMipgFBVV95cUxPeWJGZVlKc19qZEo1dmJMTml6T0JoTGwxamo4dzBKZFJLc1B3V0JZclJaVlNHODhjajNRdFd4dnR4SVM5SnpQMU9VR3k2OUFub252cHpwZ2l0anZOU1NwdGxNZnR3M0NVV1JCYVdIc1Z1MFRkRmdwSzJ3UFNhcDRpbGF6aDYzeTVmaUhfLWxDNXFVUkV5a19UN2U1TGtFZzl1OTl4VDhn%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "432e14cdfe974023",
       "title": "Google Cloud Summit France 2026 - Alten",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE95VmloWHFtM2lUM0hsUDBhUzg0Y05tNi1OWUhSTmVQSzNfU29MQ2ZZY1BnRmV4cVlLM1VCcWlndDdveVpPSWE3elVtRm16VGhESnN5U1hEM3AyZlhWUFRN?oc=5",
       "source": "Alten",
-      "published": "2026-05-05T15:56:01+00:00",
-      "published_display": "2026-05-05",
-      "published_date_short": "2026-05-05",
+      "published": "2026-05-23T06:15:46+00:00",
+      "published_display": "Il y a 1j",
+      "published_date_short": "2026-05-23",
       "category": "public_cloud",
       "category_label": "公有云厂商",
       "provider": "GCP",
@@ -13447,8 +13442,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiX0FVX3lxTE95VmloWHFtM2lUM0hsUDBhUzg0Y05tNi1OWUhSTmVQSzNfU29MQ2ZZY1BnRmV4cVlLM1VCcWlndDdveVpPSWE3elVtRm16VGhESnN5U1hEM3AyZlhWUFRN%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "dd08ba538090ed33",
@@ -13548,8 +13542,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMixAFBVV95cUxNLWwzSzJRSEI0V3NPd1o2REowMS0xVVY5dXU4c29Tenc1R093NGpTTmFBQU11a1U3ckY4cjNIdjBUM2oyVl9aTlo4ZndsQTloVTI4WFd2MWJLc2hickFaQ0lKalZ2Q2V3RmNteS1RNjZqLTAzb2lwRDFYS3VTb1ZpaGYyeDVrWE5BTWE5aktLUy1uWGpFVzY5MnR5TWp6cHVvaHA0bnhkdHE3eEFzVUZuaW9JV3NnS2ZMMzZuUmREQ3RIaTZI%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "f555e0f6ee638225",
@@ -13587,7 +13580,7 @@
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNN040TGhUMENWT1pHTXA2X1Z3elhWU3VoMUR4U1BTX2VUdWg1U240cm5qenp6VUs1cEVtQ2xzMVJ4QVAxUUpCY05pR1RBVms3NG1GRDFMUmFrN1JHTVZOaGpLZXc5UXV4Smh5NlBrRUhhYS0yazNMLUNVcXhjTnlPMjlmdWQ4NDNzMnNiWWRobEdHTm80Mm85blNUU0xwV0RUanVoNDR3OVp2RGV1Q0tvRUdsb1kxblhsX3I3Sw?oc=5",
       "source": "L'Informaticien",
       "published": "2026-05-11T13:21:21+00:00",
-      "published_display": "Il y a 6j",
+      "published_display": "2026-05-11",
       "published_date_short": "2026-05-11",
       "category": "industry_cloud",
       "category_label": "行业云/客户案例",
@@ -13608,8 +13601,7 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMivAFBVV95cUxNN040TGhUMENWT1pHTXA2X1Z3elhWU3VoMUR4U1BTX2VUdWg1U240cm5qenp6VUs1cEVtQ2xzMVJ4QVAxUUpCY05pR1RBVms3NG1GRDFMUmFrN1JHTVZOaGpLZXc5UXV4Smh5NlBrRUhhYS0yazNMLUNVcXhjTnlPMjlmdWQ4NDNzMnNiWWRobEdHTm80Mm85blNUU0xwV0RUanVoNDR3OVp2RGV1Q0tvRUdsb1kxblhsX3I3Sw%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link",
-      "_from_history": true
+      "translation_provider": "google_translate_link"
     },
     {
       "id": "f079c8abb0f1fbde",
@@ -14971,9 +14963,9 @@
       "published": "2026-05-20T11:00:00+00:00",
       "published_display": "Il y a 4j",
       "published_date_short": "2026-05-20",
-      "category": "sovereign_trusted",
-      "category_label": "主权云/可信云",
-      "provider": "S3NS",
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": "GCP",
       "summary": "Souveraineté : Thales et Google Cloud créent un clone de S3NS en Allemagne pour bâtir une architecture souveraine bi-régionale &nbsp;&nbsp; L'Usine Digitale",
       "event_type": "policy_law",
       "event_type_label": "政策法规",
@@ -15338,7 +15330,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMikgJBVV95cUxOdEhFUEoyejBSenNZX19WWEZ0Z0hiTTZjVmJ4WER0LVlNYXlqSUIwQTJXSmpSYXdqcHJHaHBWTTlkTWgtb0pBSkVTX180WnNXVlB6Qk0wQ1pKdnZJMWdacU5pNVZTeHB1OXRQeWhRTjJhanpyWnd6WHQyVlAzZHJsYlJ6cTBSSHlMRGJZUC15R2FCZ09SMlNjZnUyNWJvb01MN0hLZ2Y2QThUNHZtdVMyWTVpLTN4ME1MSlVnNFlJNkdnSFRKOHVpYktyZlhJcU5VMkZjN3NoTDZUc3E0endBbUF2LXc2SF9pcWotbVZRc2xocnhmOV81ZUJqLUF5elpuUmxaS3FZeVcxdVlzRWl2QVNB%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "cd7bbf70eccd59aa",
@@ -15408,7 +15401,8 @@
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiXkFVX3lxTE9LVkcyd2xwVWdfMXBiemtSZW9GRkNSSkRsTnJqWUJ4c2w2d0E3ZGVzcnZINFVLU0hSbmxCcFNjN3ZnaVlVSVlHekJqUXFjUXNXZnJLbUU4M3FRQU0yY0E%3Foc%3D5",
       "translation_status": "not_translated",
-      "translation_provider": "google_translate_link"
+      "translation_provider": "google_translate_link",
+      "_from_history": true
     },
     {
       "id": "a24e2188f39aa7b7",
@@ -16244,9 +16238,9 @@
       "published": "2026-05-20T14:49:37+00:00",
       "published_display": "Il y a 4j",
       "published_date_short": "2026-05-20",
-      "category": "sovereign_trusted",
-      "category_label": "主权云/可信云",
-      "provider": null,
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": "GCP",
       "summary": "Google Cloud et Thales lancent une offre de \"cloud souverain\" en Allemagne &nbsp;&nbsp; TradingView",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -16279,9 +16273,9 @@
       "published": "2026-05-21T08:09:21+00:00",
       "published_display": "Il y a 3j",
       "published_date_short": "2026-05-21",
-      "category": "sovereign_trusted",
-      "category_label": "主权云/可信云",
-      "provider": "S3NS",
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": "GCP",
       "summary": "Thales et Google Cloud créent leur S3NS sauce allemande &nbsp;&nbsp; L'Informaticien",
       "event_type": "general",
       "event_type_label": "综合动态",
@@ -17156,6 +17150,239 @@
       "summary_original": "La Freebox Crystal vit ses derniers jours : Free pousse les abonnés à migrer &nbsp;&nbsp; Freenews",
       "summary_zh": "",
       "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMihAFBVV95cUxQZjNBYjBGalpkNXJPcVg4NUZhemxVclJnZXE3ckJoUHNLYmRMc0NyZ3Z1LXI4REJuOVVza1lrdTNCNW4xTG9ySGRUMTdjREpsd2k4MUdFaGM3dXZ6VldBUlVIeGhZWlFNUURwS2tvSjZkUVI5VVBmRm5JS0pXUTNVNjVBc0LSAYoBQVVfeXFMUHVxNm5GdWF1MllfMUg1ZS10ZGlFaVl5aTM4UHpjdTZfbnVNQXlEa0N0ZlMzWnM2TmFocXRWYjBrXzFwTnNYWHZ4Si1KZ2FENzU1MGJ3TndjelVRcDBoNzlUenpCa1dKRFN1VUFoZzBjazZQX2VkaWd0ODBJRkxlLVZLeVRSbEMybTZB%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "75ba430eefe40b0d",
+      "title": "Thales intègre sa sécurité applicative Imperva directement dans Google Cloud et remporte le prix du partenaire de l’année dans la catégorie « Sovereign Cloud » - Revue économique de France",
+      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOeXFEeG9vVzdCYTBuOGpQQi1TNjBPTXZHTXBNUzR2Z0VtSmluX2NFS0NhS0RYa1hac3F1ZkpvNUZ6ZFRrRjBweEhZMkpDMThPS0FZSEJPZ1UtNE1nblJFdkExQTIzVG9RUWZHMmZrTmxLVGZRc1pacVZwcUo1Ym42MTRmUVJuQlNGbDN3N1hNSVhQeTNoaFdtLUk5bnhHTGFwR00tNWN1RlhBR2VZYjVGWVo0Sm8xRjdQZlZwazl5MEswd1hEM05adlRnbGZWa3hWQ3dSNDZOU19oS0pZOFJFOXlHQmVmUXF2Rk1pUDN4OXM2LTc4OXdMaExHLVZoR3NuaW1uQ0FR?oc=5",
+      "source": "Revue économique de France",
+      "published": "2026-05-14T07:02:24+00:00",
+      "published_display": "2026-05-14",
+      "published_date_short": "2026-05-14",
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": "GCP",
+      "summary": "Thales intègre sa sécurité applicative Imperva directement dans Google Cloud et remporte le prix du partenaire de l’année dans la catégorie « Sovereign Cloud » &nbsp;&nbsp; Revue économique de France",
+      "event_type": "client_win",
+      "event_type_label": "客户中标",
+      "event_type_icon": "🎯",
+      "entities": [
+        {
+          "display": "GCP",
+          "color": "#4285F4",
+          "group": "cloud_providers"
+        }
+      ],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 73,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-24T18:04:14.666956+00:00",
+      "title_original": "Thales intègre sa sécurité applicative Imperva directement dans Google Cloud et remporte le prix du partenaire de l’année dans la catégorie « Sovereign Cloud » - Revue économique de France",
+      "title_zh": "",
+      "summary_original": "Thales intègre sa sécurité applicative Imperva directement dans Google Cloud et remporte le prix du partenaire de l’année dans la catégorie « Sovereign Cloud » &nbsp;&nbsp; Revue économique de France",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMihgJBVV95cUxOeXFEeG9vVzdCYTBuOGpQQi1TNjBPTXZHTXBNUzR2Z0VtSmluX2NFS0NhS0RYa1hac3F1ZkpvNUZ6ZFRrRjBweEhZMkpDMThPS0FZSEJPZ1UtNE1nblJFdkExQTIzVG9RUWZHMmZrTmxLVGZRc1pacVZwcUo1Ym42MTRmUVJuQlNGbDN3N1hNSVhQeTNoaFdtLUk5bnhHTGFwR00tNWN1RlhBR2VZYjVGWVo0Sm8xRjdQZlZwazl5MEswd1hEM05adlRnbGZWa3hWQ3dSNDZOU19oS0pZOFJFOXlHQmVmUXF2Rk1pUDN4OXM2LTc4OXdMaExHLVZoR3NuaW1uQ0FR%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "dea47974865b2738",
+      "title": "Thales annonce un partenariat stratégique avec Google Cloud pour lancer un nouveau cloud souverain en Allemagne - Business Wire",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9sSnBLdmVxdklwYmMzRjA1cEozQlhQZkJuY1dpQmVVTzJ1elpIYnktMi14Ykp3ZmRxdmNvb0NkdXdOUDFuSWtnenJTMjVuM2hVaWNlREZNWkhrVUN0SjNqTWhZYy1LRDA?oc=5",
+      "source": "Business Wire",
+      "published": "2026-05-20T13:44:00+00:00",
+      "published_display": "Il y a 4j",
+      "published_date_short": "2026-05-20",
+      "category": "industry_cloud",
+      "category_label": "行业云/客户案例",
+      "provider": null,
+      "summary": "Thales annonce un partenariat stratégique avec Google Cloud pour lancer un nouveau cloud souverain en Allemagne &nbsp;&nbsp; Business Wire",
+      "event_type": "partnership",
+      "event_type_label": "商务合作",
+      "event_type_icon": "🤝",
+      "entities": [
+        {
+          "display": "GCP",
+          "color": "#4285F4",
+          "group": "cloud_providers"
+        }
+      ],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 66,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-24T18:05:47.077895+00:00",
+      "title_original": "Thales annonce un partenariat stratégique avec Google Cloud pour lancer un nouveau cloud souverain en Allemagne - Business Wire",
+      "title_zh": "",
+      "summary_original": "Thales annonce un partenariat stratégique avec Google Cloud pour lancer un nouveau cloud souverain en Allemagne &nbsp;&nbsp; Business Wire",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMiZ0FVX3lxTE9sSnBLdmVxdklwYmMzRjA1cEozQlhQZkJuY1dpQmVVTzJ1elpIYnktMi14Ykp3ZmRxdmNvb0NkdXdOUDFuSWtnenJTMjVuM2hVaWNlREZNWkhrVUN0SjNqTWhZYy1LRDA%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "92ada56511fb7b73",
+      "title": "AMD investit 250 millions de dollars dans Nutanix pour développer une plateforme d’IA commune - ChannelNews",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOUl92VkNsNmpGMVRZeW54MEdVYUZWeVI5aWR5ZDFNWGcydGFjLTVqcm5KZFZuMV9ZQUpYOFNxbW1SNERxa0tVZ2JsUFZqaUpjQzR6dE9jb0l3WnlQZ2tkTENiejJwbXA4MVEySWVpZGM5U1BOd2xETWJFbjgzbWJBd0NianQyUE9ycm1MOFduQ01YSUxBY2o3OVo4NTItRldwcjdMT3RTbkNmWk1UOElkZ2lseVUwbzY5YXlzSTRCZ25neDBq?oc=5",
+      "source": "ChannelNews",
+      "published": "2026-02-26T08:00:00+00:00",
+      "published_display": "2026-02-26",
+      "published_date_short": "2026-02-26",
+      "category": "private_hybrid",
+      "category_label": "私有云/混合云",
+      "provider": "Nutanix",
+      "summary": "AMD investit 250 millions de dollars dans Nutanix pour développer une plateforme d’IA commune &nbsp;&nbsp; ChannelNews",
+      "event_type": "ma_investment",
+      "event_type_label": "并购投资",
+      "event_type_icon": "💰",
+      "entities": [
+        {
+          "display": "Nutanix",
+          "color": "#1D6F93",
+          "group": "private_hybrid_vendors"
+        }
+      ],
+      "importance": "medium",
+      "importance_stars": "★★",
+      "importance_score": 65,
+      "importance_label": "一般",
+      "first_seen_at": "2026-05-24T18:04:28.372764+00:00",
+      "title_original": "AMD investit 250 millions de dollars dans Nutanix pour développer une plateforme d’IA commune - ChannelNews",
+      "title_zh": "",
+      "summary_original": "AMD investit 250 millions de dollars dans Nutanix pour développer une plateforme d’IA commune &nbsp;&nbsp; ChannelNews",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMixAFBVV95cUxOUl92VkNsNmpGMVRZeW54MEdVYUZWeVI5aWR5ZDFNWGcydGFjLTVqcm5KZFZuMV9ZQUpYOFNxbW1SNERxa0tVZ2JsUFZqaUpjQzR6dE9jb0l3WnlQZ2tkTENiejJwbXA4MVEySWVpZGM5U1BOd2xETWJFbjgzbWJBd0NianQyUE9ycm1MOFduQ01YSUxBY2o3OVo4NTItRldwcjdMT3RTbkNmWk1UOElkZ2lseVUwbzY5YXlzSTRCZ25neDBq%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "bb6119e2c3a6aeb0",
+      "title": "Laboratoires, hôpitaux, cliniques : la santé française sous le feu d’une cybercriminalité de plus en plus organisée - L'Usine Digitale",
+      "url": "https://news.google.com/rss/articles/CBMilAJBVV95cUxPSWVpLUJzQXZIeXNMNElaRzBob0t0SnNlTlMwZTJHeTBuNFpuTHhBVGJ4aXpad1N4amM1bFYyRmJVZkFfY2tlQ3A1QVdodzNZLWhfRXRnUVBkN3lqajNnbllJZ3FzWE1sRllRRURpSGY4MC1LREVBT3pwb2x4cGxnY3psMUNUT2xfUmdZOUxvMkQ5c0p1eDBiWW8zeUtBaG0wOW9aWFBXY0NLQ0l3TFRiU1lsUWhKRjJwejVfaC1FZTdhck5FRUV1MXJhb0I1VkVkV3lLVTh0N0RaVVNsR1NVYlEzNkhzU1NWUmp0eFB1YS1rUklRRzJRRHpBTFpyNHdWTmk0MTN6LVg5RlNndGVpcG1HcjQ?oc=5",
+      "source": "L'Usine Digitale",
+      "published": "2026-04-13T07:00:00+00:00",
+      "published_display": "2026-04-13",
+      "published_date_short": "2026-04-13",
+      "category": "industry_cloud",
+      "category_label": "行业云/客户案例",
+      "provider": null,
+      "summary": "Laboratoires, hôpitaux, cliniques : la santé française sous le feu d’une cybercriminalité de plus en plus organisée &nbsp;&nbsp; L'Usine Digitale",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 32,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-24T18:05:47.084622+00:00",
+      "title_original": "Laboratoires, hôpitaux, cliniques : la santé française sous le feu d’une cybercriminalité de plus en plus organisée - L'Usine Digitale",
+      "title_zh": "",
+      "summary_original": "Laboratoires, hôpitaux, cliniques : la santé française sous le feu d’une cybercriminalité de plus en plus organisée &nbsp;&nbsp; L'Usine Digitale",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMilAJBVV95cUxPSWVpLUJzQXZIeXNMNElaRzBob0t0SnNlTlMwZTJHeTBuNFpuTHhBVGJ4aXpad1N4amM1bFYyRmJVZkFfY2tlQ3A1QVdodzNZLWhfRXRnUVBkN3lqajNnbllJZ3FzWE1sRllRRURpSGY4MC1LREVBT3pwb2x4cGxnY3psMUNUT2xfUmdZOUxvMkQ5c0p1eDBiWW8zeUtBaG0wOW9aWFBXY0NLQ0l3TFRiU1lsUWhKRjJwejVfaC1FZTdhck5FRUV1MXJhb0I1VkVkV3lLVTh0N0RaVVNsR1NVYlEzNkhzU1NWUmp0eFB1YS1rUklRRzJRRHpBTFpyNHdWTmk0MTN6LVg5RlNndGVpcG1HcjQ%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "4fbc600f77d86b0e",
+      "title": "Fivetran et Transavia au Google Cloud Summit France 2026 - RiskAssur",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9UVDVoVTg2RFppWlJGSmlEeEl6ZzhtZWNGSXdqOXFGU2JHY0ljQU9jeWR5ZlMxcnRDZDFvbjBNUGhGSEhlc1lEamUxTkxVWndQaTJENTdtQVVUWmJ5WTVsWTk1LTdEanRydFd3TnhSdEs1S0d0YVE?oc=5",
+      "source": "RiskAssur",
+      "published": "2026-05-18T08:43:40+00:00",
+      "published_display": "Il y a 6j",
+      "published_date_short": "2026-05-18",
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": "GCP",
+      "summary": "Fivetran et Transavia au Google Cloud Summit France 2026 &nbsp;&nbsp; RiskAssur",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "GCP",
+          "color": "#4285F4",
+          "group": "cloud_providers"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 26,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-24T18:04:14.665959+00:00",
+      "title_original": "Fivetran et Transavia au Google Cloud Summit France 2026 - RiskAssur",
+      "title_zh": "",
+      "summary_original": "Fivetran et Transavia au Google Cloud Summit France 2026 &nbsp;&nbsp; RiskAssur",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMidkFVX3lxTE9UVDVoVTg2RFppWlJGSmlEeEl6ZzhtZWNGSXdqOXFGU2JHY0ljQU9jeWR5ZlMxcnRDZDFvbjBNUGhGSEhlc1lEamUxTkxVWndQaTJENTdtQVVUWmJ5WTVsWTk1LTdEanRydFd3TnhSdEs1S0d0YVE%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "d16d54d12d81b27e",
+      "title": "Google Cloud Summit 2026 : AVISIA au coeur de l’IA Agentique - AVISIA",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNTENXUVNUdXcweFJnVjk0V0hwdmF0RDVualk5dGVWaGFSekRHMWlrdU1YTHlOT1VVcXh4VHlON0E4WVpHRTZnaEM5UVZCYVlGT0FBWDgwd0I0OW11RWZfSWVSV1pHRGdJUDhtN0ZHV1RTZmFISktLYVA4anNxM1hLanJwNE1Cb3c?oc=5",
+      "source": "AVISIA",
+      "published": "2026-05-22T09:37:37+00:00",
+      "published_display": "Il y a 2j",
+      "published_date_short": "2026-05-22",
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": "GCP",
+      "summary": "Google Cloud Summit 2026 : AVISIA au coeur de l’IA Agentique &nbsp;&nbsp; AVISIA",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [
+        {
+          "display": "GCP",
+          "color": "#4285F4",
+          "group": "cloud_providers"
+        }
+      ],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 23,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-24T18:04:14.664967+00:00",
+      "title_original": "Google Cloud Summit 2026 : AVISIA au coeur de l’IA Agentique - AVISIA",
+      "title_zh": "",
+      "summary_original": "Google Cloud Summit 2026 : AVISIA au coeur de l’IA Agentique &nbsp;&nbsp; AVISIA",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMihwFBVV95cUxNTENXUVNUdXcweFJnVjk0V0hwdmF0RDVualk5dGVWaGFSekRHMWlrdU1YTHlOT1VVcXh4VHlON0E4WVpHRTZnaEM5UVZCYVlGT0FBWDgwd0I0OW11RWZfSWVSV1pHRGdJUDhtN0ZHV1RTZmFISktLYVA4anNxM1hLanJwNE1Cb3c%3Foc%3D5",
+      "translation_status": "not_translated",
+      "translation_provider": "google_translate_link"
+    },
+    {
+      "id": "4d0883c4540ffee1",
+      "title": "Bouygues Telecom lance le 1er assistant de vente 100% voix - Bouygues Telecom",
+      "url": "https://news.google.com/rss/articles/CBMitwJBVV95cUxNcEpBV2ZtTTlqLXU0cVh0VHRoRUtUUi1hT21KV1RGanMzZFZNUzBOS21WbEQyQzJqalVyU3Fzc19VNXJLTUhNSVl2MDVwc3BKTUlfRzJRRUcyUFF1eWM4aFBHOWFWcENlWF9OV2JjQ21iWklhblozSmFhZjhUemtlNHRmYm5ZVmJWdm5uNTJ5X3ZiOW9YbTBETjQ5ZmwyVDNIR3ZSQ3hESU1Ed1A2elB2V0tqcWxlamlqRXJIamdsVlJ4eVc0ZUozNmJkd25SZmp3VWNFX3N6MWNJUzdxdHN0eEVaZFQwaXBWWkdzMGlVdllibW1VZ3h3eE1iaGVFVlpISDloR18zdE9aU1M3Ymo0T2tGbkZIS2VKcnZYYnhpR0JzZzdNVHZWdTRMRUQ3aVcteHVBYUtrMA?oc=5",
+      "source": "Bouygues Telecom",
+      "published": "2026-04-28T06:49:23+00:00",
+      "published_display": "2026-04-28",
+      "published_date_short": "2026-04-28",
+      "category": "public_cloud",
+      "category_label": "公有云厂商",
+      "provider": "GCP",
+      "summary": "Bouygues Telecom lance le 1er assistant de vente 100% voix &nbsp;&nbsp; Bouygues Telecom",
+      "event_type": "general",
+      "event_type_label": "综合动态",
+      "event_type_icon": "📰",
+      "entities": [],
+      "importance": "low",
+      "importance_stars": "★",
+      "importance_score": 18,
+      "importance_label": "低",
+      "first_seen_at": "2026-05-24T18:04:14.669962+00:00",
+      "title_original": "Bouygues Telecom lance le 1er assistant de vente 100% voix - Bouygues Telecom",
+      "title_zh": "",
+      "summary_original": "Bouygues Telecom lance le 1er assistant de vente 100% voix &nbsp;&nbsp; Bouygues Telecom",
+      "summary_zh": "",
+      "translated_url": "https://translate.google.com/translate?sl=auto&tl=zh-CN&u=https%3A%2F%2Fnews.google.com%2Frss%2Farticles%2FCBMitwJBVV95cUxNcEpBV2ZtTTlqLXU0cVh0VHRoRUtUUi1hT21KV1RGanMzZFZNUzBOS21WbEQyQzJqalVyU3Fzc19VNXJLTUhNSVl2MDVwc3BKTUlfRzJRRUcyUFF1eWM4aFBHOWFWcENlWF9OV2JjQ21iWklhblozSmFhZjhUemtlNHRmYm5ZVmJWdm5uNTJ5X3ZiOW9YbTBETjQ5ZmwyVDNIR3ZSQ3hESU1Ed1A2elB2V0tqcWxlamlqRXJIamdsVlJ4eVc0ZUozNmJkd25SZmp3VWNFX3N6MWNJUzdxdHN0eEVaZFQwaXBWWkdzMGlVdllibW1VZ3h3eE1iaGVFVlpISDloR18zdE9aU1M3Ymo0T2tGbkZIS2VKcnZYYnhpR0JzZzdNVHZWdTRMRUQ3aVcteHVBYUtrMA%3Foc%3D5",
       "translation_status": "not_translated",
       "translation_provider": "google_translate_link"
     }

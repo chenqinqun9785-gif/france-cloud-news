@@ -781,6 +781,16 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 
     <!-- ═══ TAB 1: 数据概览 ═══ -->
     <div id="page-overview" class="tab-page">
+        <!-- Chart Time Range -->
+        <div class="filter-row" style="margin-bottom:12px">
+            <span style="color:var(--text-muted);font-size:12px;margin-right:8px">统计范围:</span>
+            <span class="filter-chip active" data-crange="7" onclick="setChartRange(7)">7天</span>
+            <span class="filter-chip" data-crange="30" onclick="setChartRange(30)">30天</span>
+            <span class="filter-chip" data-crange="90" onclick="setChartRange(90)">季度</span>
+            <span class="filter-chip" data-crange="180" onclick="setChartRange(180)">半年</span>
+            <span class="filter-chip" data-crange="365" onclick="setChartRange(365)">一年</span>
+            <span class="filter-chip" data-crange="0" onclick="setChartRange(0)">全量</span>
+        </div>
         <!-- Summary Cards -->
         <div class="summary-cards">
             <div class="summary-card"><div class="card-num" id="sum-total">{count_all}</div><div class="card-label">总文章</div></div>
@@ -1111,19 +1121,36 @@ function switchTab(tab) {{
 }}
 
 // ── Charts ──
+var chartRangeDays = 7;
 var chartsDrawn = false;
-function getChartScope() {{ return "全量数据"; }}
+function getChartData() {{
+    if (chartRangeDays <= 0) return ALL_ARTICLES;
+    var cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - chartRangeDays);
+    var cutoffStr = cutoff.toISOString().slice(0,10);
+    return ALL_ARTICLES.filter(function(a){{ return a.published_date_short >= cutoffStr; }});
+}}
+function setChartRange(days) {{
+    chartRangeDays = days;
+    document.querySelectorAll("[data-crange]").forEach(function(c){{ c.classList.toggle("active", parseInt(c.dataset.crange) === days); }});
+    drawCharts();
+}}
+function getScopeLabel() {{
+    var labels = {{7:"近7天",30:"近30天",90:"近季度",180:"近半年",365:"近一年",0:"全量"}};
+    return labels[chartRangeDays] || "近7天";
+}}
 function drawCharts() {{ drawCategoryChart(); drawProviderChart(); drawWeeklyChart(); drawEventTypeChart(); }}
 function drawCategoryChart() {{
     var c = document.getElementById("chartCategory");
     var ctx = c.getContext("2d"), w = c.width, h = c.height;
+    var data = getChartData();
     ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
-    var scope = getChartScope();
-    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("7 大分类分布 ｜ " + scope + " ｜ 共 " + ALL_ARTICLES.length + " 条", 12, 22);
+    var scope = getScopeLabel();
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("7 大分类分布 ｜ " + scope + " ｜ 共 " + data.length + " 条", 12, 22);
 
     var counts = {{}};
     Object.keys(CATEGORIES).forEach(function(k){{ counts[k] = 0; }});
-    ALL_ARTICLES.forEach(function(a){{ counts[a.category] = (counts[a.category]||0) + 1; }});
+    data.forEach(function(a){{ counts[a.category] = (counts[a.category]||0) + 1; }});
     var entries = Object.entries(CATEGORIES).map(function(e){{ return {{key:e[0],label:e[1].label,color:e[1].color,count:counts[e[0]]}}; }});
     entries.sort(function(a,b){{ return b.count - a.count; }});
 
@@ -1141,11 +1168,13 @@ function drawCategoryChart() {{
 function drawProviderChart() {{
     var c = document.getElementById("chartProvider");
     var ctx = c.getContext("2d"), w = c.width, h = c.height;
+    var data = getChartData();
     ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("Top 厂商 ｜ 基于全量 " + ALL_ARTICLES.length + " 条", 12, 22);
+    var scope = getScopeLabel();
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("Top 厂商 ｜ " + scope + " ｜ 共 " + data.length + " 条", 12, 22);
 
     var counts = {{}};
-    ALL_ARTICLES.forEach(function(a){{ if(a.provider) counts[a.provider] = (counts[a.provider]||0) + 1; }});
+    data.forEach(function(a){{ if(a.provider) counts[a.provider] = (counts[a.provider]||0) + 1; }});
     var entries = Object.entries(counts).sort(function(a,b){{ return b[1] - a[1]; }}).slice(0, 10);
     var maxCount = entries[0] ? entries[0][1] : 1;
 
@@ -1163,8 +1192,10 @@ function drawProviderChart() {{
 function drawWeeklyChart() {{
     var c = document.getElementById("chartWeekly");
     var ctx = c.getContext("2d"), w = c.width, h = c.height;
+    var data = getChartData();
     ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("近 8 周趋势 ｜ 基于全量 " + ALL_ARTICLES.length + " 条", 12, 22);
+    var scope = getScopeLabel();
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("近 8 周趋势 ｜ " + scope + " ｜ 共 " + data.length + " 条", 12, 22);
 
     var weeks = [];
     var now = new Date();
@@ -1174,7 +1205,7 @@ function drawWeeklyChart() {{
         var wkEnd = new Date(wkStart); wkEnd.setDate(wkEnd.getDate() + 6);
         var s = wkStart.toISOString().slice(0,10);
         var count = 0;
-        ALL_ARTICLES.forEach(function(a){{
+        data.forEach(function(a){{
             if (a.published_date_short >= s && a.published_date_short <= wkEnd.toISOString().slice(0,10)) count++;
         }});
         weeks.push({{label: s.slice(5), count: count}});
@@ -1198,11 +1229,13 @@ function drawWeeklyChart() {{
 function drawEventTypeChart() {{
     var c = document.getElementById("chartEventType");
     var ctx = c.getContext("2d"), w = c.width, h = c.height;
+    var data = getChartData();
     ctx.fillStyle = "#0f172a"; ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("事件类型分布 ｜ 基于全量 " + ALL_ARTICLES.length + " 条", 12, 22);
+    var scope = getScopeLabel();
+    ctx.fillStyle = "#e2e8f0"; ctx.font = "bold 13px sans-serif"; ctx.fillText("事件类型分布 ｜ " + scope + " ｜ 共 " + data.length + " 条", 12, 22);
 
     var counts = {{}};
-    ALL_ARTICLES.forEach(function(a){{ var et = a.event_type || "general"; counts[et] = (counts[et]||0) + 1; }});
+    data.forEach(function(a){{ var et = a.event_type || "general"; counts[et] = (counts[et]||0) + 1; }});
     var entries = Object.entries(counts).sort(function(a,b){{ return b[1] - a[1]; }});
     var total = entries.reduce(function(s,e){{ return s + e[1]; }}, 0) || 1;
 
@@ -1216,7 +1249,6 @@ function drawEventTypeChart() {{
         ctx.closePath(); ctx.fill();
         startAngle += slice;
     }});
-    // Legend
     var lx = 250, ly = 40;
     entries.forEach(function(e, i) {{
         if (i >= 8) return;
